@@ -1,47 +1,196 @@
-body {
-	background-color: #111;
-	color: #0F0;
-	font-family: Courier, monospace;
-	font-size: 16px;
-	line-height: 1.5;
+/* Reset default styles */
+* {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
-h1, h2 {
-	font-size: 32px;
-	margin: 0;
-	padding: 20px 0;
-	text-align: center;
+/* Set background color */
+body {
+	background-color: #0f0f0f;
+	color: #ffffff;
+	font-family: 'Courier New', Courier, monospace;
 }
 
-h2 {
-	color: #0F0;
-}
-
+/* Container styles */
 .container {
-	max-width: 960px;
+	width: 80%;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 40px;
 }
 
-.text {
-	margin: 20px 0;
-	padding: 20px;
-	border: 1px solid #0F0;
-	border-radius: 10px;
+/* Name and designation styles */
+.name-designation {
+	text-align: center;
+	font-size: 36px;
+	margin-bottom: 20px;
 }
 
-.skills {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 20px 0;
-	padding: 20px;
-	border: 1px solid #0F0;
-	border-radius: 10px;
+/* About me styles */
+.about-me h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
 }
 
-.skill {
-	flex: 1 0 200px;
-	margin: 10px;
-	padding: 
+/* Social media styles */
+.social-media h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.social-media ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.social-media li {
+	margin-bottom: 5px;
+}
+
+.social-media li a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.social-media li a:hover {
+	text-decoration: underline;
+}
+
+/* Work experience styles */
+.work-experience h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.work-experience ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.work-experience li {
+	margin-bottom: 5px;
+}
+
+.work-experience .job-title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.work-experience .employer {
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.work-experience .job-dates {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.work-experience .job-description {
+	margin-bottom: 10px;
+}
+
+/* Skills styles */
+.skills h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.skills ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.skills li {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	background-color: #1a1a1a;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+/* Education styles */
+.education h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.education ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.education li {
+	margin-bottom: 5px;
+}
+
+.education .degree {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.education .institution {
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.education .degree-dates {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.education .degree-description {
+	margin-bottom: 10px;
+}
+
+/* Project styles */
+.projects h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.projects ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.projects li {
+	margin-bottom: 20px;
+}
+
+.projects .project-title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.projects .project-image {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.projects .project-description {
+	margin-bottom: 10px;
+}
+
+/* Achievements styles */
+.achievements h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.achievements ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.achievements li {
+	margin-bottom: 5px;
+}
+
