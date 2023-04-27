@@ -31,6 +31,10 @@ body {
 	font-size: 28px;
 	margin-bottom: 10px;
 }
+.about-me p {
+	text-align: center;
+
+}
 
 /* Social media styles */
 .social-media h2 {
