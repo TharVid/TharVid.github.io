@@ -8,7 +8,7 @@
 /* Set background color */
 body {
 	background-color: #0f0f0f;
-	color: #ffffff;
+	color: #00ff00; /* Green text */
 	font-family: 'Courier New', Courier, monospace;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .social-media li a {
-	color: #ffffff;
+	color: #00ff00; /* Green text */
 	text-decoration: none;
 }
 
@@ -194,3 +194,18 @@ body {
 	margin-bottom: 5px;
 }
 
+/* Hobbies styles */
+.hobbies h2 {
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+
+.hobbies ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.hobbies li {
+	margin-bottom: 5px;
+}
