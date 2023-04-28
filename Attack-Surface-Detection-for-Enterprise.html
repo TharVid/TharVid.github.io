@@ -1,123 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Attack Surface Detection for Enterprise</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Post 1 - Attack Surface Detection for Enterprise</title>
+	<style>
+		body {
+			margin: 20px 100px;
+			font-family: Arial, sans-serif;
+			text-align: justify;
+		}
+		h1 {
+			text-align: center;
+		}
+
+		h2 {
+			margin-top: 50px;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+
+		pre {
+			background-color: #f5f5f5;
+			padding: 10px;
+			border-radius: 5px;
+			overflow-x: auto;
+		}
+
+		code {
+			font-family: Consolas, monospace;
+			font-size: 16px;
+			color: #c7254e;
+		}
+
+		p {
+			margin-bottom: 20px;
+		}
+
+	</style>
 </head>
 <body>
-	<header>
-		<a href="index.html" class="home-btn">Home</a>
-	</header>
+	<h1>Attack Surface Detection for Enterprise</h1>
+	<p>An attack surface refers to the different points of entry that an attacker can use to gain unauthorized access to an organization's systems and data. These entry points can include network devices, applications, and other systems that are accessible from the internet or internal network.</p>
+	<img src="https://www.pexels.com/photo/network-server-connections-technology-159613/" alt="Network Security" />
+	<p>Attack surface detection is the process of identifying and mapping an organization's attack surface. This can be done by conducting a thorough inventory of all network devices, applications, and other systems that are accessible from the internet or internal network. Once the attack surface has been mapped, organizations can use this information to identify potential vulnerabilities and take steps to reduce their risk exposure.</p>
+	<h2>Tools for Attack Surface Detection</h2>
+	<p>There are a number of tools available for conducting attack surface detection. These tools can range from simple network scanning tools to more advanced vulnerability assessment tools. Some popular tools for attack surface detection include:</p>
+	<ul>
+		<li><a href="https://nmap.org/">Nmap</a></li>
+		<li><a href="https://www.rapid7.com/products/nexpose/">Nexpose</a></li>
+		<li><a href="https://www.tenable.com/products/tenable-io/vulnerability-management">Tenable.io</a></li>
+	</ul>
+	<h2>Conclusion</h2>
+	<p>Attack surface detection is an essential part of any enterprise security program. By identifying and mapping an organization's attack surface, organizations can take proactive steps to reduce their risk exposure and protect their systems and data from cyber threats.</p>
+</body>
+</html>
 
-	<main>
-		<article>
-			<header>
-				<h1>Attack Surface Detection for Enterprise</h1>
-				<p class="date">April 28, 2023</p>
-			</header>
 
-			<img src="attack_surface_detection.jpg" alt="Attack Surface Detection" class="post-image">
 
-			<p>Attack surface is the sum total of all the entry points and vulnerabilities through which an attacker can gain unauthorized access to an organization's systems or data. In today's fast-paced world, it's important for enterprises to constantly monitor and detect their attack surface to ensure their systems and data are secure.</p>
 
-			<p>There are several tools and techniques that can be used for attack surface detection, such as network scanners, vulnerability scanners, web application scanners, and threat intelligence feeds. However, the most effective approach is a combination of these techniques, along with manual testing and analysis.</p>
 
-			<h2>Network Scanners</h2>
 
-			<p>Network scanners are used to discover all the devices and hosts on a network, along with their open ports and services. This information can be used to identify potential entry points and vulnerabilities. Some popular network scanning tools include Nmap, Angry IP Scanner, and Advanced IP Scanner.</p>
-
-			<pre><code>sudo nmap -sS 192.168.0.0/24</code></pre>
-
-			<p>The above command will scan the entire 192.168.0.0/24 subnet using a SYN scan. This will help identify hosts that are alive and the ports that are open on those hosts.</p>
-
-			<h2>Vulnerability Scanners</h2>
-
-			<p>Vulnerability scanners are used to identify vulnerabilities and misconfigurations on hosts and web applications. Some popular vulnerability scanning tools include Nessus, OpenVAS, and Qualys.</p>
-
-			<pre><code>sudo openvas-start</code></pre>
-
-			<p>The above command will start the OpenVAS vulnerability scanner. This tool can be used to scan hosts and web applications for known vulnerabilities and misconfigurations.</p>
-
-			<h2>Web Application Scanners</h2>
-
-			<p>Web application scanners are used to identify vulnerabilities and security issues in web applications. Some popular web application scanning tools include Burp Suite, Acunetix, and OWASP ZAP.</p>
-
-			<pre><code>python3 burpsuite_community_linux_v2021.4.2.sh</code></pre>
-
-			<p>The above command will install the Burp Suite Community Edition on a Linux machine. This tool can be used to scan web applications for vulnerabilities and security issues.</p>
-
-			<h2>Threat Intelligence Feeds</h2>
-
-			<p>Threat intelligence feeds provide information about the latest threats and vulnerabilities in the wild. These feeds can be used to proactively detect potential attacks and vulnerabilities in an organization's systems and data. Some popular threat intelligence feeds include VirusTotal, RiskIQ, and Recorded Future.</p>
-<p>Attack surface detection is an important aspect of enterprise security. By identifying and understanding the various entry points that attackers can use to gain access to an organization's systems and data, security teams can take proactive steps to reduce the risk of a successful attack.</p>
-<p>One way to detect attack surfaces is through the use of vulnerability scanning tools. These tools can identify vulnerabilities in an organization's software and systems, which can then be addressed through patching or other remediation efforts.</p>
-<p>Another approach to attack surface detection is through the use of threat intelligence feeds. These feeds provide information about the latest threats and vulnerabilities in the wild. By analyzing this information, security teams can proactively detect potential attacks and vulnerabilities in their systems and data. Some popular threat intelligence feeds include VirusTotal, RiskIQ, and Recorded Future.</p>
-<p>Finally, it's important for organizations to regularly review and update their security policies and procedures. This can help ensure that all potential attack surfaces are identified and addressed in a timely manner.</p>
-<img src="https://www.example.com/image.png" alt="Image Description" width="600" height="400">
-<p>Overall, attack surface detection is an important component of enterprise security. By proactively identifying and addressing potential vulnerabilities, organizations can reduce the risk of a successful attack and protect their systems and data from harm.</p>
-<pre>
-<code>
-import requests
-
-url = 'https://www.example.com'
-response = requests.get(url)
-
-print(response.content)
-</code>
-</pre>
-<p>In addition to vulnerability scanning and threat intelligence feeds, organizations can also use other security tools and techniques to detect and prevent attacks. These may include intrusion detection and prevention systems (IDPS), firewalls, and security information and event management (SIEM) systems.</p>
-<p>By taking a comprehensive approach to enterprise security, organizations can effectively manage their attack surfaces and protect their systems and data from a wide range of threats.</p>
-<div class="post-image">
-	<img src="https://images.unsplash.com/photo-1517245386807-d83b12a8af1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Attack Surface Detection">
-</div>
-<h2>Attack Surface Detection for Enterprise</h2>
-<p>The attack surface of an enterprise consists of all the possible entry points that attackers can use to gain unauthorized access to the organization's systems and data. Attackers are constantly looking for vulnerabilities in an organization's infrastructure, applications, and processes to exploit and gain access to sensitive data. Therefore, it is essential for organizations to detect and manage their attack surfaces effectively to prevent unauthorized access and protect their critical assets.</p>
-<p>Attack surface detection involves identifying and managing all possible entry points that attackers can use to infiltrate an organization's systems and data. This includes identifying vulnerabilities in the organization's infrastructure, applications, and processes, as well as monitoring third-party services and supply chain dependencies.</p>
-<div class="post-image">
-	<img src="https://images.unsplash.com/photo-1550551144-4b5664f58e4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Attack Surface">
-</div>
-<h3>Why Attack Surface Detection is Important</h3>
-<p>Attack surface detection is essential for protecting an organization's critical assets and data from a wide range of threats. The following are some of the reasons why attack surface detection is important:</p>
-<ul>
-	<li>Identify vulnerabilities before they are exploited by attackers</li>
-	<li>Reduce the risk of data breaches and other security incidents</li>
-	<li>Ensure compliance with industry regulations and standards</li>
-	<li>Protect critical assets and data from cyber threats</li>
-</ul>
-<p>There are several tools and techniques that organizations can use to detect and manage their attack surfaces. These include:</p>
-<h3>Vulnerability Scanning and Penetration Testing</h3>
-<p>Vulnerability scanning involves scanning an organization's systems and applications for vulnerabilities and misconfigurations. This can be done using automated tools that scan for known vulnerabilities and provide a report of the findings. Penetration testing, on the other hand, involves simulating an attack on an organization's systems and applications to identify vulnerabilities that may not be detected by automated tools.</p>
-<div class="code-snippet">
-	<pre>
-		<code>
-			nmap -sS -sV -O target
-		</code>
-	</pre>
-</div>
-<p>By conducting regular vulnerability scanning and penetration testing, organizations can identify vulnerabilities before they are exploited by attackers and take appropriate measures to mitigate them.</p>
-<div class="post-image">
-	<img src="https://images.unsplash.com/photo-1532942396006-c303f6b62441?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vulnerability Scanning">
-</div>
-<h3>Threat Intelligence Feeds</h3>
-<p>Threat intelligence feeds provide information about the latest threats and vulnerabilities in the wild. These feeds can be used to proactively detect potential attacks and vulnerabilities in an organization's systems and data. Some popular threat intelligence feeds include VirusTotal, RiskIQ, and Recorded Future.</p>
-<h3>Third-Party Risk Management</h3>
-<p>Enterprise security also includes managing risks associated with third-party vendors and partners. Third-party vendors and partners often have access to sensitive data and systems, making it important to ensure they are following appropriate security measures.</p>
-<p>One way to manage third-party risk is to conduct regular security assessments and audits of vendors and partners. This can help identify any vulnerabilities or weaknesses that need to be addressed.</p>
-<p>Another important aspect of third-party risk management is to establish clear security requirements for vendors and partners. This includes defining security expectations, ensuring compliance with security standards, and requiring regular security training for vendor and partner employees.</p>
-<p>Additionally, it's important to monitor third-party activity and access to sensitive data and systems. This can be done through regular audits, monitoring of access logs, and implementing security controls that limit access to sensitive data and systems.</p>
-        <p>By taking a comprehensive approach to enterprise security, organizations can effectively manage their attack surfaces and protect their systems and data from a wide range of threats.</p>
-
-        <h3>Third-Party Risk Management</h3>
-        <p>Many organizations rely on third-party vendors for various business processes, including IT operations. However, third-party vendors can also present a risk to an organization's security posture if they are not properly vetted and managed. Therefore, it is important for organizations to implement a third-party risk management program to ensure that vendors meet security requirements and do not pose a risk to the organization.</p>
-
-        <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/notebook-3087585_960_720.jpg" alt="Image for Third-Party Risk Management">
-
-        <p>Third-party risk management programs typically involve a vendor risk assessment, which is used to evaluate a vendor's security posture and identify potential vulnerabilities. Organizations should also establish clear security requirements for vendors and ensure that they are contractually obligated to adhere to these requirements.</p>
-
-        <p>Implementing a comprehensive security program that includes these measures can help organizations effectively manage their attack surfaces and protect their systems and data from a wide range of threats. By proactively identifying and addressing vulnerabilities, organizations can minimize the risk of a security breach and ensure the confidentiality, integrity, and availability of their data and systems.</p>
-
-        <div class="back-to-home">
-            <a href="index.html">Back to Home</a>
-        </div>
-    </div>
-</div>
