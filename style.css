@@ -223,3 +223,21 @@ body {
 .hobbies li {
 	margin-bottom: 5px;
 }
+.btn-back-home {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #00FF00;
+  color: black;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-back-home:hover {
+  background-color: black;
+  color: #00FF00;
+}
