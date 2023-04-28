@@ -21,11 +21,22 @@
 			.button-container a {
 				margin-right: 10px;
 			}
+            .round-image {
+                border-radius: 50%;
+                overflow: hidden;
+                display: inline-block;
+            }
+            .round-image img {
+                width: 100%;
+                height: auto;
+            }
 		</style>
 	</head>
 	<body>
 		<div class="container text-center">
-			<img src="https://via.placeholder.com/150" alt="My Photo" class="photo">
+			<div class="round-image">
+				<img src="https://via.placeholder.com/500x500" alt="My Photo" class="photo">
+			</div>
 			<h2 class="green-text">My Name</h2>
 			<p class="green-text">My Designation</p>
 			<div class="button-container">
