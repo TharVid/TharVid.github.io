@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>My Portfolio</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<style>
-			.photo {
-				width: 150px;
-				height: 150px;
-				border-radius: 50%;
-				object-fit: cover;
-				margin-bottom: 10px;
-			}
-			.green-text {
-				color: #00FF00;
-			}
-			.button-container {
-				margin-top: 20px;
-			}
-			.button-container a {
-				margin-right: 10px;
-			}
-            .round-image {
-                border-radius: 50%;
-                overflow: hidden;
-                display: inline-block;
-            }
-            .round-image img {
-                width: 100%;
-                height: auto;
-            }
-		</style>
-	</head>
-	<body>
-		<div class="container text-center">
-			<div class="round-image">
-				<img src="https://via.placeholder.com/500x500" alt="My Photo" class="photo">
-			</div>
-			<h2 class="green-text">My Name</h2>
-			<p class="green-text">My Designation</p>
-			<div class="button-container">
-				<a href="#" class="btn btn-primary">Portfolio</a>
-				<a href="#" class="btn btn-primary">LinkedIn</a>
-				<a href="#" class="btn btn-primary">Download Resume</a>
-				<a href="#" class="btn btn-primary">Blog</a>
-			</div>
+<head>
+	<title>Index Page</title>
+	<style>
+		body {
+			background-color: black;
+			color: #00FF00;
+			font-family: Arial, sans-serif;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		.profile-image {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			margin-bottom: 20px;
+			object-fit: cover;
+		}
+
+		.profile-text {
+			text-align: center;
+			font-size: 30px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		.btn {
+			background-color: #00FF00;
+			color: black;
+			font-size: 20px;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			margin: 10px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.btn:hover {
+			background-color: black;
+			color: #00FF00;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="profile-image.jpg" alt="Profile Image" class="profile-image">
+		<h2 class="profile-text">John Doe</h2>
+		<p>Full Stack Web Developer</p>
+		<div>
+			<a href="#" class="btn">Portfolio</a>
+			<a href="#" class="btn">LinkedIn</a>
+			 <a href="#" class="btn">Download Resume</a>
+			 <a href="#" class="btn">Blog</a>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
