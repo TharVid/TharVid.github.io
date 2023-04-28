@@ -105,3 +105,19 @@ print(response.content)
 <p>One way to manage third-party risk is to conduct regular security assessments and audits of vendors and partners. This can help identify any vulnerabilities or weaknesses that need to be addressed.</p>
 <p>Another important aspect of third-party risk management is to establish clear security requirements for vendors and partners. This includes defining security expectations, ensuring compliance with security standards, and requiring regular security training for vendor and partner employees.</p>
 <p>Additionally, it's important to monitor third-party activity and access to sensitive data and systems. This can be done through regular audits, monitoring of access logs, and implementing security controls that limit access to sensitive data and systems.</p>
+        <p>By taking a comprehensive approach to enterprise security, organizations can effectively manage their attack surfaces and protect their systems and data from a wide range of threats.</p>
+
+        <h3>Third-Party Risk Management</h3>
+        <p>Many organizations rely on third-party vendors for various business processes, including IT operations. However, third-party vendors can also present a risk to an organization's security posture if they are not properly vetted and managed. Therefore, it is important for organizations to implement a third-party risk management program to ensure that vendors meet security requirements and do not pose a risk to the organization.</p>
+
+        <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/notebook-3087585_960_720.jpg" alt="Image for Third-Party Risk Management">
+
+        <p>Third-party risk management programs typically involve a vendor risk assessment, which is used to evaluate a vendor's security posture and identify potential vulnerabilities. Organizations should also establish clear security requirements for vendors and ensure that they are contractually obligated to adhere to these requirements.</p>
+
+        <p>Implementing a comprehensive security program that includes these measures can help organizations effectively manage their attack surfaces and protect their systems and data from a wide range of threats. By proactively identifying and addressing vulnerabilities, organizations can minimize the risk of a security breach and ensure the confidentiality, integrity, and availability of their data and systems.</p>
+
+        <div class="back-to-home">
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+</div>
