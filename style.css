@@ -61,21 +61,24 @@ body {
 	text-decoration: underline;
 }
 
-/* Work experience styles */
-.work-experience h2 {
+/* Work Experience styles */
+.experience h2 {
 	font-size: 28px;
 	margin-bottom: 10px;
 }
 
-.work-experience ul {
-	list-style-type: none;
+.experience ul {
+	list-style: disc inside;
 	margin: 0;
 	padding: 0;
 }
 
-.work-experience li {
+.experience li {
 	margin-bottom: 5px;
+	font-size: 18px;
+	line-height: 1.5;
 }
+
 
 .work-experience .job-title {
 	font-weight: bold;
