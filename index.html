@@ -1,70 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Index Page</title>
-	<style>
-		body {
-			background-color: black;
-			color: #00FF00;
-			font-family: Arial, sans-serif;
-		}
-
-		h1 {
-			text-align: center;
-		}
-
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 100px;
-		}
-
-		.profile-image {
-			width: 200px;
-			height: 200px;
-			border-radius: 50%;
-			margin-bottom: 10px;
-			object-fit: cover;
-		}
-
-		.profile-text {
-			text-align: center;
-			font-size: 30px;
-			font-weight: bold;
-			margin-bottom: 1px;
-		}
-
-		.btn {
-			background-color: #00FF00;
-			color: black;
-			font-size: 20px;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			margin: 20px 10px 10px 10px;
-			cursor: pointer;
-			transition: all 0.3s ease-in-out;
-		}
-
-		.btn:hover {
-			background-color: black;
-			color: #00FF00;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Your Portfolio</title>
 </head>
 <body>
-	<div class="container">
-		<img src="https://avatars.githubusercontent.com/u/50536429" alt="Profile Image" class="profile-image">
-		<h2 class="profile-text">Sunil Kumar</h2>
-		<p style="margin-bottom: 20px;">Cybersecurity Engineer</p>
-		<br>
-		<div>
-			<a href="/portfolio.html" class="btn">Portfolio</a>
-			<a href="https://www.linkedin.com/in/tharvid/" class="btn">LinkedIn</a>
-			 <a href="#" class="btn">Download Resume</a>
-			 <a href="/blog.html" class="btn">Blog</a>
-		</div>
-	</div>
+    <nav class="sticky-nav">
+        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
+        <div class="menu-links">
+            <a href="#" class="menu-link">Home</a>
+            <a href="about.html" class="menu-link">About Me</a>
+            <a href="blog.html" class="menu-link">Blog</a>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="home-container">
+            <img src="your-photo.jpg" alt="Your Photo" class="profile-photo">
+            <h1 class="name">Sunil Kumar</h1>
+            <p class="job-title">Security Engineer</p>
+            <div class="buttons">
+                <a href="#" class="btn" id="resume">Download Resume</a>
+                <a href="about.html" class="btn" id="about">About Me</a>
+                <a href="#" class="btn" id="linkedin">LinkedIn</a>
+                <a href="#" class="btn" id="github">GitHub</a>
+                <a href="#" class="btn" id="twitter">Twitter</a>
+                <a href="blog.html" class="btn" id="blog">Blog</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
