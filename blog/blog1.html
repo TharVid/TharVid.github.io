@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css"> <!-- Adjust the path to your styles.css -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             background-color: white;
@@ -14,24 +14,34 @@
             margin: 0 10%;
         }
     </style>
-    <title>Blog Post 1 - Sunil Kumar</title>
+    <title>Blog Post - Fuzzing REST API</title>
 </head>
 <body>
     <nav class="sticky-nav">
-        <div class="logo">Sunil@Blog<span id="blinking">#</span></div>
+        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
         <div class="menu-links">
-            <a href="../index.html" class="menu-link">Home</a> <!-- Navigate up one level to access index.html -->
-            <a href="../about.html" class="menu-link">About Me</a> <!-- Navigate up one level to access about.html -->
-            <a href="blog.html" class="menu-link">Blog</a> <!-- Keep the path to blog.html as is -->
+            <a href="index.html" class="menu-link">Home</a>
+            <a href="about.html" class="menu-link">About Me</a>
+            <a href="blog.html" class="menu-link">Blog</a>
         </div>
     </nav>
 
     <main class="content">
         <div class="blog-post-content">
-            <h1 class="post-title">Title of Blog Post 1</h1>
-            <p class="post-date">Date of Blog Post 1</p>
-            <!-- Content of Blog Post 1 -->
-            <p>Original blog post content goes here...</p>
+            <h1 class="post-title">Fuzzing REST API: Unleashing the Power of Testing</h1>
+            <p class="post-date">Published on August 23, 2023</p>
+            <p>APIs have become a crucial part of modern software applications, providing the backbone for communication between different services and systems. However, ensuring the security and reliability of APIs is of utmost importance.</p>
+            <p>Fuzzing is a powerful technique used for uncovering vulnerabilities and weaknesses in software systems by sending a large number of unexpected inputs to the target. When it comes to REST APIs, fuzzing can help identify security flaws, such as injection attacks, buffer overflows, and improper error handling.</p>
+            <p>Here are some key steps to perform effective REST API fuzzing:</p>
+            <ul>
+                <li>Identify the API endpoints and input parameters that will be targeted.</li>
+                <li>Use a suitable fuzzing tool that supports HTTP requests, such as Burp Suite or OWASP ZAP.</li>
+                <li>Generate a variety of input data, including valid and invalid payloads.</li>
+                <li>Send the generated inputs to the API endpoints and observe the responses.</li>
+                <li>Analyze the results to identify anomalies, crashes, and unexpected behavior.</li>
+            </ul>
+            <p>By fuzzing REST APIs, security professionals can uncover potential security vulnerabilities before they are exploited by attackers. Regular fuzzing as part of the development and testing process can greatly enhance the overall security posture of your software applications.</p>
+            <p>Remember, security is an ongoing process, and staying ahead of potential threats is crucial in today's digital landscape.</p>
         </div>
     </main>
 </body>
