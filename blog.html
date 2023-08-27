@@ -1,97 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>TharVid's Security Blog</title>
-	<style>
-		body {
-			background-color: white;
-			color: black;
-			font-family: Arial, sans-serif;
-			padding: 20px;
-		}
-
-		h1 {
-			text-align: center;
-			margin-bottom: 50px;
-		}
-
-		.post {
-			margin-bottom: 50px;
-		}
-
-		.post-heading {
-			font-size: 24px;
-			font-weight: bold;
-			margin-bottom: 10px;
-		}
-
-		.post-date {
-			font-size: 14px;
-			color: gray;
-			margin-bottom: 10px;
-		}
-
-		.post-excerpt {
-			font-size: 16px;
-			margin-bottom: 20px;
-		}
-
-		.read-more {
-			font-size: 16px;
-			font-weight: bold;
-			color: #00FF00;
-			text-decoration: none;
-		}
-
-		.read-more:hover {
-			text-decoration: underline;
-		}
-		.btn-back-home {
-		  position: fixed;
-		  top: 20px;
-		  right: 20px;
-		  background-color: #00FF00;
-		  color: black;
-		  font-size: 16px;
-		  padding: 10px 20px;
-		  border: none;
-		  border-radius: 5px;
-		  cursor: pointer;
-		  transition: all 0.3s ease-in-out;
-		}
-
-		.btn-back-home:hover {
-		  background-color: black;
-		  color: #00FF00;
-		}
-
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            margin: 0;
+        }
+        .content {
+            margin: 0 10%;
+        }
+    </style>
+    <title>Blog - Sunil Kumar</title>
 </head>
 <body>
-	<a href="index.html" class="btn-back-home">Back to Home</a>
-	<h1>TharVid's Cybersecurity Blog</h1>
-	
+    <nav class="sticky-nav">
+        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
+        <div class="menu-links">
+            <a href="index.html" class="menu-link">Home</a>
+            <a href="about.html" class="menu-link">About Me</a>
+            <a href="#" class="menu-link">Blog</a>
+        </div>
+    </nav>
 
-	<div class="post">
-		<div class="post-heading">Attack Surface Detection for Enterprise</div>
-		<div class="post-date">Date: April 28, 2023</div>
-		<div class="post-excerpt">An attack surface refers to the different points of entry that an attacker can use to gain unauthorized access to an organization's systems and data. These entry points can include network devices, applications, and other systems that are accessible from the internet or internal network.</div>
-		<a href="Attack-Surface-Detection-for-Enterprise.html" class="read-more">Read More</a>
-	</div>
-
-	<div class="post">
-		<div class="post-heading">Post Heading 2</div>
-		<div class="post-date">Date: February 1, 2023</div>
-		<div class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia fringilla augue, sit amet malesuada lacus iaculis at. Pellentesque vel dapibus orci, id bibendum leo. Vivamus faucibus tristique libero, quis sollicitudin velit bibendum sit amet. Sed et risus ac risus rutrum pharetra vel vitae nulla.</div>
-		<a href="#" class="read-more">Read More</a>
-	</div>
-
-	<div class="post">
-		<div class="post-heading">Post Heading 3</div>
-		<div class="post-date">Date: March 1, 2023</div>
-		<div class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia fringilla augue, sit amet malesuada lacus iaculis at. Pellentesque vel dapibus orci, id bibendum leo. Vivamus faucibus tristique libero, quis sollicitudin velit bibendum sit amet. Sed et risus ac risus rutrum pharetra vel vitae nulla.</div>
-		<a href="#" class="read-more">Read More</a>
-	</div>
-
+    <main class="content">
+        <div class="blog-container">
+            <h1 class="blog-heading">Blog Posts</h1>
+            
+            <div class="blog-post">
+                <h2 class="post-title"><a href="blog1.html">Title of Blog Post 1</a></h2>
+                <p class="post-date">Date of Blog Post 1</p>
+                <p class="post-content">Two lines of content from Blog Post 1...</p>
+                <a href="blog1.html" class="read-more">Read More</a>
+            </div>
+            
+            <div class="blog-post">
+                <h2 class="post-title"><a href="blog2.html">Title of Blog Post 2</a></h2>
+                <p class="post-date">Date of Blog Post 2</p>
+                <p class="post-content">Two lines of content from Blog Post 2...</p>
+                <a href="blog2.html" class="read-more">Read More</a>
+            </div>
+            
+            <!-- Add more blog posts as needed -->
+            
+        </div>
+    </main>
 </body>
 </html>
