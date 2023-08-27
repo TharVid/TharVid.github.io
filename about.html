@@ -1,141 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Sunil Kumar- TharVid</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<style>
-		.btn-back-home {
-		  position: fixed;
-		  top: 20px;
-		  right: 20px;
-		  background-color: #00FF00;
-		  color: black;
-		  font-size: 16px;
-		  padding: 10px 20px;
-		  border: none;
-		  border-radius: 5px;
-		  cursor: pointer;
-		  transition: all 0.3s ease-in-out;
-		}
-
-		.btn-back-home:hover {
-		  background-color: black;
-		  color: #00FF00;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Me - Sunil Kumar</title>
 </head>
 <body>
-	<a href="index.html" class="btn-back-home">Back to Home</a>
-	<div class="container">
-		<h1 class="name-designation">Sunil Kumar</h1>
-		<h4 class="desg">Security Engineer @ Acko</h4>
+    <nav class="sticky-nav">
+        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
+        <div class="menu-links">
+            <a href="index.html" class="menu-link">Home</a>
+            <a href="#" class="menu-link">About Me</a>
+            <a href="blog.html" class="menu-link">Blog</a>
+        </div>
+    </nav>
 
-		<div class="about-me">
-			<h2>About Me</h2>
-			<p align=”justify”>My name is Sunil Kumar and I am currently working as an Information Security Engineer at Acko. With 1.5 years of experience in Security Operations, Incident Response, and Infrastructure Security, I am well-versed in ensuring the protection of organizational assets. I also have hands-on experience in AWS, GCP, and Azure Security services, which has enabled me to implement robust security measures.
-			</p>
-		</div>
-
-		<div class="social-media">
-			<h2>Connect With Me</h2>
-			<ul>
-				<li><a href="https://twitter.com/stharvid">Twitter</a></li>
-				<li><a href="https://www.linkedin.com/in/tharvid/">LinkedIn</a></li>
-				<li><a href="mailto:stharvid@gmail.com">stharvid@gmail.com</a></li>
-				<li>Bengaluru, Karnataka</li>
-			</ul>
-		</div>
-
-		<div class="work-experience">
-			<h2>Work Experience</h2>
-			<strong>Security Engineer</strong> - Acko - (2021- present)
-			<ul>
-				
-				<li>Currently automating various security operations using Python, AppScript, Powershell and Bash scripts.</li>
-				<li>Implementing security best practices, including CIS benchmarks and risk assessments, for cloud infrastructure on AWS and GCP.</li>
-				<li>Monitoring and building defenses for email, network, and endpoint security.</li>
-				<li>Leveraging AWS and GCP security solutions such as Security Hub, GuardDuty, Security Command Center, IAM to enhance cloud security posture.</li>
-				<li>Playing a key role in security operations, including incident response, vulnerability management, and security event monitoring.</li>
-			</ul>
-			<br>
-			<strong>Cloud Infra and Security Associate Intern</strong> - Celebal Technologies - (Feb 2021 - June 2021)
-			<ul>
-				<li>Developed different PoC by doing RnD on Microsoft Azure Security and related technologies.</li>
-				<li>Implemented identity and access management solution with Azure Active Directory & AD DS.</li>
-				<li>Worked on Azure Security solutions- Identity Protection, PIM, Intune, Endpoint Security, Sentinel etc.</li>
-				<li>Developed advanced security monitoring dashboards in Azure Monitor and Dynatrace.</li>
-
-			</ul>
-
-		</div>
-
-		<div class="skills">
-			<h2>Skills</h2>
-			<ul>
-				<li>AWS</li>
-				<li>GCP</li>
-				<li>Azure</li>
-				<li>Incident Response</li>
-				<li>M-365 Solutions Security</li>
-				<li>Google Workspace Security</li>
-				<li>Endpoint Security (Intune, Trend Micro, Sophos)</li>
-				<li>Security Operations</li>
-				<li>SIEM (Slunk, Sentinel, Coralogix)</li>
-				<li>OSINT</li>
-				<li>API</li>
-				<li>Web Apps Security</li>
-				<li>Azure AD</li>
-				<li>Networking</li>
-				<li>Linux</li>
-				<li>Firewall</li>
-				<li>IAM Security</li>
-				<li>Security Automation(Python, Google AppScript, Bash, Powershell)</li>
-				<li>SOC implementation</li>
-				<li>CIS Implementation</li>
-				<li>DevSecOps</li>
-			</ul>
-		</div>
-
-		<div class="education">
-			 <h2>Education</h2>
-			  <ul>
-				<li><strong>Bachelor of Technology </strong> - Government Engineering College, Ajmer - 2022</li>
-				<li>Computer Science & Engineering</li>
-			  </ul>
-		</div>
-		
-
-		<div class="certification">
-			<h2>Certification</h2>
-			<ul>
-			<li><strong>CompTIA Security+</strong> - CompTIA - 2021</li>
-			<li><strong>Professional Cloud Security Engineer</strong> - Google Cloud - 2023</li>
-			<li><strong>Microsoft Certified: Security Operations Analyst Associate</strong> - Microsoft - 2022</li>
-			<li><strong>Microsoft 365 Certified: Security Administrator Associate</strong> - Microsoft - 2021</li>
-			<li><strong>Microsoft Certified: Azure Security Engineer Associate</strong> - Microsoft - 2021</li>
-			<li><strong>AWS Certified Cloud Practitioner</strong> - Amazon Web Services - 2023</li>
-			<li><strong>Fortinet Network Security Associate</strong> - Fortinet - 2020</li>
-			</ul>
-		</div>
-		<br>
-
-				<div class="projects">
-			<h2>Publications</h2>
-			<ul>
-				<li>
-					<h3 class="project-title"><a href="https://link.springer.com/chapter/10.1007/978-981-19-7513-4_28"> REST APIs for Bugs: An Empirical Analysis</a></h3>
-					<p class="project-description">International Conference on Frontiers of Intelligent Computing: Theory and Applications · Apr 26, 2023</p>
-				</li>
-
-				<li>
-					<h3 class="project-title"><a href="https://ijsrcseit.com/CSEIT195536">Artificial Intelligence in Indian Irrigation</a></h3>
-					<p class="project-description">International Journal of Scientific Research in Computer Science, Engineering and Information Technology · Oct 30, 2019</p>
-				</li>
-			</ul>
-		</div>
-
-
-	</div>
-
+    <main class="content">
+        <div class="about-container">
+            <h1 class="about-heading">About Me</h1>
+            
+            <div class="resume-section">
+                <h2>Experience</h2>
+                <!-- Experience content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Education</h2>
+                <!-- Education content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Skills</h2>
+                <!-- Skills content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Projects</h2>
+                <!-- Projects content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Publications</h2>
+                <!-- Publications content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Certifications</h2>
+                <!-- Certifications content -->
+            </div>
+            
+            <div class="resume-section">
+                <h2>Languages</h2>
+                <!-- Languages content -->
+            </div>
+        </div>
+    </main>
 </body>
 </html>
