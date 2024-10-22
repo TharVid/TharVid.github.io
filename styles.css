@@ -1,16 +1,19 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0d0d0d;
+    color: #00ff00;
 }
 
 .sticky-nav {
     position: sticky;
     top: 0;
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #00ff00;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+    border-bottom: 1px solid #00ff00;
 }
 
 .logo {
@@ -22,6 +25,11 @@ body {
     animation: blink 1s infinite;
 }
 
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .menu-links {
     display: flex;
     gap: 20px;
@@ -29,12 +37,12 @@ body {
 
 .menu-link {
     text-decoration: none;
-    color: white;
+    color: #00ff00;
     transition: color 0.3s;
 }
 
 .menu-link:hover {
-    color: gray;
+    color: #ff0000;
 }
 
 .content {
@@ -51,6 +59,7 @@ body {
     height: 150px;
     border-radius: 50%;
     margin-bottom: 10px;
+    border: 2px solid #00ff00;
 }
 
 .name {
@@ -61,7 +70,7 @@ body {
 .job-title {
     font-size: 18px;
     margin-bottom: 20px;
-    color: gray;
+    color: #00ff00;
 }
 
 .buttons {
@@ -74,15 +83,15 @@ body {
 
 .btn {
     padding: 10px 20px;
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #00ff00;
     text-decoration: none;
-    border: none;
+    border: 1px solid #00ff00;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    background-color: white;
-    color: black;
+    background-color: #00ff00;
+    color: #000;
 }
