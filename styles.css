@@ -95,3 +95,8 @@ body {
     background-color: #00ff00;
     color: #000;
 }
+
+.contact-button {
+    text-align: center;
+    margin-top: 20px;
+}
