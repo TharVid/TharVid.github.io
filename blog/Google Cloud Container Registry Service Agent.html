@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            margin: 0;
+        }
+        .content {
+            margin: 0 10%;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 4px solid #ccc;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    <title>Blog Post - Google Cloud Container Registry Service Agent</title>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
+        <div class="menu-links">
+            <a href="../index.html" class="menu-link">Home</a>
+            <a href="../about.html" class="menu-link">About Me</a>
+            <a href="../blog.html" class="menu-link">Blog</a>
+        </div>
+    </nav>
+
+    <main class="content">
+        <div class="blog-post-content">
+            <h1 class="post-title">Understanding the Google Cloud Container Registry Service Agent</h1>
+            <p class="post-date">Published on October 23, 2024</p>
+            
+            <h2>Introduction</h2>
+            <p>Have you ever created a Google Cloud Container Registry (GCR) or migrated from GCR to Google Artifact Registry (GAR) and wondered how it performs its duties on your project? Or perhaps you've seen the service account <code>service-[PROJECT_NUMBER]@containerregistry.iam.gserviceaccount.com</code> appearing in your security findings and wondered where it comes from? In this article, we'll explore the role of the Google Cloud Container Registry Service Agent, its benefits, and how to manage it effectively.</p>
+            
+            <h2>What Are Service Agents?</h2>
+            <p>Service agents are Google-managed service accounts that allow Google Cloud services to access your resources. These service accounts are essential for the operation of various Google Cloud services and are sometimes referred to as service agents.</p>
+            
+            <h2>Google Cloud Container Registry Service Agent</h2>
+            <p>The Google Cloud Container Registry Service Agent is a specific type of service agent used by the Container Registry to interact with Google Cloud services. This service account is not visible in the Cloud Console IAM section. To locate and verify the privileges of such service accounts, you can use the following command in Cloud Shell:</p>
+            <div class="code-block">
+                gcloud projects get-iam-policy PROJECT-ID \<br>
+                --flatten="bindings[].members" \<br>
+                --format='table(bindings.role)' \<br>
+                --filter="bindings.members:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com"
+            </div>
+            <p>Replace <code>PROJECT-ID</code> with your Google Cloud project ID and <code>PROJECT-NUMBER</code> with your Google Cloud project number.</p>
+            
+            <h2>Container Registry Service Agent Role</h2>
+            <p>Before October 2020, the Container Registry service account was granted the Editor role. To enhance security and follow the principle of least privilege, this service account is now granted the Container Registry Service Agent Role. This role includes the following permissions:</p>
+            <ul>
+                <li>Publish topics: <code>pubsub.topics.publish</code></li>
+                <li>Read storage object ACLs: <code>storage.objects.getIamPolicy</code></li>
+                <li>Read storage object data and metadata: <code>storage.objects.get</code></li>
+                <li>List storage objects in a bucket and read object metadata: <code>storage.objects.list</code></li>
+            </ul>
+            <p>If your Container Registry service account was created before October 5, 2020, it might still have the Editor role. You can restrict this by following the commands below.</p>
+            
+            <h2>Service Agent Role Replaced with Basic Role</h2>
+            <p>In some cases, you might see a finding in the GCP Security Command Center IAM recommender indicating that the service agent role has been replaced with a basic role. This finding suggests that the service account has more permissions than necessary, which can pose a security risk. It's important to address this by ensuring the service account has only the permissions it needs.</p>
+            
+            <h2>Granting the Container Registry Service Agent Role</h2>
+            <p>To grant the Container Registry Service Agent role, use the following command:</p>
+            <div class="code-block">
+                gcloud projects add-iam-policy-binding PROJECT-ID \<br>
+                --member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/containerregistry.ServiceAgent
+            </div>
+            
+            <h2>Revoking the Editor Role</h2>
+            <p>To revoke the Editor role, use the following command:</p>
+            <div class="code-block">
+                gcloud projects remove-iam-policy-binding PROJECT-ID \<br>
+                --member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/editor
+            </div>
+            
+            <h2>Conclusion</h2>
+            <p>Understanding the role and management of the Google Cloud Container Registry Service Agent is crucial for maintaining the security and efficiency of your Google Cloud projects. By following the principle of least privilege and using the appropriate commands, you can ensure that your service accounts have the necessary permissions without exposing your project to unnecessary risks.</p>
+            <p>Happy reading!</p>
+        </div>
+    </main>
+</body>
+</html>
