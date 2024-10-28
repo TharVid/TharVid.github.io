@@ -20,6 +20,7 @@
             font-family: 'Courier New', Courier, monospace;
             white-space: pre-wrap;
             word-wrap: break-word;
+            margin: 10px 0;
         }
     </style>
     <title>Blog Post - Google Cloud Container Registry Service Agent</title>
@@ -48,10 +49,10 @@
             <h2>Google Cloud Container Registry Service Agent</h2>
             <p>The Google Cloud Container Registry Service Agent is a specific type of service agent used by the Container Registry to interact with Google Cloud services. This service account is not visible in the Cloud Console IAM section. To locate and verify the privileges of such service accounts, you can use the following command in Cloud Shell:</p>
             <div class="code-block">
-                gcloud projects get-iam-policy PROJECT-ID \<br>
-                --flatten="bindings[].members" \<br>
-                --format='table(bindings.role)' \<br>
-                --filter="bindings.members:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com"
+gcloud projects get-iam-policy PROJECT-ID \
+--flatten="bindings[].members" \
+--format='table(bindings.role)' \
+--filter="bindings.members:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com"
             </div>
             <p>Replace <code>PROJECT-ID</code> with your Google Cloud project ID and <code>PROJECT-NUMBER</code> with your Google Cloud project number.</p>
             
@@ -71,20 +72,20 @@
             <h2>Granting the Container Registry Service Agent Role</h2>
             <p>To grant the Container Registry Service Agent role, use the following command:</p>
             <div class="code-block">
-                gcloud projects add-iam-policy-binding PROJECT-ID \<br>
-                --member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/containerregistry.ServiceAgent
+gcloud projects add-iam-policy-binding PROJECT-ID \
+--member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/containerregistry.ServiceAgent
             </div>
             
             <h2>Revoking the Editor Role</h2>
             <p>To revoke the Editor role, use the following command:</p>
             <div class="code-block">
-                gcloud projects remove-iam-policy-binding PROJECT-ID \<br>
-                --member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/editor
+gcloud projects remove-iam-policy-binding PROJECT-ID \
+--member=serviceAccount:service-PROJECT-NUMBER@containerregistry.iam.gserviceaccount.com --role=roles/editor
             </div>
             
             <h2>Conclusion</h2>
             <p>Understanding the role and management of the Google Cloud Container Registry Service Agent is crucial for maintaining the security and efficiency of your Google Cloud projects. By following the principle of least privilege and using the appropriate commands, you can ensure that your service accounts have the necessary permissions without exposing your project to unnecessary risks.</p>
-            <p>Happy reading!</p>
+            <p>Feel free to leave a comment below if you have any questions. Happy reading!</p>
         </div>
     </main>
 </body>
