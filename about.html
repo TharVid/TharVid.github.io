@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>About Sunil Kumar</title>
-    <!-- Google tag (gtag.js) -->
+    <title>About Sunil Kumar - Senior Security Engineer</title>
+    <meta name="description" content="Learn about Sunil Kumar, Senior Security Engineer with expertise in Cloud Security, DevSecOps, and Automation. View experience, skills, and projects.">
+    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, Cloud Security, DevSecOps, Experience, Skills, Certifications">
+    <meta name="author" content="Sunil Kumar">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -14,92 +15,412 @@
       gtag('js', new Date());
       gtag('config', 'G-RTHNKPNXTJ');
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset and Styles - Matching Home */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          color: #e2e8f0;
+          background: #000;
+          line-height: 1.6;
+          position: relative;
+          overflow-x: hidden;
+        }
+
+        /* Subtle Matrix Background */
+        #matrix-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          opacity: 0.05;
+          pointer-events: none;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* Navigation - Matching Home */
+        .sticky-nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          position: sticky;
+          top: 0;
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid #00ff41;
+          z-index: 100;
+          width: 100%;
+        }
+
+        .logo {
+          font-weight: 700;
+          font-size: 1.5rem;
+          color: #00ff41;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .menu-links {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
+
+        .menu-link {
+          text-decoration: none;
+          font-weight: 500;
+          color: #00ff41;
+          transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .menu-link:hover {
+          color: #1e40af;
+          text-shadow: 0 0 10px #00ff41;
+        }
+
+        .dark-toggle {
+          background: none;
+          border: 1px solid #00ff41;
+          color: #00ff41;
+          padding: 0.5rem;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 1rem;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        /* Hero for About */
+        .about-hero {
+          min-height: 60vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 4rem 0;
+        }
+
+        .hero-content {
+          max-width: 800px;
+        }
+
+        .profile-photo {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: 0 auto 2rem;
+          box-shadow: 0 0 20px #00ff41;
+          filter: drop-shadow(0 0 10px #00ff41);
+        }
+
+        .name {
+          font-size: 3rem;
+          font-weight: 700;
+          color: #00ff41;
+          margin-bottom: 0.5rem;
+          text-shadow: 0 0 10px #00ff41;
+          animation: glitch 2s infinite;
+        }
+
+        .job-title {
+          font-size: 1.25rem;
+          color: #00ff41;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        /* Sections */
+        section {
+          padding: 3rem 0;
+          border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .section-title {
+          font-size: 2rem;
+          color: #00ff41;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .summary, .experience-item, .education, .skills-list, .projects, .certifications {
+          background: rgba(0, 0, 0, 0.5);
+          padding: 1.5rem;
+          border-radius: 8px;
+          margin-bottom: 2rem;
+          border-left: 3px solid #00ff41;
+        }
+
+        .experience-item h4 {
+          color: #00ff41;
+          margin-bottom: 0.5rem;
+        }
+
+        .experience-item .dates {
+          color: #94a3b8;
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+        }
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+        }
+
+        ul li {
+          margin-bottom: 0.5rem;
+          position: relative;
+          padding-left: 1rem;
+        }
+
+        ul li::before {
+          content: '>';
+          color: #00ff41;
+          position: absolute;
+          left: 0;
+        }
+
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+
+        .skills-category {
+          background: rgba(0, 255, 65, 0.1);
+          padding: 1rem;
+          border-radius: 4px;
+          border: 1px solid #00ff41;
+        }
+
+        .skills-category h5 {
+          color: #00ff41;
+          margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+          text-align: center;
+          padding: 2rem 0;
+          background: rgba(0, 0, 0, 0.8);
+          color: #00ff41;
+          border-top: 1px solid #00ff41;
+        }
+
+        /* Animations - Matching Home */
+        @keyframes glitch {
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            transform: translate(0);
+          }
+          /* Simplified for brevity */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .name { font-size: 2.5rem; }
+          section { padding: 2rem 0; }
+          .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="sticky-nav">
+    <canvas id="matrix-bg"></canvas>
+    <nav class="sticky-nav container">
         <div class="logo">Sunil@Home<span id="blinking">#</span></div>
         <div class="menu-links">
             <a href="index.html" class="menu-link">Home</a>
-            <a href="about.html" class="menu-link">About Me</a>
+            <a href="https://www.linkedin.com/in/tharvid/" class="menu-link">LinkedIn</a>
+            <a href="https://github.com/tharVid/" class="menu-link">GitHub</a>
+            <a href="https://twitter.com/stharvid" class="menu-link">Twitter</a>
             <a href="blog.html" class="menu-link">Blog</a>
+            <a href="mailto:stharvid@gmail.com" class="menu-link">Contact on Email</a>
+            <a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf" class="menu-link">Resume</a>
         </div>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </nav>
 
-    <main class="content">
-        <div class="about-container">
-            <h1>About Me</h1>
-            <p><strong>Sunil Kumar</strong></p>
-            <p>Security Engineer @ Porch Group</p>
-            <p>Jaipur, Rajasthan, India</p>
+    <main class="container">
+        <section class="about-hero">
+            <div class="hero-content">
+                <img src="images/profile.jpg" alt="Sunil Kumar Profile" class="profile-photo">
+                <h1 class="name" data-text="Sunil Kumar">Sunil Kumar</h1>
+                <p class="job-title">Senior Security Engineer</p>
+                <p>+91-6376486690 | Jaipur, Rajasthan | <a href="https://www.linkedin.com/in/tharvid/" style="color: #00ff41;">linkedin.com/in/tharvid</a> | tharvid.in | <a href="https://github.com/tharVid/" style="color: #00ff41;">github.com/tharVid</a> | <a href="mailto:stharvid@gmail.com" style="color: #00ff41;">stharvid@gmail.com</a></p>
+            </div>
+        </section>
 
-            <h2>Summary</h2>
-            <p>I’m a passionate Security Engineer with 4+ years of experience in DevSecOps, Incident Response, Cloud Security (AWS, GCP, Azure), and Security Automation. I specialize in building scalable security programs, integrating security into CI/CD, and designing advanced detection mechanisms for multi-cloud infrastructure. Currently at Porch Group, I’ve implemented ASPM, SIEM/SOAR, threat detection pipelines, and PCI-DSS aligned security programs across AWS/GCP/Azure environments.</p>
+        <section id="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary">
+                <p>A highly skilled Senior Security Engineer with over 4 years of professional experience, currently working at Porch Group. Demonstrates a strong background in Cloud Security, DevSecOps, Incident Response, Security Tool Implementation and Administration, SOC Implementation, and Security Automation. Holds a B.Tech in Computer Science and Engineering, along with certifications such as CompTIA Security+, AWS Certified Security – Specialty, and Google Cloud Professional Cloud Security Engineer.</p>
+            </div>
+        </section>
 
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:sunil@tharvid.in">sunil@tharvid.in</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/tharvid">www.linkedin.com/in/tharvid</a></p>
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <h4>Porch Group, Remote</h4>
+                <p class="dates">June 2024 – Present</p>
+                <p><strong>Senior Security Engineer (Nov 2025 – Present)</strong></p>
+                <ul>
+                    <li>Developed and maintained DevSecOps pipelines integrating SAST, IaC scanning, secret scanning, container scanning, DAST, API fuzzing, and dependency scanning. Automated vulnerability reporting to Jira using custom scripts for 500+ repositories spanning diverse technologies, and implemented ASPM for comprehensive application security monitoring.</li>
+                    <li>Implemented a SIEM solution integrating 50+ data sources, including custom integrations, parsers, correlation rules, and SOAR response workflows to enhance threat detection and automated incident response.</li>
+                    <li>Onboarded 30+ AWS, GCP, and Azure accounts into the CSPM solution, managing misconfigurations and indicators of attack in collaboration with account owner teams.</li>
+                    <li>Managed and deployed 10+ Kubernetes clusters into a KSPM platform with runtime protection to monitor and secure workloads in real time.</li>
+                    <li>Conducted gap assessments and supported the implementation of CIS Critical Security Controls across all 18 domains, ensuring PCI-DSS compliance and control alignment.</li>
+                    <li>Automated security processes using Python, AWS Lambda, and Google Cloud Functions to enhance efficiency and reduce manual effort.</li>
+                    <li>Collaborated with global business units, stakeholders, and leadership teams across subsidiaries to close vulnerabilities and enforce security policies enterprise-wide.</li>
+                </ul>
+                <p><strong>Security Engineer (Jun 2024 – Nov 2025)</strong></p>
+            </div>
+            <div class="experience-item">
+                <h4>ACKO General Insurance, Bengaluru</h4>
+                <p class="dates">Aug 2021 – Jun 2024</p>
+                <p><strong>Security Engineer</strong></p>
+                <ul>
+                    <li>Developed an advanced security system utilizing AWS CloudTrail, Config, Inspector, Detective, Macie, GuardDuty, and Security Hub for detailed logging and real-time monitoring, ensuring continuous security assessment and compliance.</li>
+                    <li>Integrated DevSecOps stages into DevOps pipelines, automating security measures such as secret scanning, SAST, IaC security, container security, SCA, and DAST.</li>
+                    <li>Managed the triage of issues from bug bounty programs, DevSecOps, and cloud security tools, ensuring timely resolution.</li>
+                    <li>Designed and implemented security policies for EDR, CASB, and MDM solutions, and enforced RBAC, SSO, and Conditional Access across Google Workspace, AWS, and GCP IAM.</li>
+                    <li>Developed custom security tools, including TPRM, phishing simulations, DNS security tool, and reporting solutions to streamline processes.</li>
+                    <li>Actively engaged in incident detection and response, enhancing defense mechanisms through deep log analysis and coordinated response.</li>
+                    <li>Conducted risk assessments and penetration tests to identify and mitigate vulnerabilities.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h4>Celebal Technologies, Jaipur</h4>
+                <p class="dates">Feb 2021 – Jun 2021</p>
+                <p><strong>Associate - Cloud Infra and Security Intern</strong></p>
+                <ul>
+                    <li>Developed proof-of-concepts (PoCs) focused on M365 Security and related technologies, demonstrating early interest in cloud security.</li>
+                    <li>Integrated Okta and Azure AD for centralized identity management and streamlined authentication.</li>
+                    <li>Built Azure Monitor and Dynatrace dashboards for proactive threat monitoring and alerting.</li>
+                    <li>Leveraged Microsoft Defender for Office 365 to enhance real-time email threat protection.</li>
+                </ul>
+            </div>
+        </section>
 
-            <h2>Top Skills</h2>
-            <ul>
-                <li>Cloud Security</li>
-                <li>DevSecOps</li>
-                <li>Security Automation</li>
-            </ul>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education">
+                <h4>Government Engineering College, Ajmer</h4>
+                <p class="dates">Jul 2018 – Jul 2022</p>
+                <p>Bachelor of Technology - B.Tech (Computer Science & Engineering)<br>GPA: 7.94/10.0</p>
+            </div>
+        </section>
 
-            <h2>Key Skills</h2>
-            <ul>
-                <li>Cloud: AWS, GCP, Azure</li>
-                <li>Security Domains: Threat Detection, Incident Response, SIEM/SOAR, PCI-DSS, Compliance, Data Security</li>
-                <li>DevSecOps: SAST, DAST, SCA, Secrets Scanning, IaC (Checkov, KICS), Container Scanning, ASPM, API fuzzing</li>
-                <li>Programming: Python, Bash, Google Apps Script</li>
-                <li>Tools: Jenkins, Docker, Kubernetes, GitHub/GitLab, OWASP ZAP, Trivy, Semgrep, Gitleaks, DefectDojo, Terraform</li>
-                <li>Others: CrowdStrike, Chronicle, Coralogix, Okta, Azure AD, Cloudflare, WAF, GuardDuty, Macie, Inspector</li>
-            </ul>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h5>Technologies</h5>
+                    <p>Cloud Security, DevSecOps, Security Automation, SOC Implementation, Incident Response, Threat Detection, SIEM, Vulnerability Assessment, Penetration Testing, IAM, Security Policy Management, SAST, DAST, IaC Security, SCA, ASPM, CSPM, SOAR, DLP, Security Infrastructure Development</p>
+                </div>
+                <div class="skills-category">
+                    <h5>Tools</h5>
+                    <p>AWS, GCP, Azure, Python, Google Apps Script, Burp Suite, Nmap, Wireshark, Metasploit, Docker, Jenkins, Git, Kubernetes, OWASP ZAP, Trend Micro, Sophos, CrowdStrike, NetSkope, Cloudflare, CheckPoint, Coralogix, Cisco Meraki, DNSFilter, Mimecast, Qualys, Rapid7, Google Chronicle, Okta, Azure AD</p>
+                </div>
+                <div class="skills-category">
+                    <h5>Frameworks/Standards</h5>
+                    <p>CIS Critical Security Controls, PCI-DSS, ISO/IEC 27001</p>
+                </div>
+                <div class="skills-category">
+                    <h5>Languages</h5>
+                    <p>English, Hindi</p>
+                </div>
+            </div>
+        </section>
 
-            <h2>Certifications</h2>
-            <ul>
-                <li>AWS Certified Security - Specialty</li>
-                <li>Google Professional Cloud Security Engineer</li>
-                <li>CompTIA Security+</li>
-                <li>Microsoft 365: Security Administrator Associate</li>
-                <li>AWS Certified Cloud Practitioner</li>
-            </ul>
+        <section id="projects">
+            <h2 class="section-title">Personal Learning Projects</h2>
+            <div class="projects">
+                <ul>
+                    <li><strong>Enterprise SOAR Workflow Automation</strong> – Built an enterprise SOAR workflow integrating CheckPoint, Entra ID, Okta, Mimecast, Jira, ServiceDesk, PagerDuty, CrowdStrike XDR, Exchange Online, Google Workspace, AWS, and GenAI-based analysis and enrichment to automate incident response actions triggered from SIEM detections across multiple subsidiaries, reducing MTTR.</li>
+                    <li><strong>DevSecOps Pipeline with Open-Source Tools</strong> – Implemented an open-source DevSecOps pipeline using Jenkins, integrating tools like Semgrep, Checkov, Trivy, Gitleaks, OWASP ZAP, and AWS ECR scanning with automated parsing and reporting to Jira and DefectDojo for streamlined security management.</li>
+                    <li><strong>Phishing Awareness Platform with Gophish</strong> – Developed a phishing awareness platform using Gophish, hosted securely on AWS EC2 with Amazon SES integration to run large-scale phishing simulations and improve employee security awareness.</li>
+                </ul>
+            </div>
+        </section>
 
-            <h2>Publications</h2>
-            <ul>
-                <li><a href="https://ijsrcseit.com/CSEIT195536">Artificial Intelligence in Indian Irrigation</a></li>
-                <li><a href="https://link.springer.com/chapter/10.1007/978-981-19-7513-4_28">Fuzzing REST APIs for Bugs: An Empirical Analysis</a></li>
-            </ul>
-
-            <h2>Experience</h2>
-            <p><strong>Porch Group</strong><br>Security Engineer (June 2024 – Present)</p>
-            <ul>
-                <li>Built CI/CD-integrated DevSecOps pipelines with ASPM, SAST, DAST, IaC, container scans.</li>
-                <li>Implemented SIEM from scratch with 50+ sources and custom correlation rules.</li>
-                <li>Built automation for vulnerability triage integrated with Jira and DefectDojo.</li>
-                <li>Developed Lambda/GCP Function-based workflows for threat intel and incident response.</li>
-            </ul>
-
-            <p><strong>Acko General Insurance</strong><br>Security Engineer (Aug 2021 – Jun 2024)</p>
-            <ul>
-                <li>Secured cloud workloads using AWS GuardDuty, Config, Inspector, CloudTrail, and Macie.</li>
-                <li>Implemented internal phishing simulation, custom risk assessment engine, DNS blocker.</li>
-                <li>Led DevSecOps tooling integration (SAST, SCA, container security, secrets scanning).</li>
-                <li>Ran internal red teaming, incident response, and vulnerability management efforts.</li>
-            </ul>
-
-            <p><strong>Celebal Technologies</strong><br>Cloud Infra & Security Associate (Feb 2021 – Jul 2021)</p>
-            <ul>
-                <li>Worked on Microsoft 365 Security, Azure AD, DLP, Conditional Access, Threat Management.</li>
-                <li>Managed client IAM requirements and policy enforcement in cloud apps.</li>
-            </ul>
-
-            <p><strong>CDAC ATC Jaipur</strong><br>Cybersecurity Trainee (May 2020 – Jul 2020)</p>
-
-            <h2>Education</h2>
-            <p><strong>Government Engineering College, Ajmer</strong><br>B.Tech, Computer Science (2018 – 2022)</p>
-            <p><strong>Gurukripa Career Institute</strong><br>PCMB (2016 – 2017)</p>
-        </div>
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications">
+                <ul>
+                    <li>CompTIA Security+</li>
+                    <li>AWS Certified Security - Specialty</li>
+                    <li>Google Cloud Professional Cloud Security Engineer</li>
+                    <li>Docker Foundations Professional Certificate</li>
+                    <li>AWS Certified Cloud Practitioner</li>
+                    <li>Microsoft 365 Certified: Security Administrator Associate</li>
+                </ul>
+            </div>
+        </section>
     </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Sunil Kumar — tharvid.in</p>
+    </footer>
+
+    <script>
+        // Blinking Effect for Logo
+        const blinking = document.getElementById('blinking');
+        if (blinking) {
+          setInterval(() => {
+            blinking.style.opacity = blinking.style.opacity === '0' ? '1' : '0';
+          }, 500);
+        }
+
+        // Subtle Matrix Code Rain - Matching Home
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#00ff41';
+          ctx.font = `${fontSize}px monospace`;
+          drops.forEach((y, i) => {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(text, i * fontSize, y * fontSize);
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+              drops[i] = 0;
+            }
+            drops[i]++;
+          });
+        }
+
+        setInterval(draw, 50);
+
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+          document.body.classList.toggle('dark');
+        }
+    </script>
 </body>
 </html>
