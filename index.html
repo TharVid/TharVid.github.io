@@ -3,48 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Sunil Kumar - Security Engineer</title>
-    <meta name="description" content="Sunil Kumar is a Security Engineer specializing in Cloud Security, DevSecOps, and Security Automation. Explore his portfolio to learn more about his skills, experience, and projects.">
-    <meta name="keywords" content="Sunil Kumar, Security Engineer, Cloud Security, DevSecOps, Security Automation, Cybersecurity, AWS, GCP, Azure">
+    <title>Sunil Kumar - Senior Security Engineer</title>
+    <meta name="description" content="Sunil Kumar is a Senior Security Engineer specializing in Cloud Security, DevSecOps, and Security Automation. Explore his portfolio.">
+    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, Cloud Security, DevSecOps, Automation, Azure, CSPM, Hacking, Cybersecurity">
     <meta name="author" content="Sunil Kumar">
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-RTHNKPNXTJ');
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset and Styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          color: #333;
+          background: #000; /* Dark base for hacking vibe */
+          line-height: 1.6;
+          transition: background-color 0.3s, color 0.3s;
+          position: relative;
+          overflow-x: hidden;
+        }
+
+        body.dark {
+          background: #000;
+          color: #e2e8f0;
+        }
+
+        /* Matrix Background - Amplified for visibility */
+        #matrix-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          opacity: 0.15; /* Increased for clear visibility */
+          pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #matrix-bg { display: none; }
+          .glitch { animation: none !important; }
+          .terminal-cursor { animation: none !important; }
+          .typing { animation: none !important; }
+        }
+
+        /* Navigation */
+        .sticky-nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          position: sticky;
+          top: 0;
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid #00ff41;
+          z-index: 100;
+          transition: background 0.3s;
+          width: 100%;
+        }
+
+        .logo {
+          font-weight: 700;
+          font-size: 1.5rem;
+          color: #00ff41; /* Neon green for hacking style */
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .menu-links {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
+
+        .menu-link {
+          text-decoration: none;
+          font-weight: 500;
+          color: #00ff41;
+          transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .menu-link:hover {
+          color: #1e40af;
+          text-shadow: 0 0 10px #00ff41;
+        }
+
+        .dark-toggle {
+          background: none;
+          border: 1px solid #00ff41;
+          color: #00ff41;
+          padding: 0.5rem;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 1rem;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* Hero/Home Content */
+        .content {
+          min-height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 2rem 0;
+          position: relative;
+          z-index: 1;
+        }
+
+        .home-container {
+          max-width: 600px;
+        }
+
+        .profile-photo {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 2rem;
+          box-shadow: 0 0 20px #00ff41;
+          animation: float 3s ease-in-out infinite;
+          filter: drop-shadow(0 0 10px #00ff41);
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .name {
+          font-size: 3rem;
+          font-weight: 700;
+          color: #00ff41;
+          margin-bottom: 0.5rem;
+          text-shadow: 0 0 10px #00ff41;
+          position: relative;
+          animation: glitch 2s infinite; /* Subtle glitch on name */
+        }
+
+        .name::before,
+        .name::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .name::before {
+          animation: glitch-anim-1 2s infinite;
+          color: #1e40af;
+          clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+          -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+        }
+
+        .name::after {
+          animation: glitch-anim-2 2s infinite;
+          color: #ff00ff;
+          clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+          -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch {
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            transform: translate(0);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+          }
+          20% {
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 100%);
+          }
+          22% {
+            clip-path: polygon(0 0, 100% 33%, 0 33%, 0 100%);
+          }
+          24% {
+            clip-path: polygon(0 0, 100% 44%, 0 44%, 0 100%);
+          }
+          55% {
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+          }
+        }
+
+        @keyframes glitch-anim-1 {
+          0%, 95% { transform: translate(0); }
+          97% { transform: translate(-2px, 2px); }
+          99% { transform: translate(-1px, -2px); }
+          100% { transform: translate(0); }
+        }
+
+        @keyframes glitch-anim-2 {
+          0%, 95% { transform: translate(0); }
+          97% { transform: translate(2px, -2px); }
+          99% { transform: translate(1px, 2px); }
+          100% { transform: translate(0); }
+        }
+
+        .job-title {
+          font-size: 1.25rem;
+          color: #00ff41;
+          margin-bottom: 2rem;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .buttons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 0; /* No space below buttons */
+        }
+
+        .btn {
+          padding: 0.75rem 1.5rem;
+          background: linear-gradient(135deg, #00ff41, #00cc33);
+          color: #000;
+          border: none;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: transform 0.3s, box-shadow 0.3s;
+          text-shadow: none;
+          box-shadow: 0 0 10px #00ff41;
+        }
+
+        .btn:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 0 20px #00ff41;
+          animation: glitch 0.3s linear; /* Glitch on hover */
+        }
+
+        /* Terminal Section (Directly Below Hero, No Gap) */
+        .terminal-section {
+          padding: 0 0 2rem; /* Zero top padding, bottom for footer space */
+          background: rgba(0, 0, 0, 0.9);
+          border-top: 1px solid #00ff41;
+          border-bottom: 1px solid #00ff41;
+          position: relative;
+          z-index: 1;
+        }
+
+        .terminal-header {
+          color: #00ff41;
+          font-family: monospace;
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          text-align: center;
+          text-shadow: 0 0 5px #00ff41;
+        }
+
+        .terminal {
+          max-width: 800px;
+          margin: 0 auto;
+          background: #000; /* Solid black for max visibility */
+          border: 1px solid #00ff41;
+          padding: 1.5rem; /* Increased padding for better framing */
+          font-family: 'Courier New', monospace;
+          color: #00ff41; /* Bright green for contrast */
+          font-size: 0.95rem; /* Slightly larger for readability */
+          line-height: 1.5;
+          overflow-y: auto;
+          white-space: pre-wrap;
+          height: 300px; /* Fixed height for visibility */
+          box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1); /* Subtle inner glow */
+        }
+
+        .terminal-output {
+          min-height: 100%;
+        }
+
+        .terminal-line {
+          margin-bottom: 0.5rem;
+        }
+
+        .terminal-prompt {
+          color: #00ff41;
+        }
+
+        .terminal-command {
+          color: #00ff41;
+        }
+
+        .terminal-cursor {
+          display: inline-block;
+          width: 8px;
+          height: 1em;
+          background: #00ff41;
+          animation: blink 1s infinite;
+          vertical-align: middle;
+          margin-left: 2px;
+        }
+
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+
+        .typing {
+          overflow: hidden; /* For typing animation */
+          border-right: 2px solid #00ff41;
+          white-space: nowrap;
+          animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: #00ff41; }
+        }
+
+        /* Footer */
+        footer {
+          text-align: center;
+          padding: 2rem 0;
+          background: rgba(0, 0, 0, 0.8);
+          color: #00ff41;
+          border-top: 1px solid #00ff41;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .menu-links {
+            gap: 1rem;
+            flex-wrap: wrap;
+          }
+
+          .name {
+            font-size: 2.5rem;
+          }
+
+          .buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .terminal {
+            font-size: 0.85rem;
+            padding: 1rem;
+            height: 250px;
+          }
+
+          .terminal-section {
+            padding: 0 0 1rem;
+          }
+        }
+    </style>
 </head>
 <body>
-    <nav class="sticky-nav">
+    <canvas id="matrix-bg"></canvas>
+    <nav class="sticky-nav container">
         <div class="logo">Sunil@Home<span id="blinking">#</span></div>
         <div class="menu-links">
-            <a href="#" class="menu-link">Home</a>
             <a href="about.html" class="menu-link">About Me</a>
+            <a href="https://www.linkedin.com/in/tharvid/" class="menu-link">LinkedIn</a>
+            <a href="https://github.com/tharVid/" class="menu-link">GitHub</a>
+            <a href="https://twitter.com/stharvid" class="menu-link">Twitter</a>
             <a href="blog.html" class="menu-link">Blog</a>
+            <a href="mailto:stharvid@gmail.com" class="menu-link">Contact on Email</a>
+            <a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf" class="menu-link">Resume</a>
         </div>
+        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </nav>
 
-    <main class="content">
-        <div class="home-container">
-            <img src="images/profile.jpg" alt="Your Photo" class="profile-photo">
-            <h1 class="name">Sunil Kumar</h1>
-            <p class="job-title">Security Engineer</p>
-            <div class="buttons">
-                <a href="about.html" class="btn" id="about">About Me</a>
-                <a href="https://www.linkedin.com/in/tharvid/" class="btn" id="linkedin">LinkedIn</a>
-                <a href="https://github.com/tharVid/" class="btn" id="github">GitHub</a>
-                <a href="https://twitter.com/stharvid" class="btn" id="twitter">Twitter</a>
-                <a href="blog.html" class="btn" id="blog">Blog</a>
+    <main class="container">
+        <section class="content">
+            <div class="home-container">
+                <img src="images/profile.jpg" alt="Sunil Kumar Profile" class="profile-photo"> 
+                <h1 class="name" data-text="Sunil Kumar">Sunil Kumar</h1>
+                <p class="job-title">Senior Security Engineer</p>
+                <div class="buttons">
+                    <a href="about.html" class="btn">About Me</a>
+                    <a href="https://www.linkedin.com/in/tharvid/" class="btn">LinkedIn</a>
+                    <a href="https://github.com/tharVid/" class="btn">GitHub</a>
+                    <a href="https://twitter.com/stharvid" class="btn">Twitter</a>
+                    <a href="blog.html" class="btn">Blog</a>
+                    <a href="mailto:stharvid@gmail.com" class="btn">Contact on Email</a>
+                    <a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf" class="btn">Resume</a>
+                </div>
             </div>
-            <div class="contact-button">
-                <a href="mailto:stharvid@gmail.com" class="btn" id="contact">Contact on Email</a>
+        </section>
+
+        <section class="terminal-section">
+            <div class="terminal-header">user@tharvid:~$ Profile Terminal</div>
+            <div class="terminal">
+                <div class="terminal-output" id="terminal-output">
+                    </div>
             </div>
-        </div>
+        </section>
     </main>
+
+    <footer class="container">
+        <p>&copy; 2025 Sunil Kumar — tharvid.in</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle (minimal changes for hacking theme)
+        function toggleDarkMode() {
+          document.body.classList.toggle('dark');
+          // No major changes needed, as base is dark
+        }
+
+        // Blinking Effect for Logo
+        const blinking = document.getElementById('blinking');
+        if (blinking) {
+          setInterval(() => {
+            blinking.style.opacity = blinking.style.opacity === '0' ? '1' : '0';
+          }, 500); // Faster blink for hacking feel
+        }
+
+        // Enhanced Matrix Code Rain 
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+
+        function initMatrix() {
+          // Check if canvas exists and context is available
+          if (!canvas || !ctx) return;
+          
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+
+          const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+          const fontSize = 14;
+          const columns = Math.floor(canvas.width / fontSize); // Ensure integer
+          const drops = [];
+          for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * canvas.height / fontSize; // Random starting positions for density
+          }
+
+          function draw() {
+            // Stronger trail fade for visibility
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41'; // Neon green
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+              const text = chars[Math.floor(Math.random() * chars.length)];
+              ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+              // Reset more frequently for denser rain
+              if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+                drops[i] = 0;
+              }
+              drops[i]++;
+            }
+          }
+
+          // Use requestAnimationFrame for smoother animation
+          function animate() {
+            draw();
+            requestAnimationFrame(animate);
+          }
+          animate();
+        }
+
+        initMatrix();
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', initMatrix);
+
+        // Terminal Simulation (Full sequence: whoami, ls, cat skills, cat certs)
+        const terminalOutput = document.getElementById('terminal-output');
+        
+        // FIXED: Restructure sequences to include the command and output for realistic flow
+        const commandSequences = [
+            // Sequence 1: whoami
+            { command: 'whoami', output: 'Sunil Kumar\nSenior Security Engineer\nJaipur, Rajasthan | tharvid.in' },
+            
+            // Sequence 2: ls
+            { command: 'ls', output: 'skills\tcerts' },
+            
+            // Sequence 3: cat skills
+            { command: 'cat skills', output: 'Cloud Security\nDevSecOps\nSecurity Automation\nSOC Implementation\nIncident Response\nThreat Detection\nSIEM\nVulnerability Assessment\nPenetration Testing\nIAM\nSecurity Policy Management\nSAST, DAST, IaC Security\nSCa, ASPM, CSPM\nSOAR, DLP\nSecurity Infrastructure Development\nTools: AWS, GCP, Azure, Python, Burp Suite, Nmap, Wireshark, etc.' },
+            
+            // Sequence 4: cat certs
+            { command: 'cat certs', output: 'CompTIA Security+\nAWS Certified Security - Specialty\nGoogle Cloud Professional Cloud Security Engineer\nDocker Foundations Professional Certificate\nAWS Certified Cloud Practitioner\nMicrosoft 365 Certified: Security Administrator Associate' }
+        ];
+
+        let sequenceIndex = 0;
+        let charIndex = 0;
+        let currentText = ''; // Holds the current command or output being typed
+        let isTypingCommand = true; // State tracker: true for command, false for output
+        const promptText = 'user@tharvid:~$ ';
+
+        function typeText() {
+          if (charIndex < currentText.length) {
+            terminalOutput.innerHTML += currentText[charIndex];
+            charIndex++;
+            setTimeout(typeText, 50); // Typing speed
+          } else {
+            // Finished typing the current command/output
+            terminalOutput.innerHTML += '\n'; // Add newline after output
+            
+            // Toggle state
+            if (isTypingCommand) {
+                // Just finished typing the command, now start output
+                charIndex = 0;
+                currentText = commandSequences[sequenceIndex].output;
+                isTypingCommand = false;
+                setTimeout(typeText, 500); // Slight delay before output
+            } else {
+                // Just finished typing the output, prepare for next command
+                sequenceIndex = (sequenceIndex + 1) % commandSequences.length; // Loop back to start
+                charIndex = 0;
+                
+                // Add next prompt and prepare to type command
+                terminalOutput.innerHTML += '<span class="terminal-prompt">' + promptText + '</span>';
+                currentText = commandSequences[sequenceIndex].command;
+                isTypingCommand = true;
+                
+                setTimeout(typeText, 2000); // Delay before next command typing starts
+            }
+          }
+          // Scroll to bottom
+          terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        // Start terminal with first prompt and command
+        terminalOutput.innerHTML = '<span class="terminal-prompt">' + promptText + '</span>';
+        currentText = commandSequences[0].command;
+        typeText();
+    </script>
 </body>
 </html>
