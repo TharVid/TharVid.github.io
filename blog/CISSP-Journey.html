@@ -3,140 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <title>My CISSP Journey | Tharvid</title>
     <style>
         body {
-            background-color: white;
-            color: black;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0f172a;
             margin: 0;
+            padding: 20px;
         }
-        .content {
-            margin: 0 10%;
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
-        .code-block {
-            background-color: #f4f4f4;
-            border-left: 4px solid #ccc;
-            padding: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            margin: 10px 0;
+        h1 {
+            color: #60a5fa;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #38bdf8;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul {
+            margin-bottom: 1.2rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+        .quote-box {
+            background-color: #0f172a;
+            border-left: 4px solid #38bdf8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
         }
     </style>
-    <title>My CISSP Journey</title>
-    <meta name="description" content="My CISSP journey, preparation strategy, resources, exam experience, and lessons learned.">
-    <meta name="keywords" content="CISSP, ISC2, Cyber Security, Cloud Security">
-    <meta name="author" content="Sunil Kumar">
 </head>
 <body>
-    <nav class="sticky-nav">
-        <div class="logo">Sunil@Blog<span id="blinking">#</span></div>
-        <div class="menu-links">
-            <a href="../index.html" class="menu-link">Home</a>
-            <a href="../about.html" class="menu-link">About Me</a>
-            <a href="../blog.html" class="menu-link">Blog</a>
-        </div>
-    </nav>
 
-    <main class="content">
-        <div class="blog-post-content">
-            <h1 class="post-title">My CISSP Journey: Passing at 100 Questions</h1>
-            <p class="post-date">Published on January 2026</p>
+<div class="container">
+    <h1>My CISSP Journey: From Hands-On Engineer to CISSP</h1>
+    <p><strong>Passed at 100 Questions</strong></p>
+    
+    <p>Clearing the CISSP exam felt unreal, especially when it ended at 100 questions with nearly 70 minutes remaining. This blog is my attempt to document the journey, resources, mindset, and lessons learned, and hopefully help others who are preparing for this certification.</p>
 
-            <h2>Background</h2>
-            <p>
-                I work as a security generalist and work across cloud security, SIEM implementation, DevSecOps, risk assessment, compliance, and incident response. I already had hands-on experience in multiple CISSP domains, but topics like networking, physical security, and asset security were completely new for me.
-            </p>
-            <p>
-                I have 3.5 years of full-time experience and 1 year of internship experience, making it around 4.5 years in total. I also hold certifications such as CompTIA Security+, AWS Security Specialty, Google Professional Cloud Security Engineer, and Azure Security Engineer. With the one-year experience waiver from AWS Security Specialty, I meet the CISSP experience requirement.
-            </p>
+    <h2>Background</h2>
+    <p>I am a security generalist by role and passion. Over the years, I have worked across multiple areas including:</p>
+    <ul>
+        <li>Cloud Security (AWS, Azure, GCP)</li>
+        <li>SIEM implementation</li>
+        <li>DevSecOps</li>
+        <li>Risk assessment and compliance</li>
+        <li>Incident Response</li>
+        <li>Security architecture and operations</li>
+    </ul>
+    <p>You can read more about my professional background here: <a href="https://tharvid.in/about.html">https://tharvid.in/about.html</a></p>
+    <p>While I had strong hands-on experience across many CISSP domains, some areas (Networking, Physical Security, and Asset Security) were almost completely new to me.</p>
 
-            <h2>Motivation and Starting Point</h2>
-            <p>
-                I was initially motivated to pursue CISSP by a colleague from my previous company. Later, my current manager, who also holds CISSP, motivated and supported me a lot throughout my journey.
-            </p>
-            <p>
-                While I did not start serious preparation immediately, I was passively consuming CISSP-related content from February 2025, spending around one to two hours per week.
-            </p>
-            <p>
-                The real preparation started in August 2025, when I purchased the official CISSP CBK and official practice tests.
-            </p>
+    <h2>Experience & Certifications</h2>
+    <ul>
+        <li>3.5 years of full-time experience</li>
+        <li>1 year of internship experience</li>
+        <li>Total: Approximately 4.5 years of practical experience</li>
+    </ul>
+    <p>I also hold:</p>
+    <ul>
+        <li>CompTIA Security+</li>
+        <li>AWS Security Specialty</li>
+        <li>Google Professional Cloud Security Engineer</li>
+        <li>Microsoft Azure Security Engineer</li>
+    </ul>
+    <p>Thanks to the one-year experience waiver from AWS Security Specialty, my experience requirement meets the CISSP 5-year eligibility.</p>
 
-            <h2>Study Resources</h2>
+    <h2>Motivation & When I Started</h2>
+    <p>I was motivated to pursue CISSP by a colleague from my previous company. While I did not start serious preparation immediately, I was passively consuming CISSP-related content from February 2025, spending about 1 to 2 hours per week. The real preparation started in August 2026, when I purchased the Official CISSP CBK and Official Practice Tests. That is when I decided to take this seriously.</p>
 
-            <h3>Official CISSP CBK</h3>
-            <p>
-                I started studying from the official CISSP CBK but never completed it. I found the language difficult to understand, so I mostly used it as a reference and focused more on practice questions.
-            </p>
+    <h2>Study Resources & What Actually Helped</h2>
+    
+    <h3>Official CISSP CBK</h3>
+    <p>I started with the official CBK, but honestly, I never finished it. The language felt too dense and difficult for me. I used it more as a reference rather than a cover-to-cover study guide.</p>
 
-            <h3>LinkedIn Learning - Mike Chapple</h3>
-            <p>
-                This course was the best resource for me. It explains concepts in a very simple and clear way and helps build the CISSP mindset. I completed the entire course in around two weeks.
-            </p>
+    <h3>LinkedIn Learning: Mike Chapple (Game Changer)</h3>
+    <p>This was the best resource in my entire journey. It provided clear explanations, was beginner-friendly but still deep, and offered perfect CISSP mindset alignment. I had free access through my employer and completed the entire course in about 2 weeks. If I had to recommend only one resource, this would be it.</p>
 
-            <h3>Andrew Ramdayal</h3>
-            <p>
-                I purchased Andrew Ramdayal's CISSP course but completed only a small portion of it. I mainly watched the mindset videos and solved practice questions. By that time, I already felt prepared, but his mindset guidance was very useful.
-            </p>
+    <h3>Andrew Ramdayal (Udemy)</h3>
+    <p>I purchased Andrew Ramdayal’s CISSP course, but completed only about 10%. I mostly watched mindset videos and attempted practice questions. The content felt repetitive to me because by then I was already well prepared. However, his CISSP mindset is extremely valuable.</p>
 
-            <h2>Practice Tests</h2>
-            <p>
-                Practice tests played the most important role in my preparation.
-            </p>
-            <ul>
-                <li>Official CISSP practice tests including all domain-wise questions and four full-length tests</li>
-                <li>LearnZApp ISC2 Official CISSP App free questions</li>
-                <li>Destination CISSP App free questions</li>
-                <li>LinkedIn Learning full-length practice exams with scores around eighty percent</li>
-            </ul>
+    <h2>Practice Tests (Most Important Part)</h2>
+    <p>I practiced a lot. This is where confidence came from.</p>
+    <ul>
+        <li><span class="highlight">Official CISSP Practice Tests:</span> All domain-wise questions and all 4 full-length practice exams.</li>
+        <li><span class="highlight">LearnZApp:</span> ISC2 Official App (solved all free questions).</li>
+        <li><span class="highlight">Destination CISSP App:</span> Practiced all free questions.</li>
+        <li><span class="highlight">LinkedIn Learning Practice Exams:</span> This was the final confidence booster. I took 4 full-length CISSP mock exams and scored around 80% consistently.</li>
+    </ul>
 
-            <h2>Exam Day Experience</h2>
-            <p>
-                I appeared for the exam at the Gurugram test center. Since there was no CISSP test center in Rajasthan, I had to travel almost six hundred kilometers.
-            </p>
-            <p>
-                The questions were scenario-based and similar to what I saw in the official CBK and LinkedIn Learning practice tests. I read each question carefully to identify keywords before selecting the answer.
-            </p>
+    <h2>Exam Scheduling & Travel</h2>
+    <p>I scheduled my exam at the Gurugram, India test center. I am from Rajasthan, but unfortunately, there was no CISSP test center available there. I had to travel nearly 600 km for the exam, but it was worth it.</p>
 
-            <h2>The 100 Question Moment</h2>
-            <p>
-                When the exam suddenly ended at 100 questions and the survey appeared, I panicked. In the CISSP CAT format, the exam stops at 100 questions only if you perform very well or very poorly.
-            </p>
-            <p>
-                After completing the survey, I collected my belongings and waited for the result. When the printed result was handed to me and it said congratulations, it was an unforgettable moment.
-            </p>
+    <h2>Exam Day Experience</h2>
+    <p>The exam was scheduled for 1:00 PM. I reached the center at 12:00 PM and was allowed entry 30 minutes early. The check-in process was very strict but smooth, involving ID checks, palm vein scans, and test center rules documentation.</p>
+    
+    <p>During the exam, I noted that questions were scenario-based, not fact-based. They required careful reading (often twice or thrice) as keywords mattered significantly. There was some keyboard noise in the testing hall, but I chose to continue without the provided headphones as they felt uncomfortable.</p>
 
-            <h2>CISSP Mindset and Strategy</h2>
-            <p>
-                Focus on keywords like BEST, FIRST, and PRIMARY. Always prioritize process over technology and follow the order prevent, detect, correct.
-            </p>
+    <h2>The Moment of Truth (100 Questions)</h2>
+    <p>Suddenly, the exam ended and a survey appeared. I panicked. In the CISSP CAT format, stopping at 100 questions means you either did very well or very badly. I was convinced I had failed. After completing the survey, the staff handed me my result. "Congratulations!" That moment was pure joy.</p>
 
-            <div class="code-block">
-Policy implemented in Email security solution  
-User training  
-EDR  
-Device encryption
-            </div>
+    <h2>Endorsement Status</h2>
+    <p>Endorsement has been submitted with my relieving letters, offer letters, and AWS Security Specialty certificate. I am currently endorsed by another CISSP and waiting for the ISC2 review, which typically takes up to 6 weeks.</p>
 
-            <p>
-                In real life, you would apply multiple controls. In the CISSP exam, you must choose the single best preventive control. In this case, user training is the correct answer.
-            </p>
+    <h2>Final Advice for CISSP Aspirants</h2>
+    
+    <h3>Key Exam Strategies</h3>
+    <ul>
+        <li>Practice, practice, practice.</li>
+        <li>Read questions carefully.</li>
+        <li>Focus on keywords: BEST, FIRST, PRIMARY.</li>
+    </ul>
 
-            <h2>Final Thoughts</h2>
-            <p>
-                I am a hands-on security engineer and not a traditional manager. CISSP does not require you to be a manager.
-            </p>
-            <p>
-                If you understand how systems and company actually work, you can think like a manager.
-            </p>
+    <h3>CISSP Mindset</h3>
+    <ul>
+        <li>Process over technology.</li>
+        <li>Prevent, then Detect, then Correct.</li>
+        <li>If a control costs more than the asset, accept the risk.</li>
+        <li>Watch Andrew Ramdayal’s 15 CISSP Mindset Concepts.</li>
+    </ul>
 
-            <p>
-                Best of luck to everyone preparing for CISSP. Feel free to reach out to me on LinkedIn if you have any questions.
-            </p>
-            <p>
-                <a href="https://www.linkedin.com/in/tharvid" target="_blank">Connect with me on LinkedIn</a>
-            </p>
-        </div>
-    </main>
+    <div class="quote-box">
+        <strong>Example Question Logic:</strong> How to prevent users from falling for phishing emails? You might consider email security policy, user training, EDR, and encryption. In real life, you do all of them. In the CISSP exam, you choose user training because it is preventive and the best first step.
+    </div>
+
+    <h2>Final Words</h2>
+    <p>I am a hands-on security engineer, not a traditional manager. But CISSP does not require you to be a manager; it requires you to think broadly, understand end-to-end security, and apply common sense with a policy-first mindset. If you understand how systems actually work, you can think like a manager.</p>
+
+    <p>Best of luck to everyone preparing for CISSP! Feel free to reach out to me on LinkedIn if you have any questions: <a href="https://www.linkedin.com/in/tharvid">https://www.linkedin.com/in/tharvid</a></p>
+    <p>You have got this.</p>
+</div>
+
 </body>
 </html>
