@@ -1,28 +1,57 @@
-body {
+/* Shared styles for blog post pages */
+*, *::before, *::after {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #0d0d0d;
-    color: #00ff00;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+:root {
+    --neon: #00ff41;
+    --neon-dim: rgba(0, 255, 65, 0.15);
+    --neon-glow: rgba(0, 255, 65, 0.4);
+    --cyan: #00e5ff;
+    --dark-bg: #0a0a0f;
+    --card-bg: rgba(15, 15, 25, 0.7);
+    --card-border: rgba(0, 255, 65, 0.15);
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --gradient-1: linear-gradient(135deg, #00ff41, #00e5ff);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--dark-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Navigation */
 .sticky-nav {
     position: sticky;
     top: 0;
-    background-color: #000;
-    color: #00ff00;
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
-    border-bottom: 1px solid #00ff00;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--card-border);
+    z-index: 100;
 }
 
 .logo {
-    font-size: 18px;
-    font-weight: bold;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon-glow);
+    text-decoration: none;
 }
 
 #blinking {
-    animation: blink 1s infinite;
+    animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
@@ -32,71 +61,204 @@ body {
 
 .menu-links {
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .menu-link {
     text-decoration: none;
-    color: #00ff00;
-    transition: color 0.3s;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .menu-link:hover {
-    color: #ff0000;
+    color: var(--neon);
 }
 
+/* Content area for blog posts */
 .content {
-    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
 }
 
-.home-container {
-    text-align: center;
-    margin-top: 50px;
+.content h1, .content h2, .content h3 {
+    color: var(--text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid #00ff00;
+.content h1 {
+    font-size: 2rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.name {
-    font-size: 36px;
-    margin-bottom: 5px;
+.content h2 {
+    font-size: 1.5rem;
+    color: var(--neon);
 }
 
-.job-title {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #00ff00;
+.content h3 {
+    font-size: 1.2rem;
 }
 
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
+.content p {
+    margin-bottom: 1rem;
+    color: var(--text-dim);
 }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #00ff00;
+.content a {
+    color: var(--cyan);
     text-decoration: none;
-    border: 1px solid #00ff00;
+    transition: color 0.3s;
+}
+
+.content a:hover {
+    color: var(--neon);
+}
+
+.content ul, .content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dim);
+}
+
+.content li {
+    margin-bottom: 0.5rem;
+}
+
+.content code {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    background: rgba(0, 255, 65, 0.08);
+    border: 1px solid rgba(0, 255, 65, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--neon);
+}
+
+.content pre {
+    background: rgba(10, 10, 20, 0.9);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.content img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    margin: 1rem 0;
+}
+
+.content blockquote {
+    border-left: 3px solid var(--neon);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* Blog list styles */
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blog-post {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+}
+
+.blog-post:hover {
+    border-color: var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+.blog-title a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.blog-title a:hover {
+    color: var(--neon);
+}
+
+.blog-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--cyan);
+    margin: 0.5rem 0;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--neon);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    transition: gap 0.3s;
+}
+
+.read-more:hover {
+    gap: 0.7rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    background: transparent;
+    color: var(--neon);
+    text-decoration: none;
+    border: 1px solid var(--neon);
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #00ff00;
-    color: #000;
+    background: var(--neon);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--neon-glow);
 }
 
-.contact-button {
-    text-align: center;
-    margin-top: 20px;
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .content {
+        padding: 2rem 1.25rem;
+    }
+
+    .sticky-nav {
+        padding: 0.75rem 1rem;
+    }
 }

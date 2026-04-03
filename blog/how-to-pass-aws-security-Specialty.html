@@ -3,85 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>How to Pass AWS Security Specialty | Sunil Kumar</title>
+    <meta name="description" content="Sunil Kumar's journey to AWS Certified Security - Specialty. Resources, tips, and exam experience.">
+    <meta name="author" content="Sunil Kumar">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-RTHNKPNXTJ');</script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: white;
-            color: black;
-            margin: 0;
-        }
-        .content {
-            margin: 0 10%;
-        }
-        .banner-image {
-            width: 100%;
-            height: auto;
-        }
-        .mid-image {
-            display: block;
-            margin: 20px auto;
-            width: 40%;
-            height: auto;
-        }
-        .highlight {
-            background-color: yellow;
-            font-weight: bold;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --neon: #00ff41; --neon-dim: rgba(0,255,65,0.15); --neon-glow: rgba(0,255,65,0.4); --cyan: #00e5ff; --dark-bg: #0a0a0f; --card-bg: rgba(15,15,25,0.7); --card-border: rgba(0,255,65,0.15); --text: #e2e8f0; --text-dim: #94a3b8; --gradient-1: linear-gradient(135deg, #00ff41, #00e5ff); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--dark-bg); line-height: 1.7; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 50%, rgba(0,255,65,0.03) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(0,229,255,0.03) 0%, transparent 50%); z-index: 0; pointer-events: none; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 2rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--card-border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.25rem; color: var(--neon); text-shadow: 0 0 10px var(--neon-glow); text-decoration: none; }
+        .logo .cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--neon); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+        .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover { color: var(--neon); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
+        .hamburger span { width: 24px; height: 2px; background: var(--neon); transition: all 0.3s; border-radius: 1px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); z-index: 999; justify-content: center; align-items: center; flex-direction: column; gap: 2rem; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--neon); }
+        .article-header { position: relative; z-index: 2; padding: 7rem 2rem 2rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .article-header h1 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); }
+        .article-meta .tag { padding: 0.2rem 0.75rem; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); border-radius: 100px; color: var(--cyan); }
+        .article-body { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--neon); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border); }
+        .article-body p { color: var(--text-dim); margin-bottom: 1.2rem; }
+        .article-body ul { padding-left: 1.25rem; margin-bottom: 1.2rem; color: var(--text-dim); }
+        .article-body li { margin-bottom: 0.5rem; }
+        .article-body a { color: var(--cyan); text-decoration: none; } .article-body a:hover { color: var(--neon); }
+        .article-body img { max-width: 100%; border-radius: 8px; border: 1px solid var(--card-border); margin: 1.5rem 0; }
+        .article-body .highlight { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); padding: 1rem 1.25rem; border-radius: 8px; font-weight: 600; color: var(--cyan); display: block; margin: 1rem 0; }
+        .footer { position: relative; z-index: 2; border-top: 1px solid var(--card-border); padding: 3rem 2rem; text-align: center; }
+        .footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); }
+        .footer a { color: var(--cyan); text-decoration: none; } .footer a:hover { color: var(--neon); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--neon); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; transition: gap 0.3s; }
+        .back-link:hover { gap: 0.75rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .article-header { padding: 6rem 1.25rem 1.5rem; } .article-body { padding: 1.5rem 1.25rem 3rem; } }
     </style>
-    <title>Blog Post - AWS Certified Security - Specialty Journey</title>
 </head>
 <body>
-    <nav class="sticky-nav">
-        <div class="logo">Sunil@DefendMachine<span id="blinking">#</span></div>
-        <div class="menu-links">
-            <a href="../index.html" class="menu-link">Home</a>
-            <a href="../about.html" class="menu-link">About Me</a>
-            <a href="../blog.html" class="menu-link">Blog</a>
-        </div>
-    </nav>
+    <nav class="nav"><div class="nav-inner"><a href="../index.html" class="logo">sunil@tharvid<span class="cursor"></span></a><ul class="nav-links"><li><a href="../index.html" class="nav-link">Home</a></li><li><a href="../about.html" class="nav-link">About</a></li><li><a href="../blog.html" class="nav-link">Blog</a></li><li><a href="mailto:stharvid@gmail.com" class="nav-link">Contact</a></li></ul><button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button></div></nav>
+    <div class="mobile-menu" id="mobileMenu"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="mailto:stharvid@gmail.com">Contact</a></div>
 
-    <main class="content">
-        <img src="https://media.licdn.com/dms/image/v2/D5612AQG89NWXHN2Xjw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1698507734402?e=1735171200&v=beta&t=wYu43FfDEGC2fOmQpNwb5-QJt8c0tA8yi2itt5koKLk" alt="Banner Image" class="banner-image">
-        <div class="blog-post-content">
-            <h1 class="post-title">My Journey to AWS Certified Security - Specialty</h1>
-            <p class="post-date">Published on October 23, 2024</p>
-            
-            <h2>Introduction</h2>
-            <p>My journey to becoming AWS Certified Security - Specialty began in January 2023 after successfully passing the AWS Certified Cloud Practitioner exam. I set my sights on this certification as a means to deepen my understanding of cloud security, AWS services, and best practices. In this write-up, I'll take you through the steps, resources, and experiences that shaped my path to achieving this significant milestone in my career.</p>
-            
-            <h2>Preparation and Resources</h2>
-            <p>I began by learning the basics from the "Ultimate AWS Certified Solutions Architect Associate SAA" course by Stéphane Maarek. This course provided a solid understanding of AWS services. Then, I dived deeper into security with courses like "AWS Certified Security Specialty 2023" by Zeal Vora (Thanks to Zeal for giving me a discount voucher), "AWS Certified Security – Specialty" by Chandra Mohan Lingam (Thanks to my manager Devan Nair for purchasing this course), and "Ultimate AWS Certified Security Specialty" by Stephane Maarek. Each of these courses taught me something different, but I liked Zeal Vora's content the most.</p>
-            
-            <h2>Professional Background</h2>
-            <p>My role as a Security Engineer at Acko involves responsibilities such as Security Automation, Implementing Cloud Infrastructure Security Monitoring, and Building Detections and Incident Response capabilities. With approximately 2.5 years of experience in the cybersecurity domain, I had already worked with several services covered in the exam, which significantly eased my preparation process.</p>
-            
-            <img src="https://media.licdn.com/dms/image/v2/D5612AQG1kWvogSShSw/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1698506340963?e=1735171200&v=beta&t=5h91iQpjBJ49QzMtm5c1e3mHFzWepMlcJZk6Eo9B31Y" alt="Mid Image" class="mid-image">
-            
-            <h2>Hands-On Experience</h2>
-            <p>To gain practical experience, I utilized $75 in AWS credits obtained from various AWS events like Summit and Innovate. This allowed me to enable services not included in the free tier, such as AWS WAF. I highly recommend creating your own labs and practicing extensively by building resources and exploring all available options. If you need inspiration, you can even use tools like ChatGPT to suggest security scenarios for hands-on labs.</p>
-            <p class="highlight">Example prompt: Please provide 20 AWS security scenarios for creating hands-on labs involving vulnerable AWS resources. These scenarios should require participants to respond to security incidents and learn how to remediate vulnerabilities.</p>
-            
-            <h2>Exam Domains</h2>
-            <p>The AWS Certified Security - Specialty exam is structured around six domains, each carrying a specific weight:</p>
-            <ul>
-                <li>Threat Detection and Incident Response</li>
-                <li>Security Logging and Monitoring</li>
-                <li>Infrastructure Security</li>
-                <li>Identity and Access Management</li>
-                <li>Data Protection</li>
-                <li>Management and Security Governance</li>
-            </ul>
-            <p>My prior experience in domains 1, 2, 4, and some exposure to domain 6 through my work made those areas more familiar. However, domains 3 and 5 were new terrain for me, requiring additional effort in my preparation.</p>
-            
-            <h2>Exam Experience</h2>
-            <p>The exam consisted of 65 scenario-based questions, with a four-hour time limit. To tackle the pressure, I scheduled it for a Saturday morning. I found the questions relatively manageable, though some were tricky. The ability to relate questions to real-life scenarios proved invaluable in cracking the exam, and I completed it in approximately 2.5 hours.</p>
-            
-            <h2>Conclusion</h2>
-            <p>The AWS Certified Security - Specialty journey was a rewarding one that tested my knowledge and skills in cloud security. My hands-on experience, professional background, and dedication to learning were the pillars of my success. I practiced with questions from multiple sources, utilizing both online resources and various PDFs.</p>
-            <p>In conclusion, I encourage those pursuing this certification to embrace hands-on practice, relate exam scenarios to real-life situations, and draw upon available resources to solidify their knowledge.</p>
-            <p>Good luck with your next AWS certification, and I hope this documentation proves helpful on your journey!</p>
-            <p><strong>Sunil K.</strong></p>
-        </div>
-    </main>
+    <header class="article-header">
+        <h1>My Journey to AWS Certified Security - Specialty</h1>
+        <div class="article-meta"><span class="tag">Oct 23, 2024</span> &middot; Certification</div>
+    </header>
+
+    <article class="article-body">
+        <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+
+        <h2>Introduction</h2>
+        <p>My journey to becoming AWS Certified Security - Specialty began in January 2023 after successfully passing the AWS Certified Cloud Practitioner exam. I set my sights on this certification as a means to deepen my understanding of cloud security, AWS services, and best practices. In this write-up, I'll take you through the steps, resources, and experiences that shaped my path to achieving this significant milestone in my career.</p>
+
+        <h2>Preparation and Resources</h2>
+        <p>I began by learning the basics from the "Ultimate AWS Certified Solutions Architect Associate SAA" course by St&eacute;phane Maarek. This course provided a solid understanding of AWS services. Then, I dived deeper into security with courses like "AWS Certified Security Specialty 2023" by Zeal Vora (Thanks to Zeal for giving me a discount voucher), "AWS Certified Security &ndash; Specialty" by Chandra Mohan Lingam (Thanks to my manager Devan Nair for purchasing this course), and "Ultimate AWS Certified Security Specialty" by Stephane Maarek. Each of these courses taught me something different, but I liked Zeal Vora's content the most.</p>
+
+        <h2>Professional Background</h2>
+        <p>My role as a Security Engineer at Acko involves responsibilities such as Security Automation, Implementing Cloud Infrastructure Security Monitoring, and Building Detections and Incident Response capabilities. With approximately 2.5 years of experience in the cybersecurity domain, I had already worked with several services covered in the exam, which significantly eased my preparation process.</p>
+
+        <h2>Hands-On Experience</h2>
+        <p>To gain practical experience, I utilized $75 in AWS credits obtained from various AWS events like Summit and Innovate. This allowed me to enable services not included in the free tier, such as AWS WAF. I highly recommend creating your own labs and practicing extensively by building resources and exploring all available options. If you need inspiration, you can even use tools like ChatGPT to suggest security scenarios for hands-on labs.</p>
+        <p class="highlight">Example prompt: Please provide 20 AWS security scenarios for creating hands-on labs involving vulnerable AWS resources. These scenarios should require participants to respond to security incidents and learn how to remediate vulnerabilities.</p>
+
+        <h2>Exam Domains</h2>
+        <p>The AWS Certified Security - Specialty exam is structured around six domains, each carrying a specific weight:</p>
+        <ul>
+            <li>Threat Detection and Incident Response</li>
+            <li>Security Logging and Monitoring</li>
+            <li>Infrastructure Security</li>
+            <li>Identity and Access Management</li>
+            <li>Data Protection</li>
+            <li>Management and Security Governance</li>
+        </ul>
+        <p>My prior experience in domains 1, 2, 4, and some exposure to domain 6 through my work made those areas more familiar. However, domains 3 and 5 were new terrain for me, requiring additional effort in my preparation.</p>
+
+        <h2>Exam Experience</h2>
+        <p>The exam consisted of 65 scenario-based questions, with a four-hour time limit. To tackle the pressure, I scheduled it for a Saturday morning. I found the questions relatively manageable, though some were tricky. The ability to relate questions to real-life scenarios proved invaluable in cracking the exam, and I completed it in approximately 2.5 hours.</p>
+
+        <h2>Conclusion</h2>
+        <p>The AWS Certified Security - Specialty journey was a rewarding one that tested my knowledge and skills in cloud security. My hands-on experience, professional background, and dedication to learning were the pillars of my success. I practiced with questions from multiple sources, utilizing both online resources and various PDFs.</p>
+        <p>In conclusion, I encourage those pursuing this certification to embrace hands-on practice, relate exam scenarios to real-life situations, and draw upon available resources to solidify their knowledge.</p>
+        <p>Good luck with your next AWS certification, and I hope this documentation proves helpful on your journey!</p>
+        <p><strong>Sunil K.</strong></p>
+    </article>
+
+    <footer class="footer"><p>&copy; 2025 Sunil Kumar &mdash; <a href="https://tharvid.in">tharvid.in</a></p></footer>
+    <script>
+        const hamburger = document.getElementById('hamburger'); const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); document.body.style.overflow = ''; }));
+    </script>
 </body>
 </html>

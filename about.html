@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Sunil Kumar - Senior Security Engineer</title>
-    <meta name="description" content="Learn about Sunil Kumar, Senior Security Engineer with expertise in Cloud Security, DevSecOps, and Automation. View experience, skills, and projects.">
-    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, Cloud Security, DevSecOps, Experience, Skills, Certifications">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>About Sunil Kumar - Senior Security Engineer | CISSP</title>
+    <meta name="description" content="Learn about Sunil Kumar, CISSP-certified Senior Security Engineer with expertise in Cloud Security, DevSecOps, and Security Automation. View experience, skills, and projects.">
+    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, CISSP, Cloud Security, DevSecOps, Experience, Skills, Certifications">
     <meta name="author" content="Sunil Kumar">
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,283 +15,669 @@
       gtag('js', new Date());
       gtag('config', 'G-RTHNKPNXTJ');
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Global Reset and Styles - Matching Home */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --neon: #00ff41;
+            --neon-dim: rgba(0, 255, 65, 0.15);
+            --neon-glow: rgba(0, 255, 65, 0.4);
+            --cyan: #00e5ff;
+            --magenta: #ff00ff;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(15, 15, 25, 0.7);
+            --card-border: rgba(0, 255, 65, 0.15);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #00ff41, #00e5ff);
+            --gradient-2: linear-gradient(135deg, #00e5ff, #ff00ff);
+        }
+
+        html { scroll-behavior: smooth; }
 
         body {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          color: #e2e8f0;
-          background: #000;
-          line-height: 1.6;
-          position: relative;
-          overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Subtle Matrix Background */
-        #matrix-bg {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          opacity: 0.05;
-          pointer-events: none;
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 229, 255, 0.03) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-          position: relative;
-          z-index: 1;
+        #particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
 
-        /* Navigation - Matching Home */
-        .sticky-nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem 0;
-          position: sticky;
-          top: 0;
-          background: rgba(0, 0, 0, 0.8);
-          backdrop-filter: blur(10px);
-          border-bottom: 1px solid #00ff41;
-          z-index: 100;
-          width: 100%;
+        .scanlines {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.008) 2px, rgba(0,255,65,0.008) 4px);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            #particles, .scanlines { display: none; }
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav.scrolled {
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; height: 72px;
+        }
         .logo {
-          font-weight: 700;
-          font-size: 1.5rem;
-          color: #00ff41;
-          text-shadow: 0 0 5px #00ff41;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700; font-size: 1.25rem;
+            color: var(--neon); text-shadow: 0 0 10px var(--neon-glow);
+            text-decoration: none; letter-spacing: -0.5px;
+        }
+        .logo .cursor {
+            display: inline-block; width: 2px; height: 1.2em;
+            background: var(--neon); margin-left: 2px; vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .nav-links {
+            display: flex; gap: 2rem; align-items: center; list-style: none;
+        }
+        .nav-link {
+            color: var(--text-dim); text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: all 0.3s ease; position: relative; padding: 0.25rem 0;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
+            background: var(--gradient-1); transition: width 0.3s ease; border-radius: 1px;
+        }
+        .nav-link:hover { color: var(--neon); }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active { color: var(--neon); }
+        .nav-link.active::after { width: 100%; }
+
+        .nav-resume {
+            padding: 0.5rem 1.25rem; background: transparent;
+            border: 1px solid var(--neon); color: var(--neon); border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease;
+        }
+        .nav-resume:hover {
+            background: var(--neon); color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--neon-glow);
         }
 
-        .menu-links {
-          display: flex;
-          gap: 1.5rem;
-          flex-wrap: wrap;
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            background: none; border: none; padding: 4px; z-index: 1001;
+        }
+        .hamburger span {
+            width: 24px; height: 2px; background: var(--neon);
+            transition: all 0.3s ease; border-radius: 1px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); z-index: 999;
+            justify-content: center; align-items: center; flex-direction: column; gap: 2rem;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a {
+            color: var(--text); text-decoration: none; font-size: 1.5rem;
+            font-weight: 600; transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--neon); }
+
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            position: relative; z-index: 2;
+            padding: 8rem 2rem 3rem;
+            text-align: center;
         }
 
-        .menu-link {
-          text-decoration: none;
-          font-weight: 500;
-          color: #00ff41;
-          transition: color 0.3s, text-shadow 0.3s;
+        .page-hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .menu-link:hover {
-          color: #1e40af;
-          text-shadow: 0 0 10px #00ff41;
+        .page-hero .profile-photo {
+            width: 130px; height: 130px; border-radius: 50%; object-fit: cover;
+            border: 3px solid var(--card-border);
+            box-shadow: 0 0 30px rgba(0,255,65,0.1), 0 0 60px rgba(0,255,65,0.05);
+            margin-bottom: 1.5rem;
         }
 
-        .dark-toggle {
-          background: none;
-          border: 1px solid #00ff41;
-          color: #00ff41;
-          padding: 0.5rem;
-          border-radius: 50%;
-          cursor: pointer;
-          font-size: 1rem;
-          text-shadow: 0 0 5px #00ff41;
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 800;
+            margin-bottom: 0.5rem; line-height: 1.1;
+        }
+        .page-hero h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        /* Hero for About */
-        .about-hero {
-          min-height: 60vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 4rem 0;
+        .page-hero .subtitle {
+            font-size: 1.2rem; color: var(--text-dim); font-weight: 500;
+            margin-bottom: 1rem;
         }
 
-        .hero-content {
-          max-width: 800px;
+        .page-hero .contact-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem; color: var(--text-dim);
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem;
         }
 
-        .profile-photo {
-          width: 150px;
-          height: 150px;
-          border-radius: 50%;
-          object-fit: cover;
-          margin: 0 auto 2rem;
-          box-shadow: 0 0 20px #00ff41;
-          filter: drop-shadow(0 0 10px #00ff41);
+        .page-hero .contact-line a {
+            color: var(--cyan); text-decoration: none; transition: color 0.3s;
+        }
+        .page-hero .contact-line a:hover { color: var(--neon); }
+
+        /* ===== SECTION COMMON ===== */
+        .section {
+            position: relative; z-index: 2; padding: 4rem 2rem;
+            max-width: 1000px; margin: 0 auto;
         }
 
-        .name {
-          font-size: 3rem;
-          font-weight: 700;
-          color: #00ff41;
-          margin-bottom: 0.5rem;
-          text-shadow: 0 0 10px #00ff41;
-          animation: glitch 2s infinite;
+        .section-header {
+            margin-bottom: 2.5rem;
         }
 
-        .job-title {
-          font-size: 1.25rem;
-          color: #00ff41;
-          text-shadow: 0 0 5px #00ff41;
-        }
-
-        /* Sections */
-        section {
-          padding: 3rem 0;
-          border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem; color: var(--cyan);
+            text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.5rem;
         }
 
         .section-title {
-          font-size: 2rem;
-          color: #00ff41;
-          margin-bottom: 1.5rem;
-          text-align: center;
-          text-shadow: 0 0 5px #00ff41;
+            font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800;
+        }
+        .section-title .accent {
+            background: var(--gradient-1);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        .summary, .experience-item, .education, .skills-list, .projects, .certifications {
-          background: rgba(0, 0, 0, 0.5);
-          padding: 1.5rem;
-          border-radius: 8px;
-          margin-bottom: 2rem;
-          border-left: 3px solid #00ff41;
+        .divider {
+            border: none; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+            margin: 0;
         }
 
-        .experience-item h4 {
-          color: #00ff41;
-          margin-bottom: 0.5rem;
+        /* ===== SUMMARY ===== */
+        .summary-text {
+            font-size: 1.05rem; line-height: 1.9; color: var(--text-dim);
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 12px; padding: 2rem;
+            border-left: 3px solid var(--neon);
         }
 
-        .experience-item .dates {
-          color: #94a3b8;
-          font-size: 0.9rem;
-          margin-bottom: 1rem;
+        /* ===== EXPERIENCE TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
         }
 
-        ul {
-          list-style: none;
-          padding-left: 0;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--neon), var(--cyan), var(--magenta), transparent);
         }
 
-        ul li {
-          margin-bottom: 0.5rem;
-          position: relative;
-          padding-left: 1rem;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
         }
 
-        ul li::before {
-          content: '>';
-          color: #00ff41;
-          position: absolute;
-          left: 0;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-bg);
+            border: 2px solid var(--neon);
+            box-shadow: 0 0 10px var(--neon-glow);
+            z-index: 1;
         }
 
+        .timeline-item:first-child::before {
+            background: var(--neon);
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        .timeline-company {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .timeline-dates {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--cyan);
+            padding: 0.2rem 0.75rem;
+            background: rgba(0,229,255,0.08);
+            border: 1px solid rgba(0,229,255,0.15);
+            border-radius: 100px;
+        }
+
+        .timeline-role {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--neon);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-subrole {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        .timeline-bullets li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--neon);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card .degree {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .edu-right {
+            text-align: right;
+        }
+
+        .edu-right .dates {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--cyan);
+        }
+
+        .edu-right .gpa {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SKILLS ===== */
         .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
         }
 
-        .skills-category {
-          background: rgba(0, 255, 65, 0.1);
-          padding: 1rem;
-          border-radius: 4px;
-          border: 1px solid #00ff41;
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .skills-category h5 {
-          color: #00ff41;
-          margin-bottom: 0.5rem;
+        .skill-card:hover {
+            border-color: var(--neon-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
-        /* Footer */
-        footer {
-          text-align: center;
-          padding: 2rem 0;
-          background: rgba(0, 0, 0, 0.8);
-          color: #00ff41;
-          border-top: 1px solid #00ff41;
+        .skill-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--neon);
+            margin-bottom: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Animations - Matching Home */
-        @keyframes glitch {
-          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-            transform: translate(0);
-          }
-          /* Simplified for brevity */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
         }
 
-        /* Responsive */
+        .skill-tag {
+            padding: 0.25rem 0.6rem;
+            background: rgba(0,255,65,0.06);
+            border: 1px solid rgba(0,255,65,0.1);
+            border-radius: 5px;
+            font-size: 0.73rem;
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--neon-dim);
+            border-color: var(--neon-glow);
+            color: var(--neon);
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--neon-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-card .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--cyan); margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem; font-weight: 700; color: var(--text);
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+
+        .project-card p {
+            font-size: 0.85rem; color: var(--text-dim); line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 1rem;
+        }
+
+        .project-tech span {
+            padding: 0.2rem 0.5rem;
+            background: rgba(0,229,255,0.08);
+            border: 1px solid rgba(0,229,255,0.15);
+            border-radius: 4px;
+            font-size: 0.68rem;
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .certs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .cert-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--neon-glow);
+            transform: translateX(4px);
+        }
+
+        a.cert-card {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .cert-badge {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--neon-dim);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .cert-card span {
+            font-size: 0.9rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: relative; z-index: 2;
+            border-top: 1px solid var(--card-border);
+            padding: 3rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1.5rem;
+        }
+        .footer-left {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem; color: var(--text-dim);
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-link {
+            color: var(--text-dim); text-decoration: none; font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-link:hover { color: var(--neon); }
+
+        /* ===== ANIMATIONS ===== */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-          .name { font-size: 2.5rem; }
-          section { padding: 2rem 0; }
-          .skills-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .page-hero { padding: 6rem 1.25rem 2rem; }
+            .section { padding: 3rem 1.25rem; }
+            .timeline { padding-left: 1.5rem; }
+            .timeline-item { padding-left: 1.25rem; }
+            .timeline-item::before { left: -1.5rem; }
+            .timeline-company { flex-direction: column; }
+            .edu-card { flex-direction: column; text-align: center; }
+            .edu-right { text-align: center; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <canvas id="matrix-bg"></canvas>
-    <nav class="sticky-nav container">
-        <div class="logo">Sunil@Home<span id="blinking">#</span></div>
-        <div class="menu-links">
-            <a href="index.html" class="menu-link">Home</a>
-            <a href="https://www.linkedin.com/in/tharvid/" class="menu-link">LinkedIn</a>
-            <a href="https://github.com/tharVid/" class="menu-link">GitHub</a>
-            <a href="https://twitter.com/stharvid" class="menu-link">Twitter</a>
-            <a href="blog.html" class="menu-link">Blog</a>
-            <a href="mailto:stharvid@gmail.com" class="menu-link">Contact on Email</a>
-            <a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf" class="menu-link">Resume</a>
+    <canvas id="particles"></canvas>
+    <div class="scanlines"></div>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">sunil@tharvid<span class="cursor"></span></a>
+            <ul class="nav-links">
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="https://www.linkedin.com/in/tharvid/" class="nav-link" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/tharVid/" class="nav-link" target="_blank">GitHub</a></li>
+                <li><a href="mailto:stharvid@gmail.com" class="nav-link">Contact</a></li>
+                <li><a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf" class="nav-resume">Resume</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="https://www.linkedin.com/in/tharvid/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/tharVid/" target="_blank">GitHub</a>
+        <a href="mailto:stharvid@gmail.com">Contact</a>
+        <a href="https://github.com/TharVid/TharVid.github.io/raw/refs/heads/master/Sunil_Kumar_Resume.pdf">Resume</a>
+    </div>
 
-    <main class="container">
-        <section class="about-hero">
-            <div class="hero-content">
-                <img src="images/profile.jpg" alt="Sunil Kumar Profile" class="profile-photo">
-                <h1 class="name" data-text="Sunil Kumar">Sunil Kumar</h1>
-                <p class="job-title">Senior Security Engineer</p>
-                <p>+91-6376486690 | Jaipur, Rajasthan | <a href="https://www.linkedin.com/in/tharvid/" style="color: #00ff41;">linkedin.com/in/tharvid</a> | tharvid.in | <a href="https://github.com/tharVid/" style="color: #00ff41;">github.com/tharVid</a> | <a href="mailto:stharvid@gmail.com" style="color: #00ff41;">stharvid@gmail.com</a></p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-inner reveal">
+            <img src="images/profile.jpg" alt="Sunil Kumar" class="profile-photo">
+            <h1><span class="highlight">Sunil</span> Kumar</h1>
+            <p class="subtitle">Senior Security Engineer &bull; CISSP</p>
+            <div class="contact-line">
+                <span>Jaipur, Rajasthan</span>
+                <a href="https://www.linkedin.com/in/tharvid/" target="_blank">linkedin.com/in/tharvid</a>
+                <a href="https://github.com/tharVid/" target="_blank">github.com/tharVid</a>
+                <a href="mailto:stharvid@gmail.com">stharvid@gmail.com</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="summary">
-            <h2 class="section-title">Professional Summary</h2>
-            <div class="summary">
-                <p>A highly skilled Senior Security Engineer with over 4 years of professional experience, currently working at Porch Group. Demonstrates a strong background in Cloud Security, DevSecOps, Incident Response, Security Tool Implementation and Administration, SOC Implementation, and Security Automation. Holds a B.Tech in Computer Science and Engineering, along with certifications such as CompTIA Security+, AWS Certified Security – Specialty, and Google Cloud Professional Cloud Security Engineer.</p>
-            </div>
-        </section>
+    <hr class="divider">
 
-        <section id="experience">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
-                <h4>Porch Group, Remote</h4>
-                <p class="dates">June 2024 – Present</p>
-                <p><strong>Senior Security Engineer (Nov 2025 – Present)</strong></p>
-                <ul>
+    <!-- Summary -->
+    <section class="section" id="summary">
+        <div class="section-header reveal">
+            <p class="section-label">// Overview</p>
+            <h2 class="section-title">Professional <span class="accent">Summary</span></h2>
+        </div>
+        <div class="summary-text reveal">
+            A Senior Security Engineer with around 5 years of professional experience and CISSP (Certified Information Systems Security Professional), currently working at Porch Group. Demonstrates a strong background in Cloud Security, DevSecOps, Incident Response, Security Tool Implementation and Administration, SOC Implementation, and Security Automation. Holds a B.Tech in Computer Science and Engineering, along with additional certifications including CompTIA Security+, AWS Certified Security &ndash; Specialty, and Google Cloud Professional Cloud Security Engineer.
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+        <div class="section-header reveal">
+            <p class="section-label">// Career</p>
+            <h2 class="section-title">Work <span class="accent">Experience</span></h2>
+        </div>
+
+        <div class="timeline">
+            <!-- Porch Group -->
+            <div class="timeline-item reveal">
+                <div class="timeline-company">
+                    <h3>Porch Group, Remote</h3>
+                    <span class="timeline-dates">Jun 2024 &ndash; Present</span>
+                </div>
+                <p class="timeline-role">Senior Security Engineer (Nov 2025 &ndash; Present)</p>
+                <p class="timeline-subrole">Security Engineer (Jun 2024 &ndash; Nov 2025)</p>
+                <ul class="timeline-bullets">
                     <li>Developed and maintained DevSecOps pipelines integrating SAST, IaC scanning, secret scanning, container scanning, DAST, API fuzzing, and dependency scanning. Automated vulnerability reporting to Jira using custom scripts for 500+ repositories spanning diverse technologies, and implemented ASPM for comprehensive application security monitoring.</li>
                     <li>Implemented a SIEM solution integrating 50+ data sources, including custom integrations, parsers, correlation rules, and SOAR response workflows to enhance threat detection and automated incident response.</li>
                     <li>Onboarded 30+ AWS, GCP, and Azure accounts into the CSPM solution, managing misconfigurations and indicators of attack in collaboration with account owner teams.</li>
-                    <li>Managed and deployed 10+ Kubernetes clusters into a KSPM platform with runtime protection to monitor and secure workloads in real time.</li>
+                    <li>Implemented Kubernetes runtime security across 15+ clusters via a KSPM platform, providing real-time workload monitoring, behavioral threat detection, and automated policy enforcement.</li>
                     <li>Conducted gap assessments and supported the implementation of CIS Critical Security Controls across all 18 domains, ensuring PCI-DSS compliance and control alignment.</li>
-                    <li>Automated security processes using Python, AWS Lambda, and Google Cloud Functions to enhance efficiency and reduce manual effort.</li>
+                    <li>Automated security workflows using Python, AWS Lambda, and Google Cloud Functions, embedding GenAI-driven alert enrichment and incident summarization to reduce manual investigation effort.</li>
                     <li>Collaborated with global business units, stakeholders, and leadership teams across subsidiaries to close vulnerabilities and enforce security policies enterprise-wide.</li>
+                    <li>Led implementation of enterprise GenAI security by deploying Lakera for real-time LLM protection (prompt injection, jailbreak, and data leakage prevention) and securing LLM gateways via Portkey with policy enforcement, prompt filtering, and access controls, establishing end-to-end security for AI applications and usage across the organization.</li>
                 </ul>
-                <p><strong>Security Engineer (Jun 2024 – Nov 2025)</strong></p>
             </div>
-            <div class="experience-item">
-                <h4>ACKO General Insurance, Bengaluru</h4>
-                <p class="dates">Aug 2021 – Jun 2024</p>
-                <p><strong>Security Engineer</strong></p>
-                <ul>
+
+            <!-- ACKO -->
+            <div class="timeline-item reveal">
+                <div class="timeline-company">
+                    <h3>ACKO General Insurance, Bengaluru</h3>
+                    <span class="timeline-dates">Aug 2021 &ndash; Jun 2024</span>
+                </div>
+                <p class="timeline-role">Security Engineer</p>
+                <ul class="timeline-bullets">
                     <li>Developed an advanced security system utilizing AWS CloudTrail, Config, Inspector, Detective, Macie, GuardDuty, and Security Hub for detailed logging and real-time monitoring, ensuring continuous security assessment and compliance.</li>
                     <li>Integrated DevSecOps stages into DevOps pipelines, automating security measures such as secret scanning, SAST, IaC security, container security, SCA, and DAST.</li>
                     <li>Managed the triage of issues from bug bounty programs, DevSecOps, and cloud security tools, ensuring timely resolution.</li>
@@ -301,126 +687,322 @@
                     <li>Conducted risk assessments and penetration tests to identify and mitigate vulnerabilities.</li>
                 </ul>
             </div>
-            <div class="experience-item">
-                <h4>Celebal Technologies, Jaipur</h4>
-                <p class="dates">Feb 2021 – Jun 2021</p>
-                <p><strong>Associate - Cloud Infra and Security Intern</strong></p>
-                <ul>
+
+            <!-- Celebal -->
+            <div class="timeline-item reveal">
+                <div class="timeline-company">
+                    <h3>Celebal Technologies, Jaipur</h3>
+                    <span class="timeline-dates">Feb 2021 &ndash; Jun 2021</span>
+                </div>
+                <p class="timeline-role">Associate - Cloud Infra and Security Intern</p>
+                <ul class="timeline-bullets">
                     <li>Developed proof-of-concepts (PoCs) focused on M365 Security and related technologies, demonstrating early interest in cloud security.</li>
                     <li>Integrated Okta and Azure AD for centralized identity management and streamlined authentication.</li>
                     <li>Built Azure Monitor and Dynatrace dashboards for proactive threat monitoring and alerting.</li>
                     <li>Leveraged Microsoft Defender for Office 365 to enhance real-time email threat protection.</li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="education">
-                <h4>Government Engineering College, Ajmer</h4>
-                <p class="dates">Jul 2018 – Jul 2022</p>
-                <p>Bachelor of Technology - B.Tech (Computer Science & Engineering)<br>GPA: 7.94/10.0</p>
+    <hr class="divider">
+
+    <!-- Education -->
+    <section class="section" id="education">
+        <div class="section-header reveal">
+            <p class="section-label">// Education</p>
+            <h2 class="section-title">Academic <span class="accent">Background</span></h2>
+        </div>
+        <div class="edu-card reveal">
+            <div>
+                <h3>Government Engineering College, Ajmer</h3>
+                <p class="degree">Bachelor of Technology &mdash; B.Tech (Computer Science &amp; Engineering)</p>
             </div>
-        </section>
+            <div class="edu-right">
+                <p class="dates">Jul 2018 &ndash; Jul 2022</p>
+                <p class="gpa">7.94/10</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skills-category">
-                    <h5>Technologies</h5>
-                    <p>Cloud Security, DevSecOps, Security Automation, SOC Implementation, Incident Response, Threat Detection, SIEM, Vulnerability Assessment, Penetration Testing, IAM, Security Policy Management, SAST, DAST, IaC Security, SCA, ASPM, CSPM, SOAR, DLP, Security Infrastructure Development</p>
-                </div>
-                <div class="skills-category">
-                    <h5>Tools</h5>
-                    <p>AWS, GCP, Azure, Python, Google Apps Script, Burp Suite, Nmap, Wireshark, Metasploit, Docker, Jenkins, Git, Kubernetes, OWASP ZAP, Trend Micro, Sophos, CrowdStrike, NetSkope, Cloudflare, CheckPoint, Coralogix, Cisco Meraki, DNSFilter, Mimecast, Qualys, Rapid7, Google Chronicle, Okta, Azure AD</p>
-                </div>
-                <div class="skills-category">
-                    <h5>Frameworks/Standards</h5>
-                    <p>CIS Critical Security Controls, PCI-DSS, ISO/IEC 27001</p>
-                </div>
-                <div class="skills-category">
-                    <h5>Languages</h5>
-                    <p>English, Hindi</p>
+    <hr class="divider">
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <div class="section-header reveal">
+            <p class="section-label">// Arsenal</p>
+            <h2 class="section-title">Skills &amp; <span class="accent">Tools</span></h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <h4>Technologies</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Cloud Security</span>
+                    <span class="skill-tag">DevSecOps</span>
+                    <span class="skill-tag">Security Automation</span>
+                    <span class="skill-tag">SOC</span>
+                    <span class="skill-tag">Incident Response</span>
+                    <span class="skill-tag">Threat Detection</span>
+                    <span class="skill-tag">SIEM</span>
+                    <span class="skill-tag">Vuln Assessment</span>
+                    <span class="skill-tag">Pentesting</span>
+                    <span class="skill-tag">IAM</span>
+                    <span class="skill-tag">SAST</span>
+                    <span class="skill-tag">DAST</span>
+                    <span class="skill-tag">IaC Security</span>
+                    <span class="skill-tag">SCA</span>
+                    <span class="skill-tag">ASPM</span>
+                    <span class="skill-tag">CSPM</span>
+                    <span class="skill-tag">SOAR</span>
+                    <span class="skill-tag">DLP</span>
                 </div>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2 class="section-title">Personal Learning Projects</h2>
-            <div class="projects">
-                <ul>
-                    <li><strong>Enterprise SOAR Workflow Automation</strong> – Built an enterprise SOAR workflow integrating CheckPoint, Entra ID, Okta, Mimecast, Jira, ServiceDesk, PagerDuty, CrowdStrike XDR, Exchange Online, Google Workspace, AWS, and GenAI-based analysis and enrichment to automate incident response actions triggered from SIEM detections across multiple subsidiaries, reducing MTTR.</li>
-                    <li><strong>DevSecOps Pipeline with Open-Source Tools</strong> – Implemented an open-source DevSecOps pipeline using Jenkins, integrating tools like Semgrep, Checkov, Trivy, Gitleaks, OWASP ZAP, and AWS ECR scanning with automated parsing and reporting to Jira and DefectDojo for streamlined security management.</li>
-                    <li><strong>Phishing Awareness Platform with Gophish</strong> – Developed a phishing awareness platform using Gophish, hosted securely on AWS EC2 with Amazon SES integration to run large-scale phishing simulations and improve employee security awareness.</li>
-                </ul>
+            <div class="skill-card reveal">
+                <h4>Tools & Platforms</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">Nmap</span>
+                    <span class="skill-tag">Wireshark</span>
+                    <span class="skill-tag">Metasploit</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">OWASP ZAP</span>
+                    <span class="skill-tag">CrowdStrike</span>
+                    <span class="skill-tag">NetSkope</span>
+                    <span class="skill-tag">Cloudflare</span>
+                    <span class="skill-tag">CheckPoint</span>
+                    <span class="skill-tag">Coralogix</span>
+                    <span class="skill-tag">Qualys</span>
+                    <span class="skill-tag">Rapid7</span>
+                    <span class="skill-tag">Google Chronicle</span>
+                    <span class="skill-tag">Okta</span>
+                    <span class="skill-tag">Azure AD</span>
+                </div>
             </div>
-        </section>
+            <div class="skill-card reveal">
+                <h4>Frameworks / Standards</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">CIS Critical Security Controls</span>
+                    <span class="skill-tag">PCI-DSS</span>
+                    <span class="skill-tag">ISO/IEC 27001</span>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <h4>Languages</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">English</span>
+                    <span class="skill-tag">Hindi</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="certifications">
+    <hr class="divider">
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <div class="section-header reveal">
+            <p class="section-label">// Projects</p>
+            <h2 class="section-title">Personal Learning <span class="accent">Projects</span></h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal">
+                <span class="label">GenAI + Security</span>
+                <h3>GenAI-Based Security Alert Triage</h3>
+                <p>Developed a GenAI-powered triage engine using Claude with MCP-based integrations to fetch context from SIEM, XDR, ticketing systems, historical incidents, and SOPs, enabling intelligent alert analysis across EDR, Cloud, and Application Security domains with automated TP/FP classification, enrichment, and actionable response recommendations.</p>
+                <div class="project-tech">
+                    <span>Claude</span><span>MCP</span><span>SIEM</span><span>XDR</span><span>GenAI</span>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <span class="label">Automation</span>
+                <h3>Enterprise SOAR Workflow Automation</h3>
+                <p>Built an enterprise SOAR workflow integrating CheckPoint, Entra ID, Okta, Mimecast, Jira, ServiceDesk, PagerDuty, CrowdStrike XDR, Exchange Online, Google Workspace, AWS, and GenAI-based analysis and enrichment to automate incident response actions triggered from SIEM detections across multiple subsidiaries, reducing MTTR.</p>
+                <div class="project-tech">
+                    <span>SOAR</span><span>CrowdStrike</span><span>Okta</span><span>Jira</span><span>PagerDuty</span>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <span class="label">DevSecOps</span>
+                <h3>DevSecOps Pipeline with Open-Source Tools</h3>
+                <p>Implemented an open-source DevSecOps pipeline using Jenkins, integrating tools like Semgrep, Checkov, Trivy, Gitleaks, OWASP ZAP, and AWS ECR scanning with automated parsing and reporting to Jira and DefectDojo for streamlined security management.</p>
+                <div class="project-tech">
+                    <span>Jenkins</span><span>Semgrep</span><span>Checkov</span><span>Trivy</span><span>DefectDojo</span>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <span class="label">SIEM</span>
+                <h3>SIEM with 100+ Data Sources</h3>
+                <p>Implemented a comprehensive SIEM solution integrating 100+ data sources with custom integrations, parsers, correlation rules, and SOAR response workflows to enhance enterprise-wide threat detection and automated incident response.</p>
+                <div class="project-tech">
+                    <span>SIEM</span><span>SOAR</span><span>Coralogix</span><span>Threat Detection</span><span>Automation</span>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <span class="label">Cloud Security</span>
+                <h3>KSPM & ASPM Implementation</h3>
+                <p>Deployed KSPM across 15+ Kubernetes clusters for real-time workload monitoring, behavioral threat detection, and automated policy enforcement. Implemented ASPM for comprehensive application security posture management across 500+ repositories.</p>
+                <div class="project-tech">
+                    <span>KSPM</span><span>ASPM</span><span>Kubernetes</span><span>Runtime Security</span><span>DevSecOps</span>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <span class="label">Awareness</span>
+                <h3>Phishing Awareness Platform with Gophish</h3>
+                <p>Developed a phishing awareness platform using Gophish, hosted securely on AWS EC2 with Amazon SES integration to run large-scale phishing simulations and improve employee security awareness.</p>
+                <div class="project-tech">
+                    <span>Gophish</span><span>AWS EC2</span><span>Amazon SES</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Certifications -->
+    <section class="section" id="certifications">
+        <div class="section-header reveal">
+            <p class="section-label">// Credentials</p>
             <h2 class="section-title">Certifications</h2>
-            <div class="certifications">
-                <ul>
-                    <li>CompTIA Security+</li>
-                    <li>AWS Certified Security - Specialty</li>
-                    <li>Google Cloud Professional Cloud Security Engineer</li>
-                    <li>Docker Foundations Professional Certificate</li>
-                    <li>AWS Certified Cloud Practitioner</li>
-                    <li>Microsoft 365 Certified: Security Administrator Associate</li>
-                </ul>
+        </div>
+        <div class="certs-list">
+            <a href="https://www.credly.com/badges/03a5e167-24bb-4a15-95b3-23372efea58d" target="_blank" class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>CISSP (Certified Information Systems Security Professional)</span>
+            </a>
+            <a href="https://www.credly.com/badges/3c5c791f-8441-48c7-9996-9ac55951a330" target="_blank" class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>CompTIA Security+</span>
+            </a>
+            <a href="https://www.credly.com/badges/998d3409-9ec4-4fb0-b1f9-9437f53178fd" target="_blank" class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>AWS Certified Security - Specialty</span>
+            </a>
+            <a href="https://www.credly.com/badges/6caa10ea-a646-44ed-815b-63780da522bd" target="_blank" class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>Google Cloud Professional Cloud Security Engineer</span>
+            </a>
+            <div class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>Docker Foundations Professional Certificate</span>
             </div>
-        </section>
-    </main>
+            <div class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>AWS Certified Cloud Practitioner</span>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-badge">&#9733;</div>
+                <span>Microsoft Certified: Azure Security Engineer Associate</span>
+            </div>
+        </div>
+    </section>
 
-    <footer class="container">
-        <p>&copy; 2025 Sunil Kumar — tharvid.in</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">&copy; 2025 Sunil Kumar &mdash; tharvid.in</div>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="blog.html" class="footer-link">Blog</a>
+                <a href="https://www.linkedin.com/in/tharvid/" class="footer-link" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tharVid/" class="footer-link" target="_blank">GitHub</a>
+                <a href="mailto:stharvid@gmail.com" class="footer-link">Contact</a>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Blinking Effect for Logo
-        const blinking = document.getElementById('blinking');
-        if (blinking) {
-          setInterval(() => {
-            blinking.style.opacity = blinking.style.opacity === '0' ? '1' : '0';
-          }, 500);
-        }
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 
-        // Subtle Matrix Code Rain - Matching Home
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-
-        function draw() {
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = '#00ff41';
-          ctx.font = `${fontSize}px monospace`;
-          drops.forEach((y, i) => {
-            const text = chars[Math.floor(Math.random() * chars.length)];
-            ctx.fillText(text, i * fontSize, y * fontSize);
-            if (y * fontSize > canvas.height && Math.random() > 0.975) {
-              drops[i] = 0;
-            }
-            drops[i]++;
-          });
-        }
-
-        setInterval(draw, 50);
-
-        window.addEventListener('resize', () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
 
-        // Dark Mode Toggle
-        function toggleDarkMode() {
-          document.body.classList.toggle('dark');
+        // Particles
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            const count = Math.min(50, Math.floor(window.innerWidth / 20));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.2 + 0.3,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: (Math.random() - 0.5) * 0.3,
+                    opacity: Math.random() * 0.3 + 0.05
+                });
+            }
         }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, i) => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 255, 65, ${p.opacity})`;
+                ctx.fill();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = p.x - particles[j].x;
+                    const dy = p.y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${0.04 * (1 - dist / 100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(drawParticles);
+        }
+
+        initParticles();
+        drawParticles();
+        window.addEventListener('resize', initParticles);
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

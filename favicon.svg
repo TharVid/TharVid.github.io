@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0a0a0f"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#00ff41" stroke-width="2" opacity="0.3"/>
+  <text x="32" y="44" font-family="monospace" font-weight="bold" font-size="36" fill="#00ff41" text-anchor="middle">S</text>
+  <text x="32" y="44" font-family="monospace" font-weight="bold" font-size="36" fill="#00ff41" text-anchor="middle" opacity="0.4" filter="url(#glow)">S</text>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>

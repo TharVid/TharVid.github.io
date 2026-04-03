@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Building a GenAI-Powered Security Alert Triage System | Sunil Kumar</title>
+    <meta name="description" content="How I built a GenAI-powered security alert triage engine that enriches, classifies, and responds to security alerts using Claude and MCP integrations.">
+    <meta name="keywords" content="GenAI, Security, Alert Triage, Claude, MCP, SOC, SIEM, Automation, DevSecOps">
+    <meta name="author" content="Sunil Kumar">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-RTHNKPNXTJ');</script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --neon: #00ff41; --neon-dim: rgba(0,255,65,0.15); --neon-glow: rgba(0,255,65,0.4); --cyan: #00e5ff; --dark-bg: #0a0a0f; --card-bg: rgba(15,15,25,0.7); --card-border: rgba(0,255,65,0.15); --text: #e2e8f0; --text-dim: #94a3b8; --gradient-1: linear-gradient(135deg, #00ff41, #00e5ff); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--dark-bg); line-height: 1.7; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 50%, rgba(0,255,65,0.03) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(0,229,255,0.03) 0%, transparent 50%); z-index: 0; pointer-events: none; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 2rem; background: rgba(10,10,15,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--card-border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.25rem; color: var(--neon); text-shadow: 0 0 10px var(--neon-glow); text-decoration: none; }
+        .logo .cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--neon); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+        .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover { color: var(--neon); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
+        .hamburger span { width: 24px; height: 2px; background: var(--neon); transition: all 0.3s; border-radius: 1px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); z-index: 999; justify-content: center; align-items: center; flex-direction: column; gap: 2rem; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--neon); }
+        .article-header { position: relative; z-index: 2; padding: 7rem 2rem 2rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .article-header h1 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); }
+        .article-meta .tag { padding: 0.2rem 0.75rem; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); border-radius: 100px; color: var(--cyan); }
+        .article-body { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--neon); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border); }
+        .article-body h3 { font-size: 1.15rem; font-weight: 600; color: var(--cyan); margin: 1.5rem 0 0.5rem; }
+        .article-body p { color: var(--text-dim); margin-bottom: 1.2rem; }
+        .article-body strong { color: var(--text); }
+        .article-body ul, .article-body ol { padding-left: 1.25rem; margin-bottom: 1.2rem; color: var(--text-dim); }
+        .article-body li { margin-bottom: 0.5rem; }
+        .article-body a { color: var(--cyan); text-decoration: none; transition: color 0.3s; }
+        .article-body a:hover { color: var(--neon); }
+        .article-body code { font-family: 'JetBrains Mono', monospace; background: rgba(0,255,65,0.08); border: 1px solid rgba(0,255,65,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; color: var(--neon); }
+        .callout { background: var(--card-bg); border: 1px solid var(--card-border); border-left: 3px solid var(--neon); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; color: var(--text-dim); }
+        .callout strong { color: var(--neon); }
+        .flow-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; line-height: 1.8; color: var(--cyan); }
+        .footer { position: relative; z-index: 2; border-top: 1px solid var(--card-border); padding: 3rem 2rem; text-align: center; }
+        .footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); }
+        .footer a { color: var(--cyan); text-decoration: none; } .footer a:hover { color: var(--neon); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--neon); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; transition: gap 0.3s; }
+        .back-link:hover { gap: 0.75rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .article-header { padding: 6rem 1.25rem 1.5rem; } .article-body { padding: 1.5rem 1.25rem 3rem; } }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="../index.html" class="logo">sunil@tharvid<span class="cursor"></span></a><ul class="nav-links"><li><a href="../index.html" class="nav-link">Home</a></li><li><a href="../about.html" class="nav-link">About</a></li><li><a href="../blog.html" class="nav-link">Blog</a></li><li><a href="mailto:stharvid@gmail.com" class="nav-link">Contact</a></li></ul><button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button></div></nav>
+    <div class="mobile-menu" id="mobileMenu"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="mailto:stharvid@gmail.com">Contact</a></div>
+
+    <header class="article-header">
+        <h1>Building a GenAI-Powered Security Alert Triage System</h1>
+        <div class="article-meta"><span class="tag">Apr 2026</span> &middot; GenAI + Security</div>
+    </header>
+
+    <article class="article-body">
+        <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
+
+        <p>If you work in security operations, you know the pain: hundreds of alerts a day across EDR, CSPM, application security, DNS threat feeds, and vulnerability scanners -most of which are noise. Analysts spend hours pulling context from five different consoles just to determine if something is a true positive or a known false positive they've already triaged last week.</p>
+
+        <p>I built a GenAI-powered triage engine to fix this. It takes a ticket ID, automatically enriches the alert with context from every relevant source, runs the analysis through Claude, and posts a structured triage report back to the ticketing system -all in under a minute.</p>
+
+        <p>Here's what I learned building it.</p>
+
+        <h2>The Problem: Alert Fatigue Is Real</h2>
+
+        <p>In any enterprise environment, security alerts come from everywhere:</p>
+        <ul>
+            <li><strong>Cloud security posture (CSPM)</strong> -Indicators of Attack across AWS, Azure, and GCP</li>
+            <li><strong>Endpoint detection (EDR)</strong> -Behavioral detections, malware, suspicious processes</li>
+            <li><strong>Application security</strong> -Web attacks, SQL injection attempts, scanner activity</li>
+            <li><strong>DNS threat feeds</strong> -Malware C2 domains, phishing, suspicious queries</li>
+            <li><strong>Vulnerability detections</strong> - Network-exploitable CVEs flagged across the fleet</li>
+            <li><strong>Phishing and email threats</strong> - Reported phishing emails, suspicious attachments, credential harvesting attempts</li>
+        </ul>
+
+        <p>Each alert type requires different enrichment. A cloud IOA needs cloud account context, permission analysis, and IP reputation. A DNS threat needs process-level context from the SIEM -what actually made the DNS query? A vulnerability needs CVSS scoring, CISA KEV status, and patch availability.</p>
+
+        <p>An analyst doing this manually is opening 5-10 tabs per alert. Multiply that by dozens of daily tickets, and you get burnout.</p>
+
+        <h2>The Approach: Context-First Triage</h2>
+
+        <p>The core idea is simple: <strong>gather all the context an analyst would need, then let an LLM reason over it.</strong></p>
+
+        <p>The system works as a webhook-triggered service. When a new security ticket is created, it receives the ticket ID and kicks off the full triage pipeline:</p>
+
+        <div class="flow-box">
+            1. Receive ticket ID via webhook<br>
+            2. Fetch ticket details + conversation history<br>
+            3. Detect alert type (CSPM, EDR, AppSec, DNS, Vuln, Phishing)<br>
+            4. Route to type-specific enrichment pipeline<br>
+            5. Pull context from 5-10 APIs in parallel<br>
+            6. Search knowledge base for similar past triages<br>
+            7. Search ticketing system for related historical tickets<br>
+            8. Build comprehensive prompt with all context<br>
+            9. Run analysis through Claude with MCP tool access<br>
+            10. Post structured triage report back to ticket
+        </div>
+
+        <h2>Multi-Source Enrichment</h2>
+
+        <p>The enrichment layer is where the real value lives. For each alert type, the system pulls different context:</p>
+
+        <h3>Cloud IOA (CSPM) Detections</h3>
+        <ul>
+            <li>Parse the detection payload for user, source IP, resource, and action</li>
+            <li>Look up the cloud account to identify the owning team</li>
+            <li>Classify any OAuth scopes or permissions by risk level (sensitive vs. benign)</li>
+            <li>Check IP reputation via threat intelligence APIs</li>
+            <li>Determine if the source host is managed (corporate device vs. unknown)</li>
+            <li>Pull prior tickets mentioning the same application or resource</li>
+        </ul>
+
+        <h3>Application Security Alerts</h3>
+        <ul>
+            <li>Fetch the raw signal data from the SIEM, including attack payloads</li>
+            <li>Analyze HTTP status codes -did the attack actually succeed (200) or get blocked (403/404)?</li>
+            <li>Check if the source IP is a known scanner or hosting provider</li>
+            <li>Determine if the targeted environment is production or staging</li>
+            <li>Look at whether the WAF blocked the request before it reached the application</li>
+        </ul>
+
+        <h3>DNS Threat Detections</h3>
+        <ul>
+            <li>Extract the queried domain and check reputation across threat intelligence feeds</li>
+            <li>Identify which internal hosts made the query</li>
+            <li>Query the SIEM for process-level context -which process on which host triggered the DNS lookup</li>
+            <li>Check if the host is running a managed endpoint agent</li>
+            <li>Assess hit count: single probe vs. repeated beacon-like queries</li>
+        </ul>
+
+        <h3>Vulnerability Detections</h3>
+        <ul>
+            <li>Parse the CVE, CVSS score, and attack vector</li>
+            <li>Check CISA Known Exploited Vulnerabilities catalog</li>
+            <li>Query for all affected hosts and their exposure (internet-facing vs. internal)</li>
+            <li>Check patch availability and remediation status</li>
+            <li>Prioritize: CISA KEV + network-exploitable + production = critical</li>
+        </ul>
+
+        <h3>Phishing and Email Threat Analysis</h3>
+        <ul>
+            <li>Extract sender details, reply-to addresses, and header anomalies (SPF/DKIM/DMARC failures)</li>
+            <li>Analyze URLs in the email body - check against threat intelligence feeds and sandbox detonation results</li>
+            <li>Inspect attachments for known malware signatures and suspicious file types</li>
+            <li>Assess targeting: mass campaign vs. spear-phishing (who received it, how many users clicked)</li>
+            <li>Check if the sender domain is a lookalike or typosquat of a known trusted domain</li>
+            <li>Correlate with EDR telemetry - did any user who clicked the link have subsequent suspicious process execution?</li>
+        </ul>
+
+        <h2>How It Pulls Context: MCP (Model Context Protocol)</h2>
+
+        <p>This is the core differentiator. The system doesn't use traditional REST API calls to gather context. Instead, it uses <strong>MCP (Model Context Protocol)</strong> to give Claude direct, live access to security tools.</p>
+
+        <p>MCP turns security platforms into tools that Claude can call on its own. Instead of writing rigid API integration code for every enrichment step, you define MCP servers for your security tools, and Claude decides which ones to call based on the alert context:</p>
+
+        <ul>
+            <li><strong>EDR/XDR tools</strong> - Claude queries host details, alert entities, device posture, and detection context directly through MCP</li>
+            <li><strong>SIEM</strong> - Claude runs log queries to fetch process-level context, DNS events, and correlated signals</li>
+            <li><strong>Threat intelligence</strong> - IP reputation, domain reputation, and IOC lookups happen as MCP tool calls</li>
+            <li><strong>Ticketing systems</strong> - Claude fetches ticket details, conversation history, and searches for similar past tickets</li>
+            <li><strong>Vulnerability scanners</strong> - Claude queries for affected hosts, CVE details, and remediation status</li>
+        </ul>
+
+        <p>The power of this approach is that Claude can <strong>adaptively investigate</strong>. If a host lookup reveals something interesting, it can pivot and query related alerts for that host, check device posture, or look up the user's recent activity. For complex detections, it can take multiple investigative turns, querying different MCP tools to build a complete picture. This mirrors how a human analyst actually works.</p>
+
+        <p>On top of MCP-based live investigation, the system also builds a comprehensive prompt that includes:</p>
+        <ul>
+            <li>The original alert data and ticket description</li>
+            <li>All pre-fetched enrichment results (IP reputation, host status, cloud account info, etc.)</li>
+            <li>Alert-type-specific triage guidance (decision frameworks for TP/FP classification)</li>
+            <li>Relevant knowledge base entries from past triages</li>
+            <li>Similar historical tickets and their resolutions</li>
+        </ul>
+
+        <div class="callout">
+            <strong>Why MCP over traditional APIs:</strong> Traditional automation scripts follow rigid decision trees - you hardcode every API call and every branching condition. With MCP, the AI decides what to investigate next based on what it's already found. You define the tools once, and the AI figures out the investigation path. This is the difference between "here's some data, what do you think?" and "here are some tools, go investigate this alert."
+        </div>
+
+        <h2>The Knowledge Base: Learning from Every Triage</h2>
+
+        <p>One of the most impactful features is the self-growing knowledge base. After every triage, the system generates a structured entry:</p>
+        <ul>
+            <li>Searchable keywords extracted from the alert</li>
+            <li>A concise summary: what happened, root cause, resolution, and guidance for next time</li>
+            <li>The alert category and classification result</li>
+        </ul>
+
+        <p>On the next triage, the system searches this knowledge base for relevant past entries and includes them in the prompt. This means:</p>
+        <ul>
+            <li><strong>Repeated patterns get faster.</strong> If the same Azure policy fires every month during certificate rotation, the KB knows it's a known false positive.</li>
+            <li><strong>Institutional knowledge persists.</strong> Even when team members rotate, the reasoning behind past decisions is preserved.</li>
+            <li><strong>Edge cases get handled.</strong> The KB captures nuances that wouldn't fit in a static runbook -like "this specific app was approved by the security team in ticket #12345."</li>
+        </ul>
+
+        <h2>TP/FP Classification: Not Just Rules</h2>
+
+        <p>The triage logic isn't a simple if/else decision tree. It combines structured guidance with contextual reasoning:</p>
+
+        <h3>False Positive Indicators</h3>
+        <ul>
+            <li>Action from a managed corporate device + clean IP reputation + known team/owner</li>
+            <li>Known scanner IP (hosting provider) + all requests blocked (403/404) + no successful access</li>
+            <li>Routine activity matching a known KB pattern (e.g., monthly certificate rotation)</li>
+            <li>Low-risk OAuth scopes only (openid, profile) with no sensitive access requested</li>
+        </ul>
+
+        <h3>True Positive Indicators</h3>
+        <ul>
+            <li>Unknown application requesting sensitive permissions (mail access, directory write)</li>
+            <li>Source IP with malicious reputation + action outside business hours + unmanaged device</li>
+            <li>Successful HTTP requests (200 status) with attack payloads reaching the application</li>
+            <li>CISA KEV vulnerability with no patch on an internet-facing production host</li>
+            <li>DNS query to a known C2 domain from a process that shouldn't be making external calls</li>
+        </ul>
+
+        <p>The LLM weighs all of these signals together, considers the knowledge base, checks similar past tickets, and produces a prioritized assessment with specific next steps.</p>
+
+        <h2>Deployment: Serverless and Scalable</h2>
+
+        <p>The service runs as a containerized application on a serverless platform. Key design decisions:</p>
+        <ul>
+            <li><strong>Webhook-triggered:</strong> Ticketing system fires a webhook on new ticket creation. No polling, no cron jobs.</li>
+            <li><strong>Auto-scaling:</strong> Scales from zero to handle bursts. Most of the time, it's idle.</li>
+            <li><strong>Persistent knowledge base:</strong> The KB is stored on a cloud storage volume mount, surviving container restarts and redeployments.</li>
+            <li><strong>Secret management:</strong> All API credentials managed through the cloud provider's secret manager. Nothing hardcoded.</li>
+            <li><strong>Audit trail:</strong> Every API call made during triage is logged and returned in the response.</li>
+        </ul>
+
+        <h2>Results</h2>
+
+        <p>After deploying the system:</p>
+        <ul>
+            <li><strong>Triage time dropped from 15-30 minutes to under 60 seconds</strong> per alert</li>
+            <li><strong>Consistent quality:</strong> Every triage follows the same enrichment and analysis process, regardless of the analyst's experience level</li>
+            <li><strong>Knowledge compounds:</strong> The KB now has 70+ entries, and common alert patterns are resolved almost instantly with references to past decisions</li>
+            <li><strong>Analyst focus shifts:</strong> Instead of spending time on context gathering, analysts review the AI's triage report and make the final call on escalation</li>
+            <li><strong>Cost tracking:</strong> Every triage logs token usage and cost, making it easy to measure ROI</li>
+        </ul>
+
+        <h2>Lessons Learned</h2>
+
+        <h3>1. Context is everything</h3>
+        <p>An LLM is only as good as the context you give it. The difference between a useless "this alert might be suspicious" and a precise "this is a false positive because the action was performed by the IT admin from a managed device during a scheduled maintenance window" is entirely about enrichment quality.</p>
+
+        <h3>2. Start with the analyst's workflow</h3>
+        <p>I built this by literally documenting what I do when I triage each alert type. What tabs do I open? What do I search for? What questions do I ask? The system automates that exact workflow.</p>
+
+        <h3>3. The knowledge base is the moat</h3>
+        <p>The KB is what makes this system compound in value over time. Static runbooks go stale. A self-growing KB that captures the reasoning behind every decision stays relevant because it evolves with the threat landscape.</p>
+
+        <h3>4. MCP changes the game</h3>
+        <p>Being able to give the AI live API access means it can investigate, not just analyze. The difference between "here's some data, what do you think?" and "here are some tools, go investigate this alert" is transformative.</p>
+
+        <h3>5. Keep the human in the loop</h3>
+        <p>This system triages, it doesn't remediate. The output is a recommendation posted to the ticket. A human analyst reviews it and decides on action. This is intentional -for security decisions, you want human judgment on the final call.</p>
+
+        <h2>What's Next</h2>
+
+        <p>I'm exploring extending the system to handle automated response actions for high-confidence false positives (auto-close with documented reasoning), integrating more threat intelligence feeds, and expanding the alert type coverage. The goal is to get analysts focused on the 10% of alerts that actually matter, while the system handles the 90% that are noise.</p>
+
+        <p>If you're building something similar or want to discuss GenAI in security operations, feel free to reach out on <a href="https://www.linkedin.com/in/tharvid">LinkedIn</a>.</p>
+    </article>
+
+    <footer class="footer"><p>&copy; 2025 Sunil Kumar -<a href="https://tharvid.in">tharvid.in</a></p></footer>
+    <script>
+        const hamburger = document.getElementById('hamburger'); const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); document.body.style.overflow = ''; }));
+    </script>
+</body>
+</html>

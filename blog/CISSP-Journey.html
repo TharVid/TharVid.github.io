@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CISSP Journey | Tharvid</title>
-
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>My CISSP Journey | Sunil Kumar</title>
+    <meta name="description" content="Sunil Kumar's CISSP certification journey - from hands-on engineer to CISSP, passed at 100 questions.">
+    <meta name="author" content="Sunil Kumar">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,170 +14,210 @@
       gtag('js', new Date());
       gtag('config', 'G-RTHNKPNXTJ');
     </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --neon: #00ff41; --neon-dim: rgba(0,255,65,0.15); --neon-glow: rgba(0,255,65,0.4);
+            --cyan: #00e5ff; --dark-bg: #0a0a0f; --card-bg: rgba(15,15,25,0.7);
+            --card-border: rgba(0,255,65,0.15); --text: #e2e8f0; --text-dim: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #00ff41, #00e5ff);
+        }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background-color: #0f172a;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text); background: var(--dark-bg); line-height: 1.7; overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(0,255,65,0.03) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(0,229,255,0.03) 0%, transparent 50%);
+            z-index: 0; pointer-events: none;
         }
-        h1 {
-            color: #60a5fa;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            color: #94a3b8;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #38bdf8;
-            margin-top: 20px;
-        }
-        p {
-            margin-bottom: 1.2rem;
-        }
-        ul {
-            margin-bottom: 1.2rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-        a {
-            color: #38bdf8;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .highlight {
-            color: #f8fafc;
-            font-weight: 600;
-        }
-        .quote-box {
-            background-color: #0f172a;
-            border-left: 4px solid #38bdf8;
-            padding: 15px 20px;
-            margin: 20px 0;
-            font-style: italic;
+        /* Nav */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 2rem;
+            background: rgba(10,10,15,0.85); backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--card-border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.25rem;
+            color: var(--neon); text-shadow: 0 0 10px var(--neon-glow); text-decoration: none; }
+        .logo .cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--neon);
+            margin-left: 2px; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+        .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover { color: var(--neon); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; }
+        .hamburger span { width: 24px; height: 2px; background: var(--neon); transition: all 0.3s; border-radius: 1px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.97); backdrop-filter: blur(20px); z-index: 999;
+            justify-content: center; align-items: center; flex-direction: column; gap: 2rem; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: color 0.3s; }
+        .mobile-menu a:hover { color: var(--neon); }
+        /* Article */
+        .article-header { position: relative; z-index: 2; padding: 7rem 2rem 2rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .article-header h1 { font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem;
+            background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); }
+        .article-meta .tag { padding: 0.2rem 0.75rem; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.15); border-radius: 100px; color: var(--cyan); }
+        .article-body { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--neon); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border); }
+        .article-body h3 { font-size: 1.15rem; font-weight: 600; color: var(--cyan); margin: 1.5rem 0 0.5rem; }
+        .article-body p { color: var(--text-dim); margin-bottom: 1.2rem; }
+        .article-body ul { padding-left: 1.25rem; margin-bottom: 1.2rem; color: var(--text-dim); }
+        .article-body li { margin-bottom: 0.5rem; }
+        .article-body a { color: var(--cyan); text-decoration: none; transition: color 0.3s; }
+        .article-body a:hover { color: var(--neon); }
+        .article-body .highlight { color: var(--text); font-weight: 600; }
+        .quote-box { background: var(--card-bg); border-left: 3px solid var(--neon); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;
+            font-style: italic; color: var(--text-dim); border: 1px solid var(--card-border); border-left: 3px solid var(--neon); }
+        /* Footer */
+        .footer { position: relative; z-index: 2; border-top: 1px solid var(--card-border); padding: 3rem 2rem; text-align: center; }
+        .footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); }
+        .footer a { color: var(--cyan); text-decoration: none; }
+        .footer a:hover { color: var(--neon); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--neon); text-decoration: none;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem; transition: gap 0.3s; }
+        .back-link:hover { gap: 0.75rem; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .article-header { padding: 6rem 1.25rem 1.5rem; }
+            .article-body { padding: 1.5rem 1.25rem 3rem; }
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>My CISSP Journey</h1>
-    <p><strong>Passed at 100 Questions</strong></p>
-    
-    <p>Clearing the CISSP exam felt unreal, especially when it ended at 100 questions with nearly 70 minutes remaining. This blog is my attempt to document the journey, resources, mindset, and lessons learned, and hopefully help others who are preparing for this certification.</p>
-
-    <h2>Background</h2>
-    <p>I am a security generalist by role and passion. Over the years, I have worked across multiple areas including:</p>
-    <ul>
-        <li>Cloud Security (AWS, Azure, GCP)</li>
-        <li>SIEM implementation</li>
-        <li>DevSecOps</li>
-        <li>Risk assessment and compliance</li>
-        <li>Incident Response</li>
-        <li>Security architecture and operations</li>
-    </ul>
-    <p>You can read more about my professional background here: <a href="https://tharvid.in/about.html">https://tharvid.in/about.html</a></p>
-    <p>While I had strong hands-on experience across many CISSP domains, some areas (traditional Networking, Physical Security, and Asset Security) were almost completely new to me.</p>
-
-    <h2>Experience & Certifications</h2>
-    <ul>
-        <li>3.5 years of full-time experience</li>
-        <li>1 year of internship experience</li>
-        <li>Total: Approximately 4.5 years of practical experience</li>
-    </ul>
-    <p>I also hold:</p>
-    <ul>
-        <li>CompTIA Security+</li>
-        <li>AWS Security Specialty</li>
-        <li>Google Professional Cloud Security Engineer</li>
-        <li>Microsoft Azure Security Engineer</li>
-    </ul>
-    <p>Thanks to the one-year experience waiver from AWS Security Specialty, my experience requirement meets the CISSP 5-year eligibility.</p>
-
-    <h2>Motivation & When I Started</h2>
-    <p>I was initially motivated to pursue CISSP by a colleague from my previous company. Later, my current manager, who is also a CISSP, strongly motivated and supported me throughout the journey. While I did not start serious preparation immediately, I was passively consuming CISSP-related content from February 2025, spending about 1 to 2 hours per week. The real preparation started in August 2025, when I purchased the Official CISSP CBK and Official Practice Tests. That is when I decided to take this seriously.</p>
-
-    <h2>Study Resources & What Actually Helped</h2>
-    
-    <h3>Official CISSP CBK</h3>
-    <p>I started with the official CBK, but honestly, I never finished it. The language felt too dense and difficult for me. I used it more as a reference rather than a cover-to-cover study guide.</p>
-
-    <h3>LinkedIn Learning: Mike Chapple (Game Changer)</h3>
-    <p>This was the best resource in my entire journey. It provided clear explanations, was beginner-friendly but still deep, and offered perfect CISSP mindset alignment. I had free access through my employer and completed the entire course in about 2 weeks. If I had to recommend only one resource, this would be it.</p>
-
-    <h3>Andrew Ramdayal (Udemy)</h3>
-    <p>I purchased Andrew Ramdayal’s CISSP course, but completed only about 10%. I mostly watched mindset videos and attempted practice questions. The content felt repetitive to me because by then I was already well prepared. However, his CISSP mindset is extremely valuable.</p>
-
-    <h2>Practice Tests (Most Important Part)</h2>
-    <p>I practiced a lot. This is where confidence came from.</p>
-    <ul>
-        <li><span class="highlight">Official CISSP Practice Tests:</span> All domain-wise questions and all 4 full-length practice exams.</li>
-        <li><span class="highlight">LearnZApp:</span> ISC2 Official App (solved all free questions).</li>
-        <li><span class="highlight">Destination CISSP App:</span> Practiced all free questions.</li>
-        <li><span class="highlight">LinkedIn Learning Practice Exams:</span> This was the final confidence booster. I took 4 full-length CISSP mock exams and scored around 80% consistently.</li>
-    </ul>
-
-    <h2>Exam Scheduling & Travel</h2>
-    <p>I scheduled my exam at the Gurugram, India test center. I am from Rajasthan, but unfortunately, there was no CISSP test center available there. I had to travel nearly 600 km for the exam, but it was worth it.</p>
-
-    <h2>Exam Day Experience</h2>
-    <p>The exam was scheduled for 1:00 PM. I reached the center at 12:00 PM and was allowed entry 30 minutes early. The check-in process was very strict but smooth, involving ID checks, palm vein scans, and test center rules documentation.</p>
-    
-    <p>During the exam, I noted that questions were scenario-based, not fact-based. They required careful reading (often twice or thrice) as keywords mattered significantly. There was some keyboard noise in the testing hall, but I chose to continue without the provided headphones as they felt uncomfortable.</p>
-
-    <h2>The Moment of Truth (100 Questions)</h2>
-    <p>Suddenly, the exam ended and a survey appeared. I panicked. In the CISSP CAT format, stopping at 100 questions means you either did very well or very badly. I was convinced I had failed. After completing the survey, the staff handed me my result. "Congratulations!" That moment was pure joy.</p>
-
-    <h2>Endorsement Status</h2>
-    <p>Endorsement has been submitted with my relieving letters, offer letters, and AWS Security Specialty certificate. I am currently endorsed by another CISSP and waiting for the ISC2 review, which typically takes up to 6 weeks.</p>
-
-    <h2>Final Advice for CISSP Aspirants</h2>
-    
-    <h3>Key Exam Strategies</h3>
-    <ul>
-        <li>Practice, practice, practice.</li>
-        <li>Read questions carefully.</li>
-        <li>Focus on keywords: BEST, FIRST, PRIMARY.</li>
-    </ul>
-
-    <h3>CISSP Mindset</h3>
-    <ul>
-        <li>Process over technology.</li>
-        <li>Prevent, then Detect, then Correct.</li>
-        <li>If a control costs more than the asset, accept the risk.</li>
-        <li>Watch Andrew Ramdayal’s 15 CISSP Mindset Concepts.</li>
-    </ul>
-
-    <div class="quote-box">
-        <strong>Example Question Logic:</strong> How to prevent users from falling for phishing emails? You might consider email security policy, user training, EDR, and encryption. In real life, you do all of them. In the CISSP exam, you choose user training because it is preventive and the best first step.
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">sunil@tharvid<span class="cursor"></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../about.html" class="nav-link">About</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="mailto:stharvid@gmail.com" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="mailto:stharvid@gmail.com">Contact</a>
     </div>
 
-    <h2>Final Words</h2>
-    <p>I am a hands-on security engineer, not a traditional manager. But CISSP does not require you to be a manager; it requires you to think broadly, understand end-to-end security, and apply common sense with a policy-first mindset. If you understand how systems actually work, you can think like a manager.</p>
+    <header class="article-header">
+        <h1>My CISSP Journey: From Hands-On Engineer to CISSP</h1>
+        <div class="article-meta"><span class="tag">Jan 16, 2026</span> &middot; Certification</div>
+    </header>
 
-    <p>Best of luck to everyone preparing for CISSP! Feel free to reach out to me on LinkedIn if you have any questions: <a href="https://www.linkedin.com/in/tharvid">https://www.linkedin.com/in/tharvid</a></p>
-    <p>You have got this. 💪🔐</p>
-</div>
+    <article class="article-body">
+        <a href="../blog.html" class="back-link">&larr; Back to Blog</a>
 
+        <p><strong class="highlight">Passed at 100 Questions</strong></p>
+        <p>Clearing the CISSP exam felt unreal, especially when it ended at 100 questions with nearly 70 minutes remaining. This blog is my attempt to document the journey, resources, mindset, and lessons learned, and hopefully help others who are preparing for this certification.</p>
+
+        <h2>Background</h2>
+        <p>I am a security generalist by role and passion. Over the years, I have worked across multiple areas including:</p>
+        <ul>
+            <li>Cloud Security (AWS, Azure, GCP)</li>
+            <li>SIEM implementation</li>
+            <li>DevSecOps</li>
+            <li>Risk assessment and compliance</li>
+            <li>Incident Response</li>
+            <li>Security architecture and operations</li>
+        </ul>
+        <p>You can read more about my professional background here: <a href="https://tharvid.in/about.html">tharvid.in/about</a></p>
+        <p>While I had strong hands-on experience across many CISSP domains, some areas (traditional Networking, Physical Security, and Asset Security) were almost completely new to me.</p>
+
+        <h2>Experience & Certifications</h2>
+        <ul>
+            <li>3.5 years of full-time experience</li>
+            <li>1 year of internship experience</li>
+            <li>Total: Approximately 4.5 years of practical experience</li>
+        </ul>
+        <p>I also hold:</p>
+        <ul>
+            <li>CompTIA Security+</li>
+            <li>AWS Security Specialty</li>
+            <li>Google Professional Cloud Security Engineer</li>
+            <li>Microsoft Azure Security Engineer</li>
+        </ul>
+        <p>Thanks to the one-year experience waiver from AWS Security Specialty, my experience requirement meets the CISSP 5-year eligibility.</p>
+
+        <h2>Motivation & When I Started</h2>
+        <p>I was initially motivated to pursue CISSP by a colleague from my previous company. Later, my current manager, who is also a CISSP, strongly motivated and supported me throughout the journey. While I did not start serious preparation immediately, I was passively consuming CISSP-related content from February 2025, spending about 1 to 2 hours per week. The real preparation started in August 2025, when I purchased the Official CISSP CBK and Official Practice Tests. That is when I decided to take this seriously.</p>
+
+        <h2>Study Resources & What Actually Helped</h2>
+        <h3>Official CISSP CBK</h3>
+        <p>I started with the official CBK, but honestly, I never finished it. The language felt too dense and difficult for me. I used it more as a reference rather than a cover-to-cover study guide.</p>
+        <h3>LinkedIn Learning: Mike Chapple (Game Changer)</h3>
+        <p>This was the best resource in my entire journey. It provided clear explanations, was beginner-friendly but still deep, and offered perfect CISSP mindset alignment. I had free access through my employer and completed the entire course in about 2 weeks. If I had to recommend only one resource, this would be it.</p>
+        <h3>Andrew Ramdayal (Udemy)</h3>
+        <p>I purchased Andrew Ramdayal's CISSP course, but completed only about 10%. I mostly watched mindset videos and attempted practice questions. The content felt repetitive to me because by then I was already well prepared. However, his CISSP mindset is extremely valuable.</p>
+
+        <h2>Practice Tests (Most Important Part)</h2>
+        <p>I practiced a lot. This is where confidence came from.</p>
+        <ul>
+            <li><span class="highlight">Official CISSP Practice Tests:</span> All domain-wise questions and all 4 full-length practice exams.</li>
+            <li><span class="highlight">LearnZApp:</span> ISC2 Official App (solved all free questions).</li>
+            <li><span class="highlight">Destination CISSP App:</span> Practiced all free questions.</li>
+            <li><span class="highlight">LinkedIn Learning Practice Exams:</span> This was the final confidence booster. I took 4 full-length CISSP mock exams and scored around 80% consistently.</li>
+        </ul>
+
+        <h2>Exam Scheduling & Travel</h2>
+        <p>I scheduled my exam at the Gurugram, India test center. I am from Rajasthan, but unfortunately, there was no CISSP test center available there. I had to travel nearly 600 km for the exam, but it was worth it.</p>
+
+        <h2>Exam Day Experience</h2>
+        <p>The exam was scheduled for 1:00 PM. I reached the center at 12:00 PM and was allowed entry 30 minutes early. The check-in process was very strict but smooth, involving ID checks, palm vein scans, and test center rules documentation.</p>
+        <p>During the exam, I noted that questions were scenario-based, not fact-based. They required careful reading (often twice or thrice) as keywords mattered significantly. There was some keyboard noise in the testing hall, but I chose to continue without the provided headphones as they felt uncomfortable.</p>
+
+        <h2>The Moment of Truth (100 Questions)</h2>
+        <p>Suddenly, the exam ended and a survey appeared. I panicked. In the CISSP CAT format, stopping at 100 questions means you either did very well or very badly. I was convinced I had failed. After completing the survey, the staff handed me my result. "Congratulations!" That moment was pure joy.</p>
+
+        <h2>Endorsement Status</h2>
+        <p>Endorsement has been submitted with my relieving letters, offer letters, and AWS Security Specialty certificate. I am currently endorsed by another CISSP and waiting for the ISC2 review, which typically takes up to 6 weeks.</p>
+
+        <h2>Final Advice for CISSP Aspirants</h2>
+        <h3>Key Exam Strategies</h3>
+        <ul>
+            <li>Practice, practice, practice.</li>
+            <li>Read questions carefully.</li>
+            <li>Focus on keywords: BEST, FIRST, PRIMARY.</li>
+        </ul>
+        <h3>CISSP Mindset</h3>
+        <ul>
+            <li>Process over technology.</li>
+            <li>Prevent, then Detect, then Correct.</li>
+            <li>If a control costs more than the asset, accept the risk.</li>
+            <li>Watch Andrew Ramdayal's 15 CISSP Mindset Concepts.</li>
+        </ul>
+
+        <div class="quote-box">
+            <strong>Example Question Logic:</strong> How to prevent users from falling for phishing emails? You might consider email security policy, user training, EDR, and encryption. In real life, you do all of them. In the CISSP exam, you choose user training because it is preventive and the best first step.
+        </div>
+
+        <h2>Final Words</h2>
+        <p>I am a hands-on security engineer, not a traditional manager. But CISSP does not require you to be a manager; it requires you to think broadly, understand end-to-end security, and apply common sense with a policy-first mindset. If you understand how systems actually work, you can think like a manager.</p>
+        <p>Best of luck to everyone preparing for CISSP! Feel free to reach out to me on LinkedIn if you have any questions: <a href="https://www.linkedin.com/in/tharvid">linkedin.com/in/tharvid</a></p>
+    </article>
+
+    <footer class="footer">
+        <p>&copy; 2025 Sunil Kumar &mdash; <a href="https://tharvid.in">tharvid.in</a></p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+            hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); document.body.style.overflow = '';
+        }));
+    </script>
 </body>
 </html>
