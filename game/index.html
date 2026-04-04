@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>TharVid CTF - Sunil Kumar</title>
+    <meta name="description" content="TharVid CTF — a CLI-based Capture The Flag challenge by Sunil Kumar. Test your security skills in this interactive terminal game.">
+    <meta name="keywords" content="CTF, Capture The Flag, Security Challenge, Hacking Game, Sunil Kumar, TharVid">
+    <meta name="author" content="Sunil Kumar">
+    <meta property="og:title" content="TharVid CTF - Think You Can Hack It?">
+    <meta property="og:description" content="A CLI-based security challenge. Breach the system. Capture the flag.">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ctf.css">
+</head>
+<body>
+    <!-- Scanlines -->
+    <div class="scanlines"></div>
+
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="logo">~/sunil<span class="cursor"></span></a>
+            <ul class="nav-links">
+                <li><a href="../about.html" class="nav-link">About</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li><a href="index.html" class="nav-link active">CTF</a></li>
+                <li><a href="https://www.linkedin.com/in/tharvid/" class="nav-link" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/tharVid/" class="nav-link" target="_blank">GitHub</a></li>
+                <li><a href="mailto:stharvid@gmail.com" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../about.html">About</a>
+        <a href="../blog.html">Blog</a>
+        <a href="index.html" class="active">CTF</a>
+        <a href="https://www.linkedin.com/in/tharvid/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/tharVid/" target="_blank">GitHub</a>
+        <a href="mailto:stharvid@gmail.com">Contact</a>
+    </div>
+
+    <!-- Landing Screen -->
+    <div class="ctf-landing" id="ctfLanding">
+        <div class="landing-content">
+            <div class="landing-badge">CAPTURE THE FLAG</div>
+            <h1 class="landing-title"><span class="glitch" data-text="TharVid">TharVid</span><span class="title-accent"> CTF</span></h1>
+            <div class="landing-tagline">
+                <span class="tagline-line" id="tagline"></span><span class="tagline-cursor">_</span>
+            </div>
+            <p class="landing-desc">Breach a fictional server. Five stages. One flag.<br>Do you have what it takes?</p>
+            <button class="start-btn" id="startBtn">
+                <span class="btn-icon">&gt;</span>
+                <span class="btn-text">Initialize Breach</span>
+            </button>
+            <div class="landing-footer">
+                <span class="footer-item"><span class="footer-dot"></span> CLI-based</span>
+                <span class="footer-item"><span class="footer-dot"></span> ~15 min</span>
+                <span class="footer-item"><span class="footer-dot"></span> Hints available</span>
+            </div>
+        </div>
+        <div class="landing-bg-grid"></div>
+    </div>
+
+    <!-- Terminal Screen -->
+    <div class="ctf-terminal" id="ctfTerminal" style="display:none;">
+        <!-- HUD -->
+        <div class="hud">
+            <div class="hud-left">
+                <span class="hud-stage" id="hudStage">STAGE 1/5</span>
+                <span class="hud-title" id="hudTitle">RECON</span>
+            </div>
+            <div class="hud-center">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                </div>
+            </div>
+            <div class="hud-right">
+                <span class="hud-timer" id="hudTimer">00:00</span>
+                <button class="hint-btn" id="hintBtn" title="Get a hint">? <span class="hint-count" id="hintCount">3</span></button>
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal" id="terminal">
+            <div class="terminal-output" id="terminalOutput"></div>
+            <div class="terminal-input-line">
+                <span class="prompt" id="prompt">guest@ctf:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <!-- Completion Screen -->
+    <div class="ctf-complete" id="ctfComplete" style="display:none;">
+        <div class="complete-content">
+            <div class="complete-flag">FLAG{connect_https://linkedin.com/in/tharvid}</div>
+            <a href="https://www.linkedin.com/in/tharvid/" target="_blank" class="connect-btn">Connect with Sunil on LinkedIn</a>
+            <h1 class="complete-title">ACCESS GRANTED</h1>
+            <p class="complete-subtitle">You've breached all 5 layers. Now let's connect.</p>
+            <div class="complete-stats">
+                <div class="stat"><span class="stat-label">Time</span><span class="stat-num" id="finalTime">00:00</span></div>
+                <div class="stat"><span class="stat-label">Hints Used</span><span class="stat-num" id="finalHints">0</span></div>
+                <div class="stat"><span class="stat-label">Rating</span><span class="stat-num" id="finalRating">-</span></div>
+            </div>
+            <div class="complete-actions">
+                <button class="share-btn" id="shareTwitter">Share on X</button>
+                <button class="share-btn linkedin" id="shareLinkedin">Share on LinkedIn</button>
+                <button class="restart-btn" id="restartBtn">$ ./restart</button>
+            </div>
+            <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+        </div>
+    </div>
+
+    <script src="ctf.js?v=6"></script>
+    <script>
+    // Tagline typewriter
+    (function() {
+        var text = 'Think you can hack it?';
+        var el = document.getElementById('tagline');
+        var i = 0;
+        function type() {
+            if (i < text.length) {
+                el.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, 60 + Math.random() * 40);
+            }
+        }
+        setTimeout(type, 800);
+    })();
+    </script>
+</body>
+</html>

@@ -1528,5 +1528,37 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
+
+    <!-- CTF Popup -->
+    <div id="ctfPopup" style="display:none; position:fixed; bottom:2rem; right:2rem; z-index:9998; max-width:320px; background:rgba(15,15,25,0.95); border:1px solid rgba(0,255,65,0.25); border-radius:12px; padding:1.5rem; backdrop-filter:blur(20px); box-shadow:0 0 30px rgba(0,255,65,0.1); font-family:'Inter',sans-serif; animation:popupSlide 0.4s ease;">
+        <button id="ctfPopupClose" style="position:absolute; top:0.5rem; right:0.75rem; background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer; line-height:1;">&times;</button>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#00e5ff; letter-spacing:2px; margin-bottom:0.5rem;">CHALLENGE</div>
+        <div style="font-size:1.1rem; font-weight:700; color:#e2e8f0; margin-bottom:0.5rem;">Want to play a CTF?</div>
+        <div style="font-size:0.85rem; color:#94a3b8; margin-bottom:1rem; line-height:1.5;">Breach a fictional server. 5 stages. One flag. Think you can hack it?</div>
+        <a href="game/index.html" style="display:inline-block; padding:0.6rem 1.5rem; background:#00ff41; color:#0a0a0f; font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; text-decoration:none; border-radius:6px; transition:all 0.3s;">$ ./start_ctf</a>
+    </div>
+    <style>
+        @keyframes popupSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #ctfPopup a:hover {
+            box-shadow: 0 0 20px rgba(0,255,65,0.3);
+        }
+    </style>
+    <script>
+    (function() {
+        var dismissed = sessionStorage.getItem('ctfPopupDismissed');
+        if (dismissed) return;
+        setTimeout(function() {
+            var popup = document.getElementById('ctfPopup');
+            popup.style.display = 'block';
+            document.getElementById('ctfPopupClose').onclick = function() {
+                popup.style.display = 'none';
+                sessionStorage.setItem('ctfPopupDismissed', '1');
+            };
+        }, 5000);
+    })();
+    </script>
 </body>
 </html>
