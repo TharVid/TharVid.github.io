@@ -449,6 +449,8 @@
 
                 if (c === 'help') {
                     printLines([
+                        'Log file: /var/log/auth.log',
+                        '',
                         'Available commands:',
                         '  cat /var/log/auth.log          - Read the auth log',
                         '  grep "<pattern>" /var/log/auth.log  - Search logs',
@@ -722,7 +724,7 @@
                     '[BRIEFING] You\'re in as dr.phantom. You need root access.',
                     'Find a way to escalate your privileges and read the final flag.',
                     '',
-                    'Available commands: ls, cat, find, sudo, id, whoami, file, strings, submit, help',
+                    'Available commands: ls, cat, find, sudo, id, whoami, file, strings, echo, submit, help',
                 ], 'system');
                 printBlank();
             },
@@ -1147,6 +1149,7 @@
             '│  Type "help" at any stage for available commands.       │',
             '│  Type "hint" to use a hint (3 per stage).              │',
             '│  Global: clear, hint, stage, time, reset               │',
+            '│  Tip: You can paste text (IPs, tokens, etc.) directly. │',
             '└─────────────────────────────────────────────────────────┘',
         ], 'system');
         printBlank();
