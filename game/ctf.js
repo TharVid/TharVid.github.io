@@ -261,6 +261,8 @@
                         } else {
                             print('base64: invalid input', 'error');
                         }
+                    } else {
+                        print('Usage: echo <string> | base64 -d', 'error');
                     }
                     return;
                 }
