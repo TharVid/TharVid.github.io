@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>About Sunil Kumar - Senior Security Engineer | CISSP</title>
-    <meta name="description" content="Learn about Sunil Kumar, CISSP-certified Senior Security Engineer with expertise in Cloud Security, DevSecOps, and Security Automation. View experience, skills, and projects.">
-    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, CISSP, Cloud Security, DevSecOps, Experience, Skills, Certifications">
+    <title>About Sunil Kumar (TharVid) - Senior Security Engineer | CISSP | Experience & Skills</title>
+    <meta name="description" content="About Sunil Kumar (TharVid) - CISSP-certified Senior Security Engineer with 5+ years of experience in Cloud Security, DevSecOps, GenAI Security, and Security Automation. View certifications, work history, and technical skills.">
+    <meta name="keywords" content="Sunil Kumar, TharVid, Senior Security Engineer, CISSP, Cloud Security, DevSecOps, AWS Security Specialty, GCP Cloud Security, Security Engineer Resume, Cybersecurity Professional, Porch Group, ACKO Insurance">
     <meta name="author" content="Sunil Kumar">
+    <link rel="canonical" href="https://tharvid.in/about.html">
+    <meta property="og:title" content="About Sunil Kumar (TharVid) - Senior Security Engineer | CISSP">
+    <meta property="og:description" content="CISSP-certified Senior Security Engineer. 5+ years in Cloud Security, DevSecOps, SIEM/SOAR, and GenAI Security.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://tharvid.in/about.html">
+    <meta property="og:site_name" content="Sunil Kumar - TharVid">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@stharvid">
+    <meta name="twitter:title" content="About Sunil Kumar (TharVid) - Senior Security Engineer">
+    <meta name="twitter:description" content="5+ years in Cloud Security, DevSecOps, GenAI Security. CISSP, AWS Security Specialty, GCP Cloud Security.">
+    <meta name="robots" content="index, follow">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -1003,6 +1014,42 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // GA Event Tracking
+        // Resume download
+        document.querySelectorAll('.nav-resume, .mobile-menu a[href*="Resume"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'resume_download', { event_category: 'engagement', event_label: 'Resume Download - About Page' });
+            });
+        });
+
+        // Contact email clicks
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'contact_click', { event_category: 'engagement', event_label: 'Email Contact - About Page' });
+            });
+        });
+
+        // Outbound links (LinkedIn, GitHub, Credly etc.)
+        document.querySelectorAll('a[target="_blank"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'outbound_click', { event_category: 'outbound', event_label: el.href });
+            });
+        });
+
+        // Footer links
+        document.querySelectorAll('.footer-link').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'footer_link_click', { event_category: 'navigation', event_label: el.textContent.trim() });
+            });
+        });
+
+        // Nav link clicks
+        document.querySelectorAll('.nav-link').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'nav_click', { event_category: 'navigation', event_label: el.textContent.trim() + ' - About Page' });
+            });
+        });
     </script>
 </body>
 </html>

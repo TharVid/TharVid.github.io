@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Blog - Sunil Kumar | Security Insights</title>
-    <meta name="description" content="Security engineering blog by Sunil Kumar. Insights on Cloud Security, DevSecOps, certifications, and cybersecurity career tips.">
+    <title>Security Blog by Sunil Kumar (TharVid) | Cloud Security, DevSecOps & CISSP Insights</title>
+    <meta name="description" content="Security engineering blog by Sunil Kumar (TharVid). Insights on Cloud Security, DevSecOps, CISSP certification journey, AWS Security, GenAI Security, CVE breakdowns, and cybersecurity career tips.">
+    <meta name="keywords" content="Sunil Kumar blog, TharVid blog, security engineering blog, CISSP journey, Cloud Security insights, DevSecOps blog, AWS Security tips, GenAI Security, CVE analysis, SOC analyst interview, cybersecurity career">
     <meta name="author" content="Sunil Kumar">
+    <link rel="canonical" href="https://tharvid.in/blog.html">
+    <meta property="og:title" content="Security Blog by Sunil Kumar (TharVid)">
+    <meta property="og:description" content="Cloud Security, DevSecOps, CISSP, GenAI Security insights from a Senior Security Engineer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tharvid.in/blog.html">
+    <meta property="og:site_name" content="Sunil Kumar - TharVid">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@stharvid">
+    <meta name="twitter:title" content="Security Blog by Sunil Kumar (TharVid)">
+    <meta name="twitter:description" content="Cloud Security, DevSecOps, CISSP, and GenAI Security insights.">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Sunil Kumar Security Blog",
+        "url": "https://tharvid.in/blog.html",
+        "description": "Security engineering insights by Sunil Kumar (TharVid)",
+        "author": {"@type": "Person", "name": "Sunil Kumar", "url": "https://tharvid.in"},
+        "blogPost": [
+            {"@type": "BlogPosting", "headline": "How a $ref Stole Your Cloud Keys — CVE-2026-39885", "datePublished": "2026-04-09", "url": "https://tharvid.in/blog/ssrf-mcp-openapi-cve-2026-39885.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "Building a GenAI-Powered Security Alert Triage System", "datePublished": "2026-04-03", "url": "https://tharvid.in/blog/building-genai-security-alert-triage.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "My CISSP Journey: From Hands-On Engineer to CISSP", "datePublished": "2026-01-16", "url": "https://tharvid.in/blog/CISSP-Journey.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "What to Expect in a SOC Analyst Interview", "datePublished": "2024-10-30", "url": "https://tharvid.in/blog/What-to-Expect-in-a-SOC-Analyst-Interview.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "How to Pass AWS Security Specialty", "datePublished": "2024-10-23", "url": "https://tharvid.in/blog/how-to-pass-aws-security-Specialty.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "Fuzzing REST API: Unleashing the Power of Testing", "datePublished": "2023-08-23", "url": "https://tharvid.in/blog/fuzzing-rest-api.html", "author": {"@type": "Person", "name": "Sunil Kumar"}}
+        ]
+    }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -528,6 +558,36 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // GA Event Tracking
+        // Blog post clicks
+        document.querySelectorAll('.blog-card h2 a, .read-more').forEach(function(el) {
+            el.addEventListener('click', function() {
+                var title = el.closest('.blog-card').querySelector('h2 a').textContent.trim();
+                gtag('event', 'blog_post_click', { event_category: 'content', event_label: title });
+            });
+        });
+
+        // Resume download
+        document.querySelectorAll('.nav-resume').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'resume_download', { event_category: 'engagement', event_label: 'Resume Download - Blog Page' });
+            });
+        });
+
+        // Outbound links
+        document.querySelectorAll('a[target="_blank"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'outbound_click', { event_category: 'outbound', event_label: el.href });
+            });
+        });
+
+        // Footer links
+        document.querySelectorAll('.footer-link').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'footer_link_click', { event_category: 'navigation', event_label: el.textContent.trim() });
+            });
+        });
     </script>
 </body>
 </html>

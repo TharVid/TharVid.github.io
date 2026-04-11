@@ -997,6 +997,15 @@
 
     // ── Stage navigation ──
     function nextStage() {
+        // Track the stage that was just completed
+        if (typeof gtag === 'function') {
+            gtag('event', 'stage_complete', {
+                event_category: 'ctf_progress',
+                event_label: 'Stage ' + (currentStage + 1) + ' - ' + stages[currentStage].title,
+                value: currentStage + 1
+            });
+        }
+
         currentStage++;
         if (currentStage >= stages.length) {
             showCompletion();
@@ -1036,11 +1045,26 @@
         var siteUrl = 'https://tharvid.in/game/';
         var linkedinProfile = 'https://www.linkedin.com/in/tharvid/';
 
+        // Track CTF completion
+        if (typeof gtag === 'function') {
+            gtag('event', 'ctf_completed', {
+                event_category: 'ctf_conversion',
+                event_label: rating,
+                value: elapsed
+            });
+        }
+
         shareTwitter.onclick = function () {
+            if (typeof gtag === 'function') {
+                gtag('event', 'share_ctf', { event_category: 'ctf_share', event_label: 'twitter' });
+            }
             window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n' + siteUrl), '_blank');
         };
 
         shareLinkedin.onclick = function () {
+            if (typeof gtag === 'function') {
+                gtag('event', 'share_ctf', { event_category: 'ctf_share', event_label: 'linkedin' });
+            }
             window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(siteUrl), '_blank');
         };
     }
@@ -1085,6 +1109,14 @@
         printBlank();
         print('[HINT ' + (hintIdx + 1) + '/3] ' + hint, 'warning');
         printBlank();
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'hint_used', {
+                event_category: 'ctf_progress',
+                event_label: 'Stage ' + (currentStage + 1) + ' Hint ' + (hintIdx + 1),
+                value: hintsUsed
+            });
+        }
     }
 
     // ── Input handling ──

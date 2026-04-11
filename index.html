@@ -4,14 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Sunil Kumar - Senior Security Engineer | CISSP</title>
-    <meta name="description" content="Sunil Kumar is a CISSP-certified Senior Security Engineer specializing in Cloud Security, DevSecOps, and Security Automation. Explore his portfolio.">
-    <meta name="keywords" content="Sunil Kumar, Senior Security Engineer, CISSP, Cloud Security, DevSecOps, Automation, Cybersecurity">
+    <title>Sunil Kumar (TharVid) - Senior Security Engineer | CISSP | Cloud Security & DevSecOps</title>
+    <meta name="description" content="Sunil Kumar (TharVid) is a CISSP-certified Senior Security Engineer with 5+ years of experience in Cloud Security, DevSecOps, GenAI Security, SIEM/SOAR, and Security Automation. Based in India.">
+    <meta name="keywords" content="Sunil Kumar, TharVid, tharvid, Senior Security Engineer, CISSP, Cloud Security, DevSecOps, Security Automation, Cybersecurity, AWS Security, GCP Security, GenAI Security, SIEM, SOAR, Kubernetes Security, Security Engineer Portfolio, Penetration Testing, Incident Response">
     <meta name="author" content="Sunil Kumar">
-    <meta property="og:title" content="Sunil Kumar - Senior Security Engineer | CISSP">
-    <meta property="og:description" content="CISSP-certified Senior Security Engineer with 5+ years in Cloud Security, DevSecOps, and Security Automation.">
+    <link rel="canonical" href="https://tharvid.in/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sunil Kumar (TharVid) - Senior Security Engineer | CISSP">
+    <meta property="og:description" content="CISSP-certified Senior Security Engineer with 5+ years in Cloud Security, DevSecOps, GenAI Security, and Security Automation.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tharvid.in">
+    <meta property="og:url" content="https://tharvid.in/">
+    <meta property="og:site_name" content="Sunil Kumar - TharVid">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@stharvid">
+    <meta name="twitter:title" content="Sunil Kumar (TharVid) - Senior Security Engineer | CISSP">
+    <meta name="twitter:description" content="CISSP-certified Senior Security Engineer with 5+ years in Cloud Security, DevSecOps, GenAI Security, and Automation.">
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <!-- Structured Data - Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sunil Kumar",
+        "alternateName": "TharVid",
+        "url": "https://tharvid.in",
+        "jobTitle": "Senior Security Engineer",
+        "description": "CISSP-certified Senior Security Engineer specializing in Cloud Security, DevSecOps, GenAI Security, and Security Automation.",
+        "knowsAbout": ["Cloud Security", "DevSecOps", "CISSP", "AWS Security", "GCP Security", "Kubernetes Security", "GenAI Security", "SIEM", "SOAR", "Incident Response", "Penetration Testing"],
+        "hasCredential": [
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CISSP"},
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "AWS Security Specialty"},
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "GCP Cloud Security Engineer"},
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "CompTIA Security+"},
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Azure Security Engineer Associate"}
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/tharvid/",
+            "https://github.com/tharVid/",
+            "https://twitter.com/stharvid"
+        ]
+    }
+    </script>
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sunil Kumar - TharVid",
+        "url": "https://tharvid.in",
+        "description": "Portfolio of Sunil Kumar (TharVid), Senior Security Engineer"
+    }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTHNKPNXTJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -1529,6 +1576,75 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
+    <!-- GA Event Tracking -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Resume download clicks (nav + mobile menu)
+        document.querySelectorAll('.nav-resume, .mobile-menu a[href*="Resume"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'resume_download', {
+                    event_category: 'engagement',
+                    event_label: 'Resume Download - Nav'
+                });
+            });
+        });
+
+        // CTA buttons
+        document.querySelector('.btn-primary')?.addEventListener('click', function() {
+            gtag('event', 'cta_click', {
+                event_category: 'engagement',
+                event_label: 'Explore My Work'
+            });
+        });
+        document.querySelector('.btn-outline')?.addEventListener('click', function() {
+            gtag('event', 'cta_click', {
+                event_category: 'engagement',
+                event_label: 'Get In Touch'
+            });
+        });
+
+        // Social links
+        document.querySelectorAll('.social-link').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'social_click', {
+                    event_category: 'engagement',
+                    event_label: el.getAttribute('aria-label') || el.textContent.trim()
+                });
+            });
+        });
+
+        // Certification badge clicks
+        document.querySelectorAll('a.cert-item').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'cert_click', {
+                    event_category: 'engagement',
+                    event_label: el.textContent.trim()
+                });
+            });
+        });
+
+        // Footer link clicks
+        document.querySelectorAll('.footer-link').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'footer_link_click', {
+                    event_category: 'navigation',
+                    event_label: el.textContent.trim()
+                });
+            });
+        });
+
+        // Outbound link tracking (LinkedIn, GitHub, etc.)
+        document.querySelectorAll('a[target="_blank"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'outbound_click', {
+                    event_category: 'outbound',
+                    event_label: el.href
+                });
+            });
+        });
+    });
+    </script>
+
     <!-- CTF Popup -->
     <div id="ctfPopup" style="display:none; position:fixed; bottom:2rem; right:2rem; z-index:9998; max-width:320px; background:rgba(15,15,25,0.95); border:1px solid rgba(0,255,65,0.25); border-radius:12px; padding:1.5rem; backdrop-filter:blur(20px); box-shadow:0 0 30px rgba(0,255,65,0.1); font-family:'Inter',sans-serif; animation:popupSlide 0.4s ease;">
         <button id="ctfPopupClose" style="position:absolute; top:0.5rem; right:0.75rem; background:none; border:none; color:#94a3b8; font-size:1.2rem; cursor:pointer; line-height:1;">&times;</button>
@@ -1553,9 +1669,16 @@
         setTimeout(function() {
             var popup = document.getElementById('ctfPopup');
             popup.style.display = 'block';
+            gtag('event', 'ctf_popup_shown', { event_category: 'engagement', event_label: 'CTF Popup Displayed' });
+
+            popup.querySelector('a').addEventListener('click', function() {
+                gtag('event', 'ctf_popup_click', { event_category: 'engagement', event_label: 'CTF Popup Start Game' });
+            });
+
             document.getElementById('ctfPopupClose').onclick = function() {
                 popup.style.display = 'none';
                 sessionStorage.setItem('ctfPopupDismissed', '1');
+                gtag('event', 'ctf_popup_dismissed', { event_category: 'engagement', event_label: 'CTF Popup Closed' });
             };
         }, 5000);
     })();

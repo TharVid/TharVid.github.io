@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <title>TharVid CTF - Sunil Kumar</title>
+    <title>TharVid CTF - Interactive Security Challenge by Sunil Kumar | Capture The Flag Game</title>
 
-    <meta name="description" content="TharVid CTF — a CLI-based Capture The Flag challenge by Sunil Kumar. Test your security skills in this interactive terminal game.">
-    <meta name="keywords" content="CTF, Capture The Flag, Security Challenge, Hacking Game, Sunil Kumar, TharVid">
+    <meta name="description" content="TharVid CTF — a CLI-based Capture The Flag challenge by Sunil Kumar (TharVid). Test your cybersecurity skills with recon, cryptography, forensics, web exploitation, and privilege escalation.">
+    <meta name="keywords" content="CTF, Capture The Flag, Security Challenge, Hacking Game, Sunil Kumar, TharVid, CLI CTF, Browser CTF, Cybersecurity Game, Penetration Testing Practice, Security Engineer Portfolio">
     <meta name="author" content="Sunil Kumar">
+    <link rel="canonical" href="https://tharvid.in/game/">
     <meta property="og:title" content="TharVid CTF - Think You Can Hack It?">
-    <meta property="og:description" content="A CLI-based security challenge. Breach the system. Capture the flag.">
+    <meta property="og:description" content="A CLI-based security challenge by Sunil Kumar. 5 stages: Recon, Crypto, Forensics, Web Exploit, Priv-Esc. Breach the system. Capture the flag.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tharvid.in/game/">
+    <meta property="og:site_name" content="Sunil Kumar - TharVid">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@stharvid">
+    <meta name="twitter:title" content="TharVid CTF - Think You Can Hack It?">
+    <meta name="twitter:description" content="A CLI-based Capture The Flag challenge. 5 stages of hacking. Can you breach the system?">
+    <meta name="robots" content="index, follow">
 
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="ctf.css">
@@ -131,37 +139,28 @@
 
     <script src="ctf.js?v=6"></script>
 
-    <!-- 🔥 TRACKING (ONLY ADDITION) -->
+    <!-- CTF event tracking (start + LinkedIn connect) -->
     <script>
-    // Start tracking
     document.getElementById('startBtn')?.addEventListener('click', function() {
         gtag('event', 'start_ctf', {
-            event_category: 'engagement',
+            event_category: 'ctf_engagement',
             event_label: 'CTF Started'
         });
     });
 
-    // Stage tracking function (call inside ctf.js)
-    function trackStage(stageNumber) {
-        gtag('event', 'stage_complete', {
-            event_category: 'progress',
-            event_label: 'Stage ' + stageNumber,
-            value: stageNumber
+    document.querySelector('.connect-btn')?.addEventListener('click', function() {
+        gtag('event', 'click_linkedin_connect', {
+            event_category: 'ctf_conversion',
+            event_label: 'CTF Completion LinkedIn Connect'
         });
-    }
-
-    // Completion tracking
-    const observer = new MutationObserver(() => {
-        const complete = document.getElementById('ctfComplete');
-        if (complete && complete.style.display !== 'none') {
-            gtag('event', 'ctf_completed', {
-                event_category: 'conversion',
-                event_label: 'User Completed CTF'
-            });
-        }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.getElementById('restartBtn')?.addEventListener('click', function() {
+        gtag('event', 'restart_ctf', {
+            event_category: 'ctf_engagement',
+            event_label: 'CTF Restarted'
+        });
+    });
     </script>
 
     <script>
