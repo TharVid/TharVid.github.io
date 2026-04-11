@@ -130,8 +130,42 @@
     </div>
 
     <script src="ctf.js?v=6"></script>
+
+    <!-- 🔥 TRACKING (ONLY ADDITION) -->
     <script>
-    // Tagline typewriter
+    // Start tracking
+    document.getElementById('startBtn')?.addEventListener('click', function() {
+        gtag('event', 'start_ctf', {
+            event_category: 'engagement',
+            event_label: 'CTF Started'
+        });
+    });
+
+    // Stage tracking function (call inside ctf.js)
+    function trackStage(stageNumber) {
+        gtag('event', 'stage_complete', {
+            event_category: 'progress',
+            event_label: 'Stage ' + stageNumber,
+            value: stageNumber
+        });
+    }
+
+    // Completion tracking
+    const observer = new MutationObserver(() => {
+        const complete = document.getElementById('ctfComplete');
+        if (complete && complete.style.display !== 'none') {
+            gtag('event', 'ctf_completed', {
+                event_category: 'conversion',
+                event_label: 'User Completed CTF'
+            });
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+
+    <script>
+    // Tagline typewriter (original)
     (function() {
         var text = 'Think you can hack it?';
         var el = document.getElementById('tagline');
@@ -146,5 +180,6 @@
         setTimeout(type, 800);
     })();
     </script>
+
 </body>
 </html>
