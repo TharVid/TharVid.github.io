@@ -28,7 +28,7 @@
         "description": "Security engineering insights by Sunil Kumar (TharVid)",
         "author": {"@type": "Person", "name": "Sunil Kumar", "url": "https://tharvid.in"},
         "blogPost": [
-            {"@type": "BlogPosting", "headline": "How </style> Broke Out of PostCSS — CVE-2026-41305", "datePublished": "2026-04-21", "url": "https://tharvid.in/blog/CVE-2026-41305.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
+            {"@type": "BlogPosting", "headline": "Seven Characters That Beat PostCSS — CVE-2026-41305", "datePublished": "2026-04-21", "url": "https://tharvid.in/blog/CVE-2026-41305.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
             {"@type": "BlogPosting", "headline": "How a Space Hijacked the Kubernetes MCP Server — CVE-2026-39884", "datePublished": "2026-04-16", "url": "https://tharvid.in/blog/CVE-2026-39884.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
             {"@type": "BlogPosting", "headline": "How a $ref Stole Your Cloud Keys — CVE-2026-39885", "datePublished": "2026-04-09", "url": "https://tharvid.in/blog/ssrf-mcp-openapi-cve-2026-39885.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
             {"@type": "BlogPosting", "headline": "Building a GenAI-Powered Security Alert Triage System", "datePublished": "2026-04-03", "url": "https://tharvid.in/blog/building-genai-security-alert-triage.html", "author": {"@type": "Person", "name": "Sunil Kumar"}},
@@ -393,8 +393,8 @@
                 <span class="blog-date">Apr 21, 2026</span>
                 <span class="blog-tag">CVE Breakdown</span>
             </div>
-            <h2><a href="blog/CVE-2026-41305.html">How &lt;/style&gt; Broke Out of PostCSS | CVE-2026-41305</a></h2>
-            <p class="excerpt">CVE-2026-41305 deep dive: PostCSS preserves &lt;/style&gt; verbatim when stringifying CSS, so a single sequence inside a user-supplied CSS value escapes the &lt;style&gt; tag and executes attacker-controlled script in any app that re-embeds parsed user CSS. Affects all versions before 8.5.10, roughly 120M weekly downloads.</p>
+            <h2><a href="blog/CVE-2026-41305.html">Seven Characters That Beat PostCSS | CVE-2026-41305</a></h2>
+            <p class="excerpt">PostCSS &lt; 8.5.10 round-trips &lt;/style&gt; through CSS string values untouched. Inline the output in a &lt;style&gt; block and the HTML tokenizer closes the tag early, turning a CSS value into a script element. Two parsers, one missing contract, 120M weekly downloads in the blast radius.</p>
             <a href="blog/CVE-2026-41305.html" class="read-more">Read article <span class="arrow">&rarr;</span></a>
         </article>
 
